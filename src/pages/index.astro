@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const articles = await getCollection('artikel');
+const sortedArticles = articles.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title="Startseite">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-primary/10 via-white to-primary/5 py-16 sm:py-20 lg:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight mb-6">
+        Ihr Wegweiser zu einem
+        <span class="text-primary">gesünderen Leben</span>
+      </h1>
+      <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-600 leading-relaxed">
+        Entdecken Sie fundierte Artikel zu Gesundheit, Ernährung und Wohlbefinden.
+        Wir begleiten Sie auf Ihrem Weg zu mehr Vitalität.
+      </p>
+    </div>
+  </section>
+
+  <!-- Articles Section -->
+  <section class="py-12 sm:py-16 lg:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8 sm:mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">
+          Aktuelle Artikel
+        </h2>
+      </div>
+
+      {sortedArticles.length > 0 ? (
+        <div class="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {sortedArticles.map((article) => (
+            <ArticleCard
+              title={article.data.title}
+              description={article.data.description}
+              slug={article.id}
+              heroImage={article.data.heroImage}
+              category={article.data.category}
+              pubDate={article.data.pubDate}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-16 bg-gray-50 rounded-xl">
+          <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+          </svg>
+          <p class="text-gray-500 text-lg">
+            Noch keine Artikel veröffentlicht.
+          </p>
+          <p class="text-gray-400 text-sm mt-2">
+            Neue Inhalte folgen bald!
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-primary py-12 sm:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+        Gesundheit beginnt mit Wissen
+      </h2>
+      <p class="text-primary-50 text-lg mb-8 opacity-90">
+        Stöbern Sie durch unsere Artikel und entdecken Sie wertvolle Tipps für Ihren Alltag.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

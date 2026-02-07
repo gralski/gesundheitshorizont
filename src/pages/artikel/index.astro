@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const articles = await getCollection('artikel');
+const sortedArticles = articles.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout title="Alle Artikel" description="Entdecken Sie alle Artikel zu Gesundheit, Ernährung und Wohlbefinden auf Gesundheitshorizont.">
+  <!-- Header -->
+  <section class="bg-gradient-to-br from-primary/10 via-white to-primary/5 py-12 sm:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        Alle Artikel
+      </h1>
+      <p class="text-lg text-gray-600 max-w-2xl">
+        Stöbern Sie durch unsere Sammlung an fundierten Artikeln zu Gesundheitsthemen.
+      </p>
+    </div>
+  </section>
+
+  <!-- Articles Grid -->
+  <section class="py-12 sm:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {sortedArticles.length > 0 ? (
+        <div class="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {sortedArticles.map((article) => (
+            <ArticleCard
+              title={article.data.title}
+              description={article.data.description}
+              slug={article.id}
+              heroImage={article.data.heroImage}
+              category={article.data.category}
+              pubDate={article.data.pubDate}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-16 bg-gray-50 rounded-xl">
+          <p class="text-gray-500 text-lg">
+            Noch keine Artikel veröffentlicht.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

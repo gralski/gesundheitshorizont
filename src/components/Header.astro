@@ -1,0 +1,90 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: "/", label: "Startseite" },
+  { href: "/kategorie/gehirngesundheit", label: "Gehirngesundheit" },
+  { href: "/kategorie/ernaehrung", label: "Ernährung" },
+  { href: "/kategorie/langlebigkeit", label: "Langlebigkeit" },
+  { href: "/kategorie/forschung", label: "Forschung" },
+];
+
+// Only exact match or direct child path for active state
+const isActive = (href: string) => {
+  if (href === "/") return currentPath === "/";
+  return currentPath === href || currentPath.startsWith(href + "/");
+};
+---
+
+<header class="bg-white border-b border-gray-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between py-3">
+
+      <!-- Logo - Left aligned -->
+      <a href="/" class="group flex-shrink-0 -ml-20">
+        <img src="/images/geshoz.png" alt="Gesundheitshorizont" class="h-8 sm:h-10 w-auto" />
+      </a>
+
+      <!-- Desktop Navigation - Right aligned -->
+      <nav class="hidden sm:block">
+        <ul class="flex items-center space-x-6">
+          {navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={[
+                  "text-sm font-medium transition-colors py-1",
+                  isActive(item.href)
+                    ? "text-primary"
+                    : "text-gray-600 hover:text-gray-900"
+                ]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Mobile Navigation Toggle -->
+      <button
+        type="button"
+        class="sm:hidden text-gray-600 hover:text-primary p-1"
+        aria-label="Menu öffnen"
+        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden sm:hidden pb-3">
+      <ul class="space-y-1 border-t border-gray-100 pt-3">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                "block px-3 py-2 text-sm font-medium rounded-lg transition-colors",
+                isActive(item.href)
+                  ? "bg-primary/10 text-primary"
+                  : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+<style>
+  .font-serif {
+    font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
+  }
+</style>

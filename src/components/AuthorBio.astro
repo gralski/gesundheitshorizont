@@ -1,0 +1,47 @@
+---
+interface Props {
+  name: string;
+  bio?: string;
+  avatar?: string;
+}
+
+const {
+  name,
+  bio = "Unser Expertenteam recherchiert und verfasst fundierte Artikel zu Gesundheitsthemen, um Ihnen verlässliche Informationen für ein gesünderes Leben zu bieten.",
+  avatar
+} = Astro.props;
+---
+
+<div class="mt-12 pt-8 border-t border-gray-200">
+  <div class="flex items-start space-x-4">
+    <!-- Avatar -->
+    <div class="flex-shrink-0">
+      {avatar ? (
+        <img
+          src={avatar}
+          alt={name}
+          class="w-14 h-14 rounded-full object-cover"
+        />
+      ) : (
+        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
+          <span class="text-white text-xl font-semibold">
+            {name.charAt(0).toUpperCase()}
+          </span>
+        </div>
+      )}
+    </div>
+
+    <!-- Info -->
+    <div class="flex-1 min-w-0">
+      <p class="text-xs uppercase tracking-wider text-gray-400 mb-1">
+        Verfasst von
+      </p>
+      <h4 class="text-base font-semibold text-gray-900">
+        {name}
+      </h4>
+      <p class="mt-1 text-sm text-gray-600 leading-relaxed">
+        {bio}
+      </p>
+    </div>
+  </div>
+</div>

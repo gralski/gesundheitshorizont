@@ -1,0 +1,230 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  category: string;
+  categories?: string[];
+  author: string;
+  authorRole?: string;
+  authorAvatar?: string;
+  reviewedBy?: string;
+  readingTime?: string;
+  sidebarTitle?: string;
+  sidebarDescription?: string;
+  sidebarCta?: string;
+  sidebarCtaUrl?: string;
+  sidebarImage?: string;
+}
+
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  category,
+  categories = [],
+  author,
+  authorRole = "Gesundheitsredakteur",
+  authorAvatar,
+  reviewedBy,
+  readingTime = "5 Min",
+  sidebarTitle,
+  sidebarDescription,
+  sidebarCta,
+  sidebarCtaUrl,
+  sidebarImage
+} = Astro.props;
+
+// Combine single category with categories array
+const allCategories = categories.length > 0 ? categories : [category];
+
+const formattedPubDate = pubDate.toLocaleDateString('de-DE', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+
+const formattedUpdatedDate = updatedDate?.toLocaleDateString('de-DE', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+---
+
+<BaseLayout title={title} description={description} image={heroImage}>
+  <article class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      <div class="lg:grid lg:grid-cols-12 lg:gap-12">
+
+        <!-- Main Content Column -->
+        <div class="lg:col-span-8">
+
+          <!-- Category Tags -->
+          <div class="flex flex-wrap gap-2 mb-6">
+            {allCategories.map((cat, index) => (
+              <span class:list={[
+                "px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded",
+                index === 0
+                  ? "bg-primary text-white"
+                  : "bg-gray-100 text-gray-700 border border-gray-200"
+              ]}>
+                {cat}
+              </span>
+            ))}
+          </div>
+
+          <!-- Meta Info: Dates & Reading Time -->
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 mb-6">
+            <span>Veröffentlicht: {formattedPubDate}</span>
+            {formattedUpdatedDate && (
+              <>
+                <span class="text-gray-300">•</span>
+                <span>Aktualisiert: {formattedUpdatedDate}</span>
+              </>
+            )}
+            <span class="text-gray-300">•</span>
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              {readingTime} Lesezeit
+            </span>
+          </div>
+
+          <!-- Author Section -->
+          <div class="flex items-center gap-4 mb-8 pb-8 border-b border-gray-200">
+            {authorAvatar ? (
+              <img
+                src={authorAvatar}
+                alt={author}
+                class="w-12 h-12 rounded-full object-cover"
+              />
+            ) : (
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
+                <span class="text-white text-lg font-semibold">
+                  {author.charAt(0).toUpperCase()}
+                </span>
+              </div>
+            )}
+            <div>
+              <p class="font-semibold text-gray-900">{author}</p>
+              <p class="text-sm text-gray-500">{authorRole}</p>
+              {reviewedBy && (
+                <p class="text-xs text-gray-400 mt-0.5">
+                  <a href="#" class="text-primary hover:underline">Geprüft von {reviewedBy}</a>
+                </p>
+              )}
+            </div>
+          </div>
+
+          <!-- Article Title -->
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-8 font-serif">
+            {title}
+          </h1>
+
+          <!-- Hero Image -->
+          {heroImage && (
+            <div class="mb-10 rounded-lg overflow-hidden">
+              <img
+                src={heroImage}
+                alt={title}
+                class="w-full h-auto object-cover"
+              />
+            </div>
+          )}
+
+          <!-- Article Content -->
+          <div class="prose max-w-none">
+            <slot />
+          </div>
+
+          <!-- Bottom Author Card -->
+          <div class="mt-12 p-6 bg-gray-50 rounded-xl">
+            <div class="flex items-start gap-4">
+              {authorAvatar ? (
+                <img
+                  src={authorAvatar}
+                  alt={author}
+                  class="w-16 h-16 rounded-full object-cover"
+                />
+              ) : (
+                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center flex-shrink-0">
+                  <span class="text-white text-2xl font-semibold">
+                    {author.charAt(0).toUpperCase()}
+                  </span>
+                </div>
+              )}
+              <div>
+                <p class="text-xs uppercase tracking-wider text-gray-400 mb-1">Verfasst von</p>
+                <p class="font-semibold text-lg text-gray-900">{author}</p>
+                <p class="text-sm text-gray-600 mt-2">
+                  Unser Expertenteam recherchiert und verfasst fundierte Artikel zu Gesundheitsthemen, um Ihnen verlässliche Informationen für ein gesünderes Leben zu bieten.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sidebar Column -->
+        <aside class="lg:col-span-4 mt-10 lg:mt-0">
+          <div class="lg:sticky lg:top-8">
+
+            <!-- Promotional Card -->
+            <div class="bg-slate-800 rounded-xl overflow-hidden text-white">
+              {sidebarImage ? (
+                <div class="p-6 pb-0">
+                  <img
+                    src={sidebarImage}
+                    alt={sidebarTitle || "Promotion"}
+                    class="w-full h-auto rounded-lg"
+                  />
+                </div>
+              ) : (
+                <div class="p-6 pb-0">
+                  <div class="aspect-square bg-slate-700 rounded-lg flex items-center justify-center">
+                    <svg class="w-20 h-20 text-primary opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </div>
+                </div>
+              )}
+
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-3">
+                  {sidebarTitle || "Entdecken Sie mehr"}
+                </h3>
+                <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                  {sidebarDescription || "Erfahren Sie mehr über unsere Produkte und wie sie Ihnen zu einem gesünderen Leben verhelfen können."}
+                </p>
+                <a
+                  href={sidebarCtaUrl || "#"}
+                  class="inline-flex items-center justify-center w-full px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-colors"
+                >
+                  {sidebarCta || "Mehr erfahren"}
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .font-serif {
+    font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
+  }
+</style>
