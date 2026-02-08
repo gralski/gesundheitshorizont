@@ -21,26 +21,20 @@ const isActive = (href: string) => {
     <div class="flex items-center justify-between py-3">
 
       <!-- Logo - Left aligned -->
-      <a href="/" class="group flex-shrink-0 sm:-ml-20">
+      <span class="group flex-shrink-0 sm:-ml-20 cursor-pointer">
         <img src="/images/geshoz.png" alt="Gesundheitshorizont" class="h-6 sm:h-10 w-auto" />
-      </a>
+      </span>
 
       <!-- Desktop Navigation - Right aligned -->
       <nav class="hidden sm:block">
         <ul class="flex items-center space-x-6">
           {navItems.map((item) => (
             <li>
-              <a
-                href={item.href}
-                class:list={[
-                  "text-sm font-medium transition-colors py-1",
-                  isActive(item.href)
-                    ? "text-primary"
-                    : "text-gray-600 hover:text-gray-900"
-                ]}
+              <span
+                class="text-sm font-medium transition-colors py-1 text-gray-600 hover:text-gray-900 cursor-pointer"
               >
                 {item.label}
-              </a>
+              </span>
             </li>
           ))}
         </ul>
@@ -64,17 +58,11 @@ const isActive = (href: string) => {
       <ul class="space-y-1 border-t border-gray-100 pt-3">
         {navItems.map((item) => (
           <li>
-            <a
-              href={item.href}
-              class:list={[
-                "block px-3 py-2 text-sm font-medium rounded-lg transition-colors",
-                isActive(item.href)
-                  ? "bg-primary/10 text-primary"
-                  : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-              ]}
+            <span
+              class="block px-3 py-2 text-sm font-medium rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 cursor-pointer"
             >
               {item.label}
-            </a>
+            </span>
           </li>
         ))}
       </ul>
