@@ -34,10 +34,14 @@ Doch genau das stimmt so nicht.
 
 Wenn Sie wie die meisten Frauen sind, dann haben Sie längst reagiert. Sie haben investiert — in Seren, Cremes, Ampullen, vielleicht sogar in Behandlungen beim Kosmetiker.
 
+<div class="list-negative">
+
 - Anti-Aging-Nachtcreme für 89 Euro
 - Hyaluron-Serum aus der Apotheke
 - Kollagen-Drinks, die nach Mango schmecken
 - Vielleicht sogar professionelle Mikrodermabrasion oder Fruchtsäure-Peeling
+
+</div>
 
 Und ja — manches hat kurzfristig etwas gebracht. Die Haut fühlte sich für ein, zwei Tage straffer an, etwas frischer. Aber dauerhaft verändert hat sich nichts. Die Erschlaffung kommt zurück. Die Fältchen werden tiefer. Und das Gefühl bleibt: **Nichts, was ich tue, reicht wirklich aus.**
 
@@ -66,10 +70,15 @@ Was die Forschung lange übersehen hat: **DHT beeinflusst auch die weibliche Hau
 Stellen Sie sich vor, Ihr Körper besitzt eine Art innere Kollagen-Fabrik. Diese Fabrik produziert das Gerüst, das Ihre Haut straff, elastisch und glatt hält. Ab 40 beginnt DHT, diese Fabrik systematisch herunterzufahren — wie ein Ventil, das langsam zugedreht wird.
 
 **Das Ergebnis sehen Sie im Spiegel:**
+
+<div class="list-negative">
+
 - Die Wangen verlieren ihr Volumen
 - Die Kieferpartie wird weicher
 - Der Hals zeigt vertikale Linien
 - Die Haut am Dekolleté wird dünner und faltiger
+
+</div>
 
 Und jetzt wird klar, warum keine Creme der Welt dieses Problem lösen kann.
 
@@ -80,9 +89,14 @@ Und jetzt wird klar, warum keine Creme der Welt dieses Problem lösen kann.
 Eine Creme, ein Serum oder eine Ampulle — egal wie hochwertig — arbeitet auf der Oberfläche der Haut. Sie kann Feuchtigkeit spenden, kleine Fältchen optisch mildern oder die Haut kurzfristig aufpolstern.
 
 Aber sie kann nicht:
+
+<div class="list-negative">
+
 - In den Hormonhaushalt eingreifen
 - Dafür sorgen, dass Ihr Körper wieder Kollagen produziert
 - Den DHT-Spiegel regulieren
+
+</div>
 
 Es ist, als würden Sie versuchen, ein undichtes Dach von innen mit Farbe zu überstreichen — es sieht kurz besser aus, aber das eigentliche Problem bleibt.
 
