@@ -48,8 +48,6 @@ Die Wahrheit ist: Es liegt nicht an Ihnen. Und es liegt nicht daran, dass Sie di
 
 In diesem Artikel erkläre ich Ihnen die 7 wichtigsten Gründe, warum immer mehr Dermatologen ihren Patientinnen einen ganz anderen Ansatz empfehlen.
 
----
-
 ## Grund 1: Ihre Haut altert nicht von außen — sondern von innen
 
 ![Hautalterung von innen](/images/img1.webp)
@@ -72,8 +70,6 @@ Stellen Sie sich dieses Kollagengerüst vor wie das Fundament eines Hauses. Sola
 
 Das ist keine Meinungsfrage. Das ist Biologie.
 
----
-
 ## Grund 2: Ein Hormon zerstört still Ihr Kollagen — und kein Serum kann es aufhalten
 
 ![DHT Hormon](/images/0img4.webp)
@@ -93,8 +89,6 @@ Das bedeutet: Selbst wenn Ihr Körper noch Kollagen herstellen könnte, verhinde
 </div>
 
 In einer klinischen Studie zeigte der Pflanzenwirkstoff **Sägepalme (Saw Palmetto)** nach sechs Monaten Einnahme signifikant niedrigere DHT-Werte im Vergleich zur Placebo-Gruppe.
-
----
 
 ## Grund 3: Ab 40 verliert Ihr Körper die Fähigkeit, Kollagen selbst herzustellen
 
@@ -116,8 +110,6 @@ Ab Mitte 30 beginnt Ihr Körper, weniger Kollagen zu produzieren. Jedes Jahr sin
 Kollagen-Cremes können das nicht lösen — die Moleküle sind zu groß, um durch die Hautbarriere zu dringen.
 
 Der einzige nachgewiesene Weg führt über den Verdauungstrakt: **Hydrolysiertes Kollagen** in Form von speziell aufgespaltenen Aminosäuren kann vom Körper aufgenommen werden.
-
----
 
 ## Grund 4: Orale Hyaluronsäure wirkt fundamental anders als Cremes
 
@@ -141,9 +133,9 @@ Eine klinische Studie aus 2017 zeigte:
 - Nach 8 Wochen: deutlich weniger Falten
 - Nach 12 Wochen: spürbar straffere, strahlendere Haut
 
----
-
 ## Grund 5: Ihre Hautzellen schrumpfen — wie Weintrauben, die zu Rosinen werden
+
+![Hautzellen](/images/0img8.webp)
 
 Stellen Sie sich eine frische Weintraube vor. Prall, glatt, strahlend. Jetzt eine Rosine. Geschrumpft, faltig, matt. Was ist passiert? **Die Feuchtigkeit ist verschwunden.**
 
@@ -165,9 +157,9 @@ Das ist keine oberflächliche Trockenheit, die eine Nachtcreme beheben könnte. 
 
 Der Unterschied zwischen einer Weintraube und einer Rosine ist Wasser am richtigen Ort. Und der richtige Ort ist nicht auf der Haut. **Sondern in der Zelle.**
 
----
-
 ## Grund 6: Einzelne Wirkstoffe bringen nur einen Bruchteil des Ergebnisses
+
+![Synergie](/images/0img9.webp)
 
 Die drei Hauptursachen der Hautalterung verstärken sich gegenseitig. Sie müssen **gleichzeitig** adressiert werden:
 
@@ -182,9 +174,9 @@ Orale Hyaluronsäure — als innerer Feuchtigkeitsmagnet für pralle Hautzellen.
 
 **Ergänzt durch** Vitamin A (Kollagenstoffwechsel) und Vitamin B (Aminosäure-Aufnahme).
 
----
-
 ## Grund 7: Es braucht keine 30-Minuten-Routine — sondern 60 Sekunden am Tag
+
+![60 Sekunden](/images/0img10.webp)
 
 Zwei Kapseln am Morgen, zum Frühstück eingenommen.
 
@@ -193,8 +185,6 @@ Zwei Kapseln am Morgen, zum Frühstück eingenommen.
 - Weniger als 60 Sekunden täglich
 
 Der [Derma Renew Complex](https://dermapuris.de/products/derma-renew-komplex?variant=52502210543957) ersetzt keine gute Hautpflege. Aber er adressiert das, was keine Hautpflege leisten kann: **die inneren Ursachen sichtbarer Hautalterung.**
-
----
 
 ## Was Frauen berichten
 
@@ -206,8 +196,6 @@ Der [Derma Renew Complex](https://dermapuris.de/products/derma-renew-komplex?var
 
 > *„Mein Mann hat gesagt: Du siehst aus wie vor 15 Jahren. Er sagt so etwas nie."*
 > — **Ingrid W., 71, Wien**
-
----
 
 ## Der Derma Renew Complex: Alle drei Säulen in einer Einnahme
 
@@ -223,15 +211,11 @@ Hergestellt in unserer eigenen Produktionsstätte, in kleinen Chargen, unter GMP
 <a href="https://dermapuris.de/products/derma-renew-komplex?variant=52502210543957" style="display: inline-block; background-color: #0D9488; color: white; padding: 1rem 2.5rem; border-radius: 0.5rem; font-weight: 700; text-decoration: none; font-size: 1.1rem;">Jetzt Verfügbarkeit prüfen →</a>
 </p>
 
----
-
 ## 90-Tage-Garantie: Kein Risiko für Sie
 
 Wir geben Ihnen 90 Tage Zeit, den Derma Renew Complex zu testen.
 
 Wenn Sie nicht überzeugt sind — aus welchem Grund auch immer — erstatten wir den vollen Kaufpreis zurück. **Ohne Nachfragen. Selbst wenn die Packungen leer sind.**
-
----
 
 ## Zusammenfassung: Die 7 Gründe
 
