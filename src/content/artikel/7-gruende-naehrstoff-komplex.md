@@ -5,11 +5,11 @@ description: "Schweizer Dermatologen erklären, warum Cremes allein nicht ausrei
 pubDate: 2026-02-08
 category: "Dermatologie"
 categories: ["Empfohlener Artikel", "Hautgesundheit", "Anti-Aging"]
-author: "Dr. Thomas Grenzdörffer"
+author: "Stefan Neumann"
 authorRole: "Facharzt für Dermatologie"
-authorAvatar: "/images/christian-weber.webp"
+authorAvatar: "/images/stephanm.webp"
 readingTime: "8 Min"
-heroImage: "/images/hero1.webp"
+heroImage: "/images/img1.webp"
 rating: "4.8"
 ratingCount: "12.000+"
 tags: ["#Hautgesundheit", "#AntiAging", "#Wissenschaft"]
@@ -52,6 +52,8 @@ In diesem Artikel erkläre ich Ihnen die 7 wichtigsten Gründe, warum immer mehr
 
 ## Grund 1: Ihre Haut altert nicht von außen — sondern von innen
 
+![Hautalterung von innen](/images/img1.webp)
+
 Das ist vielleicht die wichtigste Erkenntnis, die ich Ihnen heute mitgeben kann. Und gleichzeitig die, die in der gesamten Kosmetikindustrie am konsequentesten ignoriert wird.
 
 Sichtbare Hautalterung — Falten, Erschlaffung, Verlust von Spannkraft — beginnt nicht an der Hautoberfläche. Sie beginnt darunter. In der sogenannten **Dermis**, der tieferen Hautschicht, in der sich das Kollagengerüst befindet.
@@ -74,6 +76,8 @@ Das ist keine Meinungsfrage. Das ist Biologie.
 
 ## Grund 2: Ein Hormon zerstört still Ihr Kollagen — und kein Serum kann es aufhalten
 
+![DHT Hormon](/images/0img4.webp)
+
 Es gibt ein Hormon namens **DHT — Dihydrotestosteron**. Sie haben vermutlich noch nie davon gehört, zumindest nicht im Zusammenhang mit Ihrer Haut.
 
 Was wir heute wissen: DHT steigt mit dem Alter an. Besonders bei Frauen ab den Wechseljahren. Und es hat eine sehr unangenehme Eigenschaft — **es blockiert aktiv die Kollagenproduktion in der Haut.**
@@ -93,6 +97,8 @@ In einer klinischen Studie zeigte der Pflanzenwirkstoff **Sägepalme (Saw Palmet
 ---
 
 ## Grund 3: Ab 40 verliert Ihr Körper die Fähigkeit, Kollagen selbst herzustellen
+
+![Kollagenproduktion](/images/0img7.webp)
 
 Ab Mitte 30 beginnt Ihr Körper, weniger Kollagen zu produzieren. Jedes Jahr sinkt die Produktion weiter. Nach den Wechseljahren beschleunigt sich dieser Prozess noch einmal drastisch.
 
@@ -114,6 +120,8 @@ Der einzige nachgewiesene Weg führt über den Verdauungstrakt: **Hydrolysiertes
 ---
 
 ## Grund 4: Orale Hyaluronsäure wirkt fundamental anders als Cremes
+
+![Hyaluronsäure](/images/0img5.webp)
 
 Hyaluronsäure ist einer der wichtigsten Feuchtigkeitsspeicher unserer Haut. Ein einziges Gramm kann bis zu sechs Liter Wasser binden.
 
