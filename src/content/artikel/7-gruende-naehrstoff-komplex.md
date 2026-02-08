@@ -135,24 +135,27 @@ Eine klinische Studie aus 2017 zeigte:
 
 ---
 
-## Grund 5: Die Hälfte aller Supplements hält nicht, was das Etikett verspricht
+## Grund 5: Ihre Hautzellen schrumpfen — wie Weintrauben, die zu Rosinen werden
 
-Eine groß angelegte europäische Studie untersuchte über 6.000 Nahrungsergänzungsmittel per DNA-Analyse:
+Stellen Sie sich eine frische Weintraube vor. Prall, glatt, strahlend. Jetzt eine Rosine. Geschrumpft, faltig, matt. Was ist passiert? **Die Feuchtigkeit ist verschwunden.**
+
+Genau das passiert mit Ihren Hautzellen — buchstäblich.
+
+Jede Zelle in Ihrer Haut enthält Wasser, das durch Hyaluronsäure gebunden wird. Solange genug davon vorhanden ist, bleiben die Zellen prall und aufgepolstert. Aber mit dem Alter sinken die Reserven. Ohne diesen inneren Feuchtigkeitsspeicher verlieren die Zellen Volumen, schrumpfen und falten sich.
+
+Das ist keine oberflächliche Trockenheit, die eine Nachtcreme beheben könnte. **Das ist ein struktureller Kollaps auf Zellebene.**
 
 <div class="list-negative">
 
-- ~50% enthielten andere Inhaltsstoffe als angegeben
-- Viele hatten keine wirksame Dosierung
-- Füllstoffe und billige Trägermaterialien statt Wirkstoffe
+- Eine Feuchtigkeitscreme legt nur einen dünnen Wasserfilm auf die Oberfläche
+- Er verdunstet innerhalb weniger Stunden
+- Die Zellen darunter bleiben geschrumpft
 
 </div>
 
-**Genau deshalb war es uns wichtig:**
+**Oral eingenommene Hyaluronsäure** dagegen gelangt über den Blutkreislauf direkt in die Zellen — und bindet dort Feuchtigkeit von innen. Die Zelle füllt sich wieder auf, gewinnt Volumen zurück.
 
-- Eigene Produktionsstätte in der Schweiz
-- Kleine Chargen statt Massenproduktion
-- GMP-zertifizierte Herstellung
-- Unabhängige Laborprüfung jeder Charge
+Der Unterschied zwischen einer Weintraube und einer Rosine ist Wasser am richtigen Ort. Und der richtige Ort ist nicht auf der Haut. **Sondern in der Zelle.**
 
 ---
 
