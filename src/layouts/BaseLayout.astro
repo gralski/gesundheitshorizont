@@ -52,6 +52,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </script>
     <!-- End Microsoft Clarity -->
 
+    <!-- Google Analytics 4 -->
+    <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-TN4L5T7MFY" async></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TN4L5T7MFY');
+    </script>
+    <!-- End Google Analytics 4 -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/images/gesofav.png" />
     <link rel="canonical" href={canonicalURL} />
