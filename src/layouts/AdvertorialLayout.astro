@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 
 interface Props {
   title: string;
+  titleHighlight?: string;
   description: string;
   pubDate: Date;
   heroImage?: string;
@@ -14,6 +15,7 @@ interface Props {
   ratingCount?: string;
   ctaText?: string;
   ctaUrl?: string;
+  tags?: string[];
   sidebarTitle?: string;
   sidebarDescription?: string;
   sidebarCta?: string;
@@ -23,6 +25,7 @@ interface Props {
 
 const {
   title,
+  titleHighlight,
   description,
   pubDate,
   heroImage,
@@ -32,113 +35,115 @@ const {
   readingTime = "8 Min",
   rating = "4.8",
   ratingCount = "12.000+",
-  ctaText = "Jetzt Verfügbarkeit prüfen",
+  ctaText = "Jetzt entdecken",
   ctaUrl = "#",
+  tags = ["#Hautgesundheit", "#AntiAging", "#Wissenschaft"],
   sidebarTitle,
   sidebarDescription,
   sidebarCta,
   sidebarCtaUrl,
   sidebarImage
 } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('de-DE', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}>
+
+  <!-- Sticky Top Banner -->
+  <div class="sticky top-0 z-50 bg-primary text-white py-2.5 px-4 text-center">
+    <div class="flex items-center justify-center gap-3 text-sm sm:text-base">
+      <span class="font-medium">Entdecken Sie strahlende Haut</span>
+      <a
+        href={ctaUrl}
+        class="inline-flex items-center px-4 py-1.5 bg-white text-primary font-bold text-xs sm:text-sm rounded hover:bg-gray-100 transition-colors uppercase tracking-wide"
+      >
+        Jetzt ansehen
+      </a>
+    </div>
+  </div>
+
   <article class="bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
+
+    <!-- Dark Hero Section -->
+    <div class="bg-slate-800 text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+        <!-- Verified Badge -->
+        <div class="flex items-center gap-2 mb-6">
+          <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-sm text-slate-300">Basierend auf verifizierten Kundenerfahrungen</span>
+        </div>
+
+        <!-- Author & Date -->
+        <div class="flex items-center gap-3 mb-6">
+          {authorAvatar ? (
+            <img
+              src={authorAvatar}
+              alt={author}
+              class="w-12 h-12 rounded-full object-cover border-2 border-slate-600"
+            />
+          ) : (
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
+              <span class="text-white text-lg font-semibold">
+                {author.charAt(0).toUpperCase()}
+              </span>
+            </div>
+          )}
+          <div>
+            <p class="text-sm text-slate-400">Von <span class="text-white font-medium">{author}</span></p>
+            <p class="text-xs text-slate-500">Aktualisiert am {formattedDate}</p>
+          </div>
+        </div>
+
+        <!-- Main Headline with Highlight -->
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-5">
+          <span set:html={title.replace(titleHighlight || '', `<span class="text-primary">${titleHighlight || ''}</span>`)} />
+        </h1>
+
+        <!-- Description -->
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-6 max-w-2xl">
+          {description}
+        </p>
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2 mb-8">
+          {tags.map((tag) => (
+            <span class="px-3 py-1.5 bg-slate-700 text-slate-300 text-xs font-medium rounded">
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <!-- Hero Image -->
+        {heroImage && (
+          <div class="rounded-xl overflow-hidden">
+            <img
+              src={heroImage}
+              alt={title}
+              class="w-full h-auto object-cover"
+            />
+          </div>
+        )}
+
+      </div>
+    </div>
+
+    <!-- White Content Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
       <div class="lg:grid lg:grid-cols-12 lg:gap-12">
 
         <!-- Main Content Column -->
         <div class="lg:col-span-8">
 
-          <!-- Hero Section - Magazine Style -->
-          <div class="mb-8">
-            <!-- Publication Name -->
-            <div class="mb-4">
-              <span class="text-primary font-serif text-lg sm:text-xl">
-                Gesundheitshorizont <em class="text-gray-600">Review</em>
-              </span>
-            </div>
-
-            <!-- Star Rating -->
-            <div class="flex items-center gap-2 mb-5">
-              <div class="flex text-yellow-400">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-              </div>
-              <span class="text-sm text-gray-600">
-                Bewertet mit {rating}/5 von <strong class="text-gray-800">{ratingCount} Frauen</strong>
-              </span>
-            </div>
-
-            <!-- Main Headline -->
-            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary leading-tight mb-4">
-              {title}
-            </h1>
-
-            <!-- Description -->
-            <p class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">
-              {description}
-            </p>
-
-            <!-- Author Info -->
-            <div class="flex items-center gap-3 mb-4">
-              {authorAvatar ? (
-                <img
-                  src={authorAvatar}
-                  alt={author}
-                  class="w-11 h-11 rounded-full object-cover border-2 border-gray-100"
-                />
-              ) : (
-                <div class="w-11 h-11 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
-                  <span class="text-white text-lg font-semibold">
-                    {author.charAt(0).toUpperCase()}
-                  </span>
-                </div>
-              )}
-              <div>
-                <div class="flex items-center gap-2">
-                  <span class="font-semibold text-gray-900 text-sm">Von {author}</span>
-                  <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-                <p class="text-xs text-gray-500">{authorRole}</p>
-              </div>
-            </div>
-
-            <!-- Reading Time -->
-            <div class="flex items-center text-sm text-gray-500 mb-6">
-              <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              {readingTime} Lesezeit
-            </div>
-
-            <!-- Hero Image -->
-            {heroImage && (
-              <div class="mb-6 rounded-lg overflow-hidden">
-                <img
-                  src={heroImage}
-                  alt={title}
-                  class="w-full h-auto object-cover"
-                />
-              </div>
-            )}
-
-            <!-- CTA Button -->
-            <a
-              href={ctaUrl}
-              class="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-lg transition-colors text-center text-base"
-            >
-              {ctaText} →
-            </a>
-          </div>
-
           <!-- Article Content -->
-          <div class="prose max-w-none mt-10">
+          <div class="prose max-w-none">
             <slot />
           </div>
 
@@ -172,7 +177,7 @@ const {
 
         <!-- Sidebar Column -->
         <aside class="lg:col-span-4 mt-10 lg:mt-0">
-          <div class="lg:sticky lg:top-8">
+          <div class="lg:sticky lg:top-20">
 
             <!-- Promotional Card -->
             <div class="bg-slate-800 rounded-xl overflow-hidden text-white">

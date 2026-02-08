@@ -1,5 +1,6 @@
 ---
 title: "7 Gründe, warum Hautärzte Frauen ab 45 zu DIESEM Nährstoff-Komplex raten"
+titleHighlight: "DIESEM Nährstoff-Komplex"
 description: "Schweizer Dermatologen erklären, warum Cremes allein nicht ausreichen — und was die Haut wirklich braucht, um sichtbar jünger zu wirken."
 pubDate: 2026-02-08
 category: "Dermatologie"
@@ -11,6 +12,7 @@ readingTime: "8 Min"
 heroImage: "/images/hero1.webp"
 rating: "4.8"
 ratingCount: "12.000+"
+tags: ["#Hautgesundheit", "#AntiAging", "#Wissenschaft"]
 ctaText: "Jetzt Verfügbarkeit prüfen"
 ctaUrl: "https://dermapuris.de/products/derma-renew-komplex?variant=52502210543957"
 sidebarTitle: "Derma Renew Complex entdecken"

@@ -21,6 +21,7 @@ const isAdvertorial = data.layout === 'advertorial';
 {isAdvertorial ? (
   <AdvertorialLayout
     title={data.title}
+    titleHighlight={data.titleHighlight}
     description={data.description}
     pubDate={data.pubDate}
     heroImage={data.heroImage}
@@ -30,6 +31,7 @@ const isAdvertorial = data.layout === 'advertorial';
     readingTime={data.readingTime}
     rating={data.rating}
     ratingCount={data.ratingCount}
+    tags={data.tags}
     ctaText={data.ctaText}
     ctaUrl={data.ctaUrl}
     sidebarTitle={data.sidebarTitle}
