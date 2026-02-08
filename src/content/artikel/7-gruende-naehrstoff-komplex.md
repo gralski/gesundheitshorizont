@@ -199,6 +199,8 @@ Der [Derma Renew Complex](https://dermapuris.de/products/derma-renew-komplex?var
 
 ## Der Derma Renew Complex: Alle drei Säulen in einer Einnahme
 
+![Derma Renew Complex](/images/derma1.webp)
+
 Genau aus diesen Erkenntnissen haben Dr. Schuhmacher und ich den [Derma Renew Complex](https://dermapuris.de/products/derma-renew-komplex?variant=52502210543957) entwickelt.
 
 - Ein Produkt
