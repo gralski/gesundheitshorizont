@@ -6,7 +6,7 @@ pubDate: 2026-02-08
 category: "Dermatologie"
 categories: ["Empfohlener Artikel", "Hautgesundheit", "Anti-Aging"]
 author: "Stefan Neumann"
-authorRole: "Facharzt für Dermatologie"
+authorRole: "Medizinische Redaktion"
 authorAvatar: "/images/stephanm.webp"
 readingTime: "8 Min"
 heroImage: "/images/img1.webp"
@@ -50,7 +50,7 @@ In diesem Artikel erkläre ich Ihnen die 7 wichtigsten Gründe, warum immer mehr
 
 ## Grund 1: Ihre Haut altert nicht von außen — sondern von innen
 
-![Hautalterung von innen](/images/img1.webp)
+![Hautalterung von innen](/images/0img3.webp)
 
 Das ist vielleicht die wichtigste Erkenntnis, die ich Ihnen heute mitgeben kann. Und gleichzeitig die, die in der gesamten Kosmetikindustrie am konsequentesten ignoriert wird.
 
@@ -176,7 +176,7 @@ Orale Hyaluronsäure — als innerer Feuchtigkeitsmagnet für pralle Hautzellen.
 
 ## Grund 7: Es braucht keine 30-Minuten-Routine — sondern 60 Sekunden am Tag
 
-![60 Sekunden](/images/0img10.webp)
+![60 Sekunden](/images/hf_20260208_204922_62a38552-eb47-4ed6-ac53-0abb39c5d630.png)
 
 Zwei Kapseln am Morgen, zum Frühstück eingenommen.
 
