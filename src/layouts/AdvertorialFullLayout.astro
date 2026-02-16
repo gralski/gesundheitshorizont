@@ -1,0 +1,436 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  titleHighlight?: string;
+  description: string;
+  pubDate: Date;
+  heroImage?: string;
+  author: string;
+  authorRole?: string;
+  authorAvatar?: string;
+  readingTime?: string;
+  rating?: string;
+  ratingCount?: string;
+  ctaText?: string;
+  ctaUrl?: string;
+  tags?: string[];
+}
+
+const {
+  title,
+  titleHighlight,
+  description,
+  pubDate,
+  heroImage,
+  author,
+  authorRole = "Medizinische Redaktion",
+  authorAvatar,
+  readingTime = "10 Min",
+  rating = "4.8",
+  ratingCount = "12.000+",
+  ctaText = "Jetzt Verfügbarkeit prüfen",
+  ctaUrl = "#",
+  tags = ["#Hautgesundheit", "#AntiAging", "#Wissenschaft"]
+} = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('de-DE', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+---
+
+<BaseLayout title={title} description={description} image={heroImage}>
+
+  <article class="advertorial-full bg-white">
+
+    <!-- Hero Section -->
+    <div class="bg-white border-b border-gray-100">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+        <!-- Main Headline -->
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-6 text-center">
+          {titleHighlight ? (
+            <span set:html={title.replace(titleHighlight, `<span class="text-primary">${titleHighlight}</span>`)} />
+          ) : (
+            title
+          )}
+        </h1>
+
+        <!-- Author & Meta -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 text-sm text-gray-500">
+          <div class="flex items-center gap-2">
+            {authorAvatar ? (
+              <img
+                src={authorAvatar}
+                alt={author}
+                class="w-10 h-10 rounded-full object-cover"
+              />
+            ) : (
+              <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                <span class="text-white font-semibold">{author.charAt(0)}</span>
+              </div>
+            )}
+            <div>
+              <span class="text-gray-900 font-medium">{author}</span>
+              <span class="text-gray-400 mx-1">•</span>
+              <span>{authorRole}</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <span>Veröffentlicht: {formattedDate}</span>
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              {readingTime} Lesezeit
+            </span>
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        {heroImage && (
+          <div class="rounded-xl overflow-hidden max-w-2xl mx-auto">
+            <img
+              src={heroImage}
+              alt={title}
+              class="w-full h-auto object-cover"
+            />
+          </div>
+        )}
+
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 lg:py-14">
+      <div class="advertorial-content">
+        <slot />
+      </div>
+
+      <!-- Bottom Author Card -->
+      <div class="mt-12 p-6 bg-gray-50 rounded-xl">
+        <div class="flex items-start gap-4">
+          {authorAvatar ? (
+            <img
+              src={authorAvatar}
+              alt={author}
+              class="w-16 h-16 rounded-full object-cover"
+            />
+          ) : (
+            <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+              <span class="text-white text-2xl font-semibold">{author.charAt(0)}</span>
+            </div>
+          )}
+          <div>
+            <p class="text-xs uppercase tracking-wider text-gray-400 mb-1">Verfasst von</p>
+            <p class="font-semibold text-lg text-gray-900">{author}</p>
+            <p class="text-sm text-gray-600 mt-2">
+              {authorRole} — Unser Expertenteam recherchiert und verfasst fundierte Artikel zu Gesundheitsthemen, um Ihnen verlässliche Informationen für ein gesünderes Leben zu bieten.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </article>
+</BaseLayout>
+
+<style is:global>
+  /* Advertorial Full Layout Styles */
+  .advertorial-content {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #374151;
+  }
+
+  .advertorial-content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .advertorial-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .advertorial-content p {
+    margin-bottom: 1.25rem;
+  }
+
+  .advertorial-content strong {
+    color: #111827;
+    font-weight: 600;
+  }
+
+  .advertorial-content a {
+    color: #0D9488;
+    text-decoration: underline;
+  }
+
+  .advertorial-content ul,
+  .advertorial-content ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .advertorial-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .advertorial-content blockquote {
+    border-left: 4px solid #0D9488;
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #4B5563;
+  }
+
+  .advertorial-content hr {
+    border: none;
+    border-top: 1px solid #E5E7EB;
+    margin: 2.5rem 0;
+  }
+
+  .advertorial-content img {
+    border-radius: 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  /* Two Column Sections - Alternating Layout */
+  .advertorial-content .two-col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 2rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .advertorial-content .two-col {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    /* Text left, Image right (default) */
+    .advertorial-content .two-col .col-text {
+      order: 1;
+    }
+    .advertorial-content .two-col .col-image {
+      order: 2;
+    }
+
+    /* Image left, Text right (reversed) */
+    .advertorial-content .two-col.reversed .col-text {
+      order: 2;
+    }
+    .advertorial-content .two-col.reversed .col-image {
+      order: 1;
+    }
+  }
+
+  .advertorial-content .two-col .col-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    margin: 0;
+  }
+
+  .advertorial-content .two-col .col-text h2,
+  .advertorial-content .two-col .col-text h3 {
+    margin-top: 0;
+  }
+
+  /* Testimonial Cards */
+  .advertorial-content .testimonial-card {
+    background: #F9FAFB;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border: 1px solid #E5E7EB;
+  }
+
+  .advertorial-content .testimonial-card .stars {
+    color: #F59E0B;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .advertorial-content .testimonial-card .badge {
+    display: inline-block;
+    background: #0D9488;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .advertorial-content .testimonial-card blockquote {
+    border-left: none;
+    padding-left: 0;
+    margin: 0 0 0.75rem 0;
+    font-style: italic;
+    color: #374151;
+  }
+
+  .advertorial-content .testimonial-card .author {
+    font-weight: 600;
+    color: #111827;
+    font-style: normal;
+  }
+
+  /* Benefits List with Checkmarks */
+  .advertorial-content .benefits-list {
+    background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 100%);
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 0;
+  }
+
+  .advertorial-content .benefits-list ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .advertorial-content .benefits-list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .advertorial-content .benefits-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #0D9488;
+    font-weight: 700;
+  }
+
+  /* CTA Buttons */
+  .advertorial-content .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0D9488;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.2s;
+    margin: 1rem 0;
+  }
+
+  .advertorial-content .cta-button:hover {
+    background-color: #0F766E;
+    text-decoration: none;
+    color: white;
+  }
+
+  .advertorial-content .cta-center {
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  /* Timeline Section */
+  .advertorial-content .timeline-section {
+    border-left: 3px solid #0D9488;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .advertorial-content .timeline-section h3 {
+    color: #0D9488;
+    font-weight: 700;
+  }
+
+  /* Negative List (problems) */
+  .advertorial-content .list-negative ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .advertorial-content .list-negative li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .advertorial-content .list-negative li::before {
+    content: "✗";
+    position: absolute;
+    left: 0;
+    color: #DC2626;
+    font-weight: 700;
+  }
+
+  /* Product Box */
+  .advertorial-content .product-box {
+    background: #1E293B;
+    color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .advertorial-content .product-box h2,
+  .advertorial-content .product-box h3 {
+    color: white;
+  }
+
+  .advertorial-content .product-box img {
+    max-width: 300px;
+    margin: 1rem auto;
+  }
+
+  .advertorial-content .product-box ul {
+    text-align: left;
+    max-width: 400px;
+    margin: 1.5rem auto;
+  }
+
+  .advertorial-content .product-box li {
+    margin-bottom: 0.75rem;
+  }
+
+  .advertorial-content .product-box li::before {
+    content: "✓";
+    color: #0D9488;
+    font-weight: 700;
+    margin-right: 0.5rem;
+  }
+
+  .advertorial-content .product-box .cta-button {
+    background-color: #0D9488;
+    margin-top: 1.5rem;
+  }
+
+  /* Sources Section */
+  .advertorial-content .sources {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #E5E7EB;
+  }
+
+  .advertorial-content .sources p {
+    margin-bottom: 0.5rem;
+  }
+</style>
