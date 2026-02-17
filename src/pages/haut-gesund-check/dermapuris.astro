@@ -63,11 +63,7 @@ const ctaUrl = "/haut-gesund-check/derma-renew";
   <header class="header">
     <div class="header-inner">
       <div class="logo">
-        <div class="logo-icon">GH</div>
-        <div class="logo-text">
-          <span class="logo-title">GESUNDHEITSHORIZONT</span>
-          <span class="logo-tagline">Dein Magazin für gesunde und schöne Haut</span>
-        </div>
+        <img src="/images/geshoz.svg" alt="Gesundheitshorizont" class="logo-img" />
       </div>
       <div class="social-icons">
         <a href="#" aria-label="Facebook">
@@ -93,7 +89,8 @@ const ctaUrl = "/haut-gesund-check/derma-renew";
     <article class="article">
       <!-- Byline -->
       <div class="byline">
-        Ein Bericht von Martina Hoffmann &bull; Aktualisiert: Februar 2026
+        <img src="/images/mhof.webp" alt="Martina Hoffmann" class="byline-img" />
+        <span>Ein Bericht von Martina Hoffmann &bull; Aktualisiert: Februar 2026</span>
       </div>
 
       <!-- Hero Headline -->
@@ -655,8 +652,8 @@ const ctaUrl = "/haut-gesund-check/derma-renew";
 
   /* Header */
   .header {
-    background: #f5f0eb;
-    border-bottom: 1px solid #e5e0db;
+    background: #2d6a4f;
+    border-bottom: none;
   }
 
   .header-inner {
@@ -671,37 +668,11 @@ const ctaUrl = "/haut-gesund-check/derma-renew";
   .logo {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
   }
 
-  .logo-icon {
-    width: 40px;
-    height: 40px;
-    background: #2d6a4f;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 14px;
-  }
-
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .logo-title {
-    font-weight: 700;
-    font-size: 14px;
-    color: #1a1a1a;
-    letter-spacing: 0.5px;
-  }
-
-  .logo-tagline {
-    font-size: 11px;
-    color: #777;
+  .logo-img {
+    height: 35px;
+    width: auto;
   }
 
   .social-icons {
@@ -710,12 +681,12 @@ const ctaUrl = "/haut-gesund-check/derma-renew";
   }
 
   .social-icons a {
-    color: #888;
+    color: rgba(255, 255, 255, 0.8);
     transition: color 0.2s;
   }
 
   .social-icons a:hover {
-    color: #2d6a4f;
+    color: #ffffff;
   }
 
   /* Article */
@@ -727,9 +698,19 @@ const ctaUrl = "/haut-gesund-check/derma-renew";
 
   /* Byline */
   .byline {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 13px;
     color: #777;
     margin-bottom: 1.5rem;
+  }
+
+  .byline-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   /* Hero */
@@ -1292,7 +1273,7 @@ const ctaUrl = "/haut-gesund-check/derma-renew";
   .footer {
     background: #333;
     color: #ccc;
-    padding: 1.5rem;
+    padding: 2rem 1rem 3rem;
     margin-top: 2rem;
   }
 
@@ -1300,9 +1281,19 @@ const ctaUrl = "/haut-gesund-check/derma-renew";
     max-width: 680px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 0.75rem;
     align-items: center;
+    text-align: center;
     font-size: 14px;
+  }
+
+  @media (min-width: 480px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
   }
 
   .footer a {
