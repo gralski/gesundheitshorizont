@@ -65,6 +65,22 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('de-DE', {
         <!-- Main Content Column -->
         <div class="lg:col-span-8">
 
+          <!-- Article Title -->
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-8 font-serif">
+            {title}
+          </h1>
+
+          <!-- Hero Image -->
+          {heroImage && (
+            <div class="mb-8 rounded-lg overflow-hidden">
+              <img
+                src={heroImage}
+                alt={title}
+                class="w-full h-auto object-cover"
+              />
+            </div>
+          )}
+
           <!-- Category Tags -->
           <div class="flex flex-wrap gap-2 mb-6">
             {allCategories.map((cat, index) => (
@@ -122,22 +138,6 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('de-DE', {
               )}
             </div>
           </div>
-
-          <!-- Article Title -->
-          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-8 font-serif">
-            {title}
-          </h1>
-
-          <!-- Hero Image -->
-          {heroImage && (
-            <div class="mb-10 rounded-lg overflow-hidden">
-              <img
-                src={heroImage}
-                alt={title}
-                class="w-full h-auto object-cover"
-              />
-            </div>
-          )}
 
           <!-- Article Content -->
           <div class="prose max-w-none">

@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import AdvertorialLayout from '../../layouts/AdvertorialLayout.astro';
+import AdvertorialFullLayout from '../../layouts/AdvertorialFullLayout.astro';
 
 export async function getStaticPaths() {
   const articles = await getCollection('artikel');
@@ -15,10 +16,29 @@ const { article } = Astro.props;
 const { Content } = await render(article);
 const { data } = article;
 
-const isAdvertorial = data.layout === 'advertorial';
+const layoutType = data.layout || 'article';
 ---
 
-{isAdvertorial ? (
+{layoutType === 'advertorial-full' ? (
+  <AdvertorialFullLayout
+    title={data.title}
+    titleHighlight={data.titleHighlight}
+    description={data.description}
+    pubDate={data.pubDate}
+    heroImage={data.heroImage}
+    author={data.author}
+    authorRole={data.authorRole}
+    authorAvatar={data.authorAvatar}
+    readingTime={data.readingTime}
+    rating={data.rating}
+    ratingCount={data.ratingCount}
+    tags={data.tags}
+    ctaText={data.ctaText}
+    ctaUrl={data.ctaUrl}
+  >
+    <Content />
+  </AdvertorialFullLayout>
+) : layoutType === 'advertorial' ? (
   <AdvertorialLayout
     title={data.title}
     titleHighlight={data.titleHighlight}
