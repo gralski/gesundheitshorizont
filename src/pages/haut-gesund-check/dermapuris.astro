@@ -140,7 +140,7 @@ const ctaUrl = "/haut-gesund-check/derma-renew";
       <!-- Transition — Vom Einzelfall zum universellen Problem -->
       <section class="section">
         <p>
-          Karin ist kein Einzelfall. Tausende Frauen zwischen 40 und 55 beschreiben exakt dasselbe Phänomen:
+          Karin ist kein Einzelfall. Tausende Frauen zwischen 40 und 55 und darüber hinaus beschreiben exakt dasselbe Phänomen:
         </p>
         <p>
           Die Haut verändert sich nicht langsam — sondern scheinbar über Nacht. Innerhalb weniger Monate verliert sie Spannkraft, Volumen und diesen gesunden Glanz, der vorher einfach da war.
@@ -544,6 +544,13 @@ const ctaUrl = "/haut-gesund-check/derma-renew";
           </details>
 
           <details class="faq-item">
+            <summary>Für welche Altersgruppe ist das geeignet?</summary>
+            <div class="faq-answer">
+              Derma Renew Complex wird von Anwenderinnen in allen Altersgruppen genutzt, besonders häufig zwischen 35 und 89 Jahren. Und auch wenn Sie älter sind, kann der Ansatz weiterhin sehr sinnvoll sein, weil er die Hautstruktur, Feuchtigkeit und Regeneration von innen unterstützt.
+            </div>
+          </details>
+
+          <details class="faq-item">
             <summary>Wie lange muss ich es einnehmen?</summary>
             <div class="faq-answer">
               Die meisten Anwenderinnen bemerken erste Veränderungen nach 2–4 Wochen. Deutlich sichtbare Ergebnisse bei Falten und Hautstraffung zeigen sich typischerweise nach 6–8 Wochen. Für langfristige, nachhaltige Ergebnisse empfehlen wir eine Einnahme von mindestens 90 Tagen — und viele Kundinnen bleiben dauerhaft dabei, weil sie die Ergebnisse nicht mehr missen wollen.
@@ -686,6 +693,7 @@ const ctaUrl = "/haut-gesund-check/derma-renew";
     </div>
   </div>
 
+  <script is:inline src="/js/funnel-tracker.js"></script>
   <script>
     const modal = document.getElementById('impressum-modal');
     const openBtn = document.getElementById('impressum-btn');
@@ -713,6 +721,22 @@ const ctaUrl = "/haut-gesund-check/derma-renew";
         modal.classList.remove('active');
         document.body.style.overflow = '';
       }
+    });
+
+    const funnelTargetPath = '/haut-gesund-check/derma-renew';
+    const ctaLinks = document.querySelectorAll(`a[href="${funnelTargetPath}"]`);
+
+    ctaLinks.forEach((link, index) => {
+      link.addEventListener('click', () => {
+        if (!window.GHFunnel) return;
+        window.GHFunnel.track('link_click', {
+          funnel_name: 'dermapuris_to_derma_renew',
+          source_page: '/haut-gesund-check/dermapuris',
+          target_page: funnelTargetPath,
+          cta_index: index + 1,
+          cta_text: (link.textContent || '').trim()
+        });
+      });
     });
   </script>
 </body>

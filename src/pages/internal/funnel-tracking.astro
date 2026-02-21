@@ -1,0 +1,304 @@
+---
+const title = 'Internal Funnel Tracking';
+---
+
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --accent: #0f766e;
+      --warn: #b45309;
+      --danger: #b91c1c;
+      --border: #d1d5db;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 1.25rem;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    h2 {
+      margin: 0 0 0.6rem;
+      font-size: 1rem;
+    }
+
+    .muted { color: var(--muted); }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    button, select {
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 8px;
+      padding: 0.45rem 0.7rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    button.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 0.55rem;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th { font-weight: 700; }
+
+    .chip {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .chip.ok { background: #dcfce7; color: #166534; }
+    .chip.warn { background: #fef3c7; color: #92400e; }
+    .chip.bad { background: #fee2e2; color: #991b1b; }
+
+    .diag {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .diag-item {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem;
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="card">
+      <h1>Funnel Tracking: Dermapuris → Derma Renew</h1>
+      <p class="muted">Events tracked: `link_click`, `landing_page_view`, `view_content`, `add_to_cart`, `initiate_checkout`, `purchase`.</p>
+      <div class="toolbar">
+        <label for="range">Zeitraum:</label>
+        <select id="range">
+          <option value="24h">Letzte 24h</option>
+          <option value="7d" selected>Letzte 7 Tage</option>
+          <option value="30d">Letzte 30 Tage</option>
+          <option value="all">Gesamt</option>
+        </select>
+        <button id="refresh" class="primary">Aktualisieren</button>
+        <button id="clear">Lokale Daten löschen</button>
+        <span id="event-count" class="muted"></span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Funnel Numbers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Count</th>
+            <th>Conversion to Next</th>
+          </tr>
+        </thead>
+        <tbody id="funnel-body"></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Leak Diagnosis</h2>
+      <div class="diag" id="diagnosis"></div>
+    </section>
+  </div>
+
+  <script is:inline src="/js/funnel-tracker.js"></script>
+  <script>
+    const STEP_KEYS = [
+      'link_click',
+      'landing_page_view',
+      'view_content',
+      'add_to_cart',
+      'initiate_checkout',
+      'purchase'
+    ];
+
+    const STEP_LABELS = {
+      link_click: 'Link clicks',
+      landing_page_view: 'Landing page views (LPV)',
+      view_content: 'View content',
+      add_to_cart: 'Add to cart',
+      initiate_checkout: 'Initiate checkout',
+      purchase: 'Purchase'
+    };
+
+    const rangeEl = document.getElementById('range');
+    const funnelBody = document.getElementById('funnel-body');
+    const diagnosisEl = document.getElementById('diagnosis');
+    const eventCountEl = document.getElementById('event-count');
+
+    function getSinceTs(range) {
+      if (range === 'all') return null;
+      const now = Date.now();
+      const map = {
+        '24h': 24 * 60 * 60 * 1000,
+        '7d': 7 * 24 * 60 * 60 * 1000,
+        '30d': 30 * 24 * 60 * 60 * 1000
+      };
+      return new Date(now - map[range]).toISOString();
+    }
+
+    function pct(a, b) {
+      if (!a || !b) return '0.0%';
+      return ((b / a) * 100).toFixed(1) + '%';
+    }
+
+    function statusFor(rate) {
+      if (rate >= 0.7) return ['ok', 'Healthy'];
+      if (rate >= 0.4) return ['warn', 'Watch'];
+      return ['bad', 'Leak'];
+    }
+
+    function addDiagnosis(title, message, level) {
+      const div = document.createElement('div');
+      div.className = 'diag-item';
+      const chipClass = level === 'bad' ? 'bad' : level === 'warn' ? 'warn' : 'ok';
+      div.innerHTML = '<strong>' + title + '</strong> <span class="chip ' + chipClass + '">' + level.toUpperCase() + '</span><br><span class="muted">' + message + '</span>';
+      diagnosisEl.appendChild(div);
+    }
+
+    function render() {
+      if (!window.GHFunnel) return;
+
+      const sinceTs = getSinceTs(rangeEl.value);
+      const events = window.GHFunnel.getEvents().filter((event) => {
+        if (sinceTs && new Date(event.ts).getTime() < new Date(sinceTs).getTime()) return false;
+        const source = event.props && event.props.funnel_name;
+        return !source || source === 'dermapuris_to_derma_renew';
+      });
+
+      const counts = {
+        link_click: 0,
+        landing_page_view: 0,
+        view_content: 0,
+        add_to_cart: 0,
+        initiate_checkout: 0,
+        purchase: 0
+      };
+
+      events.forEach((event) => {
+        if (Object.prototype.hasOwnProperty.call(counts, event.event)) {
+          counts[event.event] += 1;
+        }
+      });
+
+      funnelBody.innerHTML = '';
+      STEP_KEYS.forEach((key, index) => {
+        const next = STEP_KEYS[index + 1];
+        const tr = document.createElement('tr');
+
+        let conversion = '-';
+        if (next) {
+          const base = counts[key];
+          const target = counts[next];
+          const rate = base > 0 ? target / base : 0;
+          const [chipClass, label] = statusFor(rate);
+          conversion = pct(base, target) + ' <span class="chip ' + chipClass + '">' + label + '</span>';
+        }
+
+        tr.innerHTML = '<td>' + STEP_LABELS[key] + '</td><td><strong>' + counts[key] + '</strong></td><td>' + conversion + '</td>';
+        funnelBody.appendChild(tr);
+      });
+
+      diagnosisEl.innerHTML = '';
+
+      const clickToLpvRate = counts.link_click > 0 ? counts.landing_page_view / counts.link_click : 0;
+      const lpvToAtcRate = counts.landing_page_view > 0 ? counts.add_to_cart / counts.landing_page_view : 0;
+      const atcToPurchaseRate = counts.add_to_cart > 0 ? counts.purchase / counts.add_to_cart : 0;
+
+      if (counts.link_click > 0 && clickToLpvRate < 0.6) {
+        addDiagnosis('High clicks → low LPV', 'Likely page speed, redirect, or tracking handoff issue between /dermapuris and /derma-renew.', 'bad');
+      } else {
+        addDiagnosis('Clicks → LPV', 'No strong leak detected in handoff.', 'ok');
+      }
+
+      if (counts.landing_page_view > 0 && lpvToAtcRate < 0.15) {
+        addDiagnosis('High LPV → low ATC', 'Likely offer/trust/messaging mismatch on /derma-renew.', 'bad');
+      } else if (counts.landing_page_view > 0 && lpvToAtcRate < 0.3) {
+        addDiagnosis('LPV → ATC', 'Moderate friction on offer or page trust signals.', 'warn');
+      } else {
+        addDiagnosis('LPV → ATC', 'Healthy product interest conversion.', 'ok');
+      }
+
+      if (counts.add_to_cart > 0 && atcToPurchaseRate < 0.35) {
+        addDiagnosis('High ATC → low purchase', 'Likely checkout/shipping/payment friction on external checkout.', 'bad');
+      } else if (counts.add_to_cart > 0 && atcToPurchaseRate < 0.55) {
+        addDiagnosis('ATC → Purchase', 'Some checkout friction exists.', 'warn');
+      } else {
+        addDiagnosis('ATC → Purchase', 'Checkout completion looks healthy.', 'ok');
+      }
+
+      eventCountEl.textContent = 'Events in range: ' + events.length;
+    }
+
+    document.getElementById('refresh').addEventListener('click', render);
+    rangeEl.addEventListener('change', render);
+
+    document.getElementById('clear').addEventListener('click', function () {
+      if (!window.confirm('Lokale Funnel-Daten wirklich löschen?')) return;
+      window.GHFunnel.clearEvents();
+      render();
+    });
+
+    window.addEventListener('gh_funnel_event', render);
+
+    render();
+  </script>
+</body>
+</html>
