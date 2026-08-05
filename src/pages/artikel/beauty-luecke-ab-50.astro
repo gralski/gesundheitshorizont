@@ -1,22 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = 'Warum teure Hautpflege ab 50 oft nur die halbe Arbeit macht';
-const description = 'Die wenig bekannte Beauty-Lücke zwischen äußerer Pflege und täglicher Versorgung von innen.';
+const title = 'Warum wirkt das Gesicht auf Fotos oft müder, als man sich fühlt?';
+const description = 'Viele Frauen ab 50 machen bei ihrer Hautpflege alles richtig und übersehen trotzdem denselben entscheidenden Punkt.';
 const heroImage = '/images/advertorial-v3/hero-frau-am-handy.webp';
 const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502210543957';
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}>
   <article class="v3-advertorial">
+    <script is:inline>document.documentElement.classList.add('v3-open-loop');</script>
     <div class="ad-disclosure">Anzeige | Bezahlter Inhalt von Dermapuris</div>
 
     <header class="v3-hero">
       <div class="v3-hero-copy">
         <p class="v3-kicker">Gesundheitshorizont Beauty-Redaktion</p>
-        <h1><span>Warum teure Hautpflege ab 50</span><span>oft nur die halbe Arbeit macht</span></h1>
-        <p class="v3-deck">Die wenig bekannte Beauty-Lücke zwischen äußerer Pflege und täglicher Versorgung von innen.</p>
-        <p class="v3-intro-line">Nicht, um wieder 30 auszusehen. Sondern um endlich wieder so frisch auszusehen, wie man sich fühlt.</p>
+        <h1><span>Warum wirkt das Gesicht auf Fotos</span> <span>oft müder, als man sich fühlt?</span></h1>
+        <p class="v3-deck">Viele Frauen ab 50 machen bei ihrer Hautpflege alles richtig und übersehen trotzdem denselben entscheidenden Punkt.</p>
+        <p class="v3-intro-line">Dieser Punkt hat mit einer stärkeren Creme nichts zu tun.</p>
       </div>
       <figure class="v3-hero-media">
         <img src={heroImage} alt="Natürliches Porträt einer gepflegten Frau um 60 mit ihrem Smartphone" width="1800" height="1200" fetchpriority="high" />
@@ -64,10 +65,11 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
         </section>
 
         <section>
-          <h2>Die überraschende Antwort: Ihre Pflege war möglicherweise nur unvollständig</h2>
+          <h2>Die überraschende Antwort: Ihre Pflege war nicht unbedingt schlecht</h2>
           <p>Cremes und Seren werden auf die Haut aufgetragen. Dort können sie die Oberfläche pflegen, Feuchtigkeit zuführen und das Hautgefühl verbessern.</p>
           <p>Gute Hautpflege ist sinnvoll. Sonnenschutz ist sinnvoll. Eine ausgewogene Ernährung ist sinnvoll.</p>
           <p>Doch die Haut ist kein äußerer Anstrich. Sie ist lebendes Körpergewebe. Kollagen ist ein Strukturprotein des Körpers. Hyaluronsäure kommt natürlicherweise im Gewebe vor. Vitamine und andere Nährstoffe werden dem Körper nicht über den Cremetiegel zugeführt.</p>
+          <p><strong>Und genau hier liegt der entscheidende Punkt, den klassische Beauty-Routinen fast immer übersehen.</strong></p>
         </section>
 
         <section class="v3-gap-section">
@@ -149,7 +151,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
           </div>
         </section>
 
-        <section class="v3-product-intro">
+        <section class="v3-product-intro" data-product-reveal>
           <div class="v3-product-copy">
             <p class="v3-kicker">Die Zwei-Kapsel-Routine</p>
             <h2>Derma Renew bündelt acht Beauty-Bausteine</h2>
@@ -317,6 +319,26 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
 
     <div class="v3-mobile-cta"><a href={ctaUrl} rel="sponsored">Derma Renew testen</a></div>
   </article>
+
+  <script>
+    const productReveal = document.querySelector('[data-product-reveal]');
+    const showConversionElements = () => {
+      document.documentElement.classList.add('v3-product-revealed');
+    };
+
+    if (!productReveal || !('IntersectionObserver' in window)) {
+      showConversionElements();
+    } else {
+      const productObserver = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          showConversionElements();
+          productObserver.disconnect();
+        }
+      }, { threshold: 0.18 });
+
+      productObserver.observe(productReveal);
+    }
+  </script>
 </BaseLayout>
 
 <style is:global>
@@ -451,7 +473,9 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   .v3-legal h3 { font-size: 16px; margin-top: 28px; }
   .v3-legal p, .v3-legal li { color: var(--v3-muted); font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.55; }
   .v3-legal ol { padding-left: 18px; }
-  .v3-sidebar { min-width: 0; }
+  .v3-sidebar { min-width: 0; transition: opacity .28s ease, transform .28s ease; }
+  .v3-open-loop .v3-sidebar { opacity: 0; pointer-events: none; transform: translateY(12px); visibility: hidden; }
+  .v3-open-loop.v3-product-revealed .v3-sidebar { opacity: 1; pointer-events: auto; transform: translateY(0); visibility: visible; }
   .v3-sticky-card { background: #fff; border: 1px solid var(--v3-line); border-radius: var(--v3-radius); overflow: hidden; position: sticky; top: 20px; }
   .v3-sticky-card > img { aspect-ratio: 1; display: block; object-fit: cover; width: 100%; }
   .v3-sticky-card > div { padding: 24px; }
@@ -510,11 +534,13 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
     .v3-price { text-align: left; }
     .v3-closing-image img { min-height: 340px; object-fit: cover; object-position: 60% center; }
     .v3-mobile-cta { background: rgba(251,252,252,.94); bottom: 0; display: block; left: 0; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); position: fixed; right: 0; z-index: 20; }
+    .v3-open-loop .v3-mobile-cta { display: none; }
+    .v3-open-loop.v3-product-revealed .v3-mobile-cta { display: block; }
     .v3-mobile-cta a { background: var(--v3-accent); border-radius: 999px; color: #fff; display: block; font-size: 15px; font-weight: 800; padding: 15px 20px; text-align: center; text-decoration: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .v3-cta { transition: none; }
+    .v3-cta, .v3-sidebar { transition: none; }
   }
 </style>
