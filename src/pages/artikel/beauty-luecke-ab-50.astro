@@ -10,10 +10,10 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
 <BaseLayout title={title} description={description} image={heroImage}>
   <article class="v3-advertorial">
     <script is:inline>document.documentElement.classList.add('v3-open-loop');</script>
-    <div class="ad-disclosure">Anzeige | Bezahlter Inhalt von Dermapuris</div>
 
     <header class="v3-hero">
       <div class="v3-hero-copy">
+        <span class="v3-ad-label">Anzeige</span>
         <p class="v3-kicker">Gesundheitshorizont Beauty-Redaktion</p>
         <h1><span>Warum wirkt das Gesicht auf Fotos</span> <span>oft müder, als man sich fühlt?</span></h1>
         <p class="v3-deck">Viele Frauen ab 50 machen bei ihrer Hautpflege alles richtig und übersehen trotzdem denselben entscheidenden Punkt.</p>
@@ -159,6 +159,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
             <div class="v3-ingredients" aria-label="Inhaltsstoffe">
               <span>hydrolysiertes Fischkollagen</span><span>Hyaluronsäure</span><span>MSM</span><span>Vitamin A</span><span>Vitamin-B-Komplex</span><span>Sägepalme</span><span>Yamswurzel</span><span>Schachtelhalm</span>
             </div>
+            <a href={ctaUrl} class="v3-cta v3-product-cta" rel="sponsored">Derma Renew ansehen</a>
           </div>
           <figure>
             <img src="/images/dermarenew-pal.webp" alt="Derma Renew Komplex mit 60 Kapseln auf einem hellen Regal" width="1080" height="1080" loading="lazy" />
@@ -187,6 +188,11 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
           </ol>
           <p>Sie müssen nicht glauben, dass zwei Kapseln über Nacht zwanzig Jahre aus einem Gesicht löschen. Sie müssen lediglich entscheiden, ob eine konsequente Innenroutine für Sie sinnvoller klingt als der nächste spontane Hoffnungskauf im Cremeregal.</p>
         </section>
+
+        <div class="v3-inline-cta">
+          <div><strong>Passt eine Zwei-Kapsel-Routine zu Ihrem Alltag?</strong><span>Alle Produktdetails und Inhaltsstoffe finden Sie auf der offiziellen Produktseite.</span></div>
+          <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew ansehen</a>
+        </div>
 
         <figure class="v3-wide-figure">
           <img src="/images/advertorial-v3/zwei-kapseln-routine.webp" alt="Reife Frauenhände mit genau zwei Kapseln und einem Glas Wasser" width="1500" height="1000" loading="lazy" />
@@ -221,26 +227,16 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
             <h2>Testen. Beobachten. Selbst entscheiden.</h2>
             <p>Sie beurteilen die Routine nicht anhand eines Models oder einer Werbegrafik. Sie beurteilen sie anhand Ihres Badezimmerspiegels, Ihres Make-ups, Ihrer Fotos und Ihres Alltags.</p>
             <p>Wenn Sie nicht überzeugt sind, können Sie die 90-Tage-Geld-zurück-Garantie gemäß den veröffentlichten Garantiebedingungen nutzen.</p>
-            <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew testen</a>
+            <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew ansehen</a>
           </div>
           <div class="v3-guarantee-number"><strong>90</strong><span>Tage Zeit für Ihre Entscheidung</span></div>
         </section>
 
-        <section class="v3-pricing" id="pakete">
-          <h2>Wählen Sie Ihren Testzeitraum</h2>
-          <p>Eine Dose enthält 60 Kapseln. Bei zwei Kapseln täglich reicht sie für 30 Tage.</p>
-
-          <article class="v3-price-featured">
-            <div><span class="v3-price-label">Empfohlene 90-Tage-Routine</span><h3>3 Dosen</h3><p>Deckt den vollständigen Zeitraum der 90-Tage-Garantie ab.</p></div>
-            <div class="v3-price"><strong>104,70 €</strong><span>34,90 € pro Dose<br />ca. 1,16 € pro Tag</span></div>
-          </article>
-
-          <div class="v3-price-secondary">
-            <article><span>30-Tage-Einstieg</span><h3>1 Dose</h3><strong>37,90 €</strong><p>ca. 1,26 € pro Tag</p></article>
-            <article><span>Niedrigster Tagespreis</span><h3>6 Dosen</h3><strong>167,40 €</strong><p>ca. 0,93 € pro Tag</p></article>
-          </div>
-          <p class="v3-price-note">Preise auf der offiziellen Produktseite am 5. August 2026 geprüft. Aktuelle Verfügbarkeit und Endpreise sehen Sie vor dem Kauf.</p>
-          <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew testen</a>
+        <section class="v3-next-step">
+          <p class="v3-kicker">Der nächste Schritt</p>
+          <h2>Alle Produktdetails auf einen Blick</h2>
+          <p>Auf der offiziellen Produktseite können Sie die vollständigen Angaben prüfen, verfügbare Optionen vergleichen und anschließend in Ruhe entscheiden.</p>
+          <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew ansehen</a>
         </section>
 
         <section>
@@ -284,7 +280,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
           <p>Sie müssen nicht wieder 30 aussehen. Sie müssen Ihre Falten nicht ablehnen. Aber Sie dürfen sich wünschen, dass Ihr Gesicht wieder ein wenig mehr von der Energie zeigt, die Sie innerlich noch immer haben.</p>
           <p>Stellen Sie sich den realistischeren Moment vor: Sie sehen ein spontanes Foto von sich. Ihr erster Gedanke gilt nicht den Linien, dem Licht oder der Frage, warum Sie so müde wirken. Sie sehen einfach wieder sich selbst.</p>
           <p><strong>Nicht wieder 30. Sondern gepflegt, lebendig und so frisch, wie Sie sich fühlen.</strong></p>
-          <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew testen</a>
+          <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew ansehen</a>
           <p class="v3-final-meta">Zwei Kapseln täglich | 60 Kapseln pro Dose | 90-Tage-Geld-zurück-Garantie</p>
         </section>
 
@@ -311,13 +307,13 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
             <h2>Derma Renew Komplex</h2>
             <p>Acht deklarierte Beauty-Bausteine in zwei Kapseln täglich.</p>
             <ul><li>60 Kapseln pro Dose</li><li>30 Tage pro Dose</li><li>90-Tage-Geld-zurück-Garantie</li></ul>
-            <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew testen</a>
+            <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew ansehen</a>
           </div>
         </div>
       </aside>
     </div>
 
-    <div class="v3-mobile-cta"><a href={ctaUrl} rel="sponsored">Derma Renew testen</a></div>
+    <div class="v3-mobile-cta"><a href={ctaUrl} rel="sponsored">Derma Renew ansehen</a></div>
   </article>
 
   <script>
@@ -355,22 +351,22 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   }
 
   .v3-advertorial { background: #fbfcfc; color: var(--v3-ink); font-family: Arial, Helvetica, sans-serif; }
-  .ad-disclosure { background: #edf2f1; border-bottom: 1px solid var(--v3-line); color: #455356; font-size: 12px; font-weight: 700; letter-spacing: .06em; padding: 10px 24px; text-align: center; text-transform: uppercase; }
   .v3-hero { display: grid; grid-template-columns: minmax(0, 1.16fr) minmax(0, .84fr); min-height: min(700px, calc(100dvh - 112px)); max-width: 1280px; margin: 0 auto; }
   .v3-hero-copy { align-self: center; padding: 58px 36px 58px 28px; }
-  .v3-kicker { color: var(--v3-accent-dark); font-size: 12px !important; font-weight: 800; letter-spacing: .08em; margin: 0 0 18px !important; text-transform: uppercase; }
-  .v3-hero h1 { font-family: Arial, Helvetica, sans-serif; font-size: clamp(42px, 3vw, 50px); letter-spacing: -.045em; line-height: 1.02; margin: 0; max-width: 760px; }
+  .v3-ad-label { border: 1px solid #aebcba; border-radius: 999px; color: #455356; display: inline-flex; font-size: 10px; font-weight: 800; letter-spacing: .08em; margin-bottom: 22px; padding: 5px 9px; text-transform: uppercase; }
+  .v3-kicker { color: var(--v3-accent-dark); font-family: Arial, Helvetica, sans-serif !important; font-size: 12px !important; font-weight: 800; letter-spacing: .08em; margin: 0 0 18px !important; text-transform: uppercase; }
+  .v3-hero h1 { font-family: Arial, Helvetica, sans-serif; font-size: clamp(42px, 3vw, 50px); font-weight: 800; letter-spacing: -.045em; line-height: 1.02; margin: 0; max-width: 760px; }
   .v3-hero h1 span { display: block; white-space: nowrap; }
-  .v3-deck { color: #344448; font-size: clamp(20px, 2vw, 28px); line-height: 1.25; margin: 28px 0 0; max-width: 580px; }
-  .v3-intro-line { border-left: 3px solid var(--v3-accent); color: var(--v3-muted); font-size: 16px; line-height: 1.5; margin: 28px 0 0; max-width: 540px; padding-left: 16px; }
+  .v3-deck { color: #344448; font-size: clamp(20px, 2vw, 28px); font-weight: 700; line-height: 1.25; margin: 28px 0 0; max-width: 580px; }
+  .v3-intro-line { border-left: 3px solid var(--v3-accent); color: var(--v3-muted); font-size: 16px; font-weight: 650; line-height: 1.5; margin: 28px 0 0; max-width: 540px; padding-left: 16px; }
   .v3-hero-media { margin: 0; min-height: 500px; overflow: hidden; }
   .v3-hero-media img { display: block; height: 100%; object-fit: cover; object-position: 58% center; width: 100%; }
   .v3-meta { align-items: center; border-bottom: 1px solid var(--v3-line); border-top: 1px solid var(--v3-line); color: var(--v3-muted); display: flex; font-size: 13px; gap: 30px; justify-content: space-between; margin: 0 auto; max-width: 1280px; padding: 15px 28px; }
   .v3-shell { display: grid; grid-template-columns: minmax(0, 760px) 300px; gap: 64px; margin: 0 auto; max-width: 1160px; padding: 70px 24px 100px; }
   .v3-article-body { min-width: 0; }
   .v3-article-body section { margin: 0 0 72px; }
-  .v3-article-body h2 { color: var(--v3-ink); font-family: Arial, Helvetica, sans-serif; font-size: clamp(30px, 3.7vw, 46px); letter-spacing: -.035em; line-height: 1.08; margin: 0 0 24px; }
-  .v3-article-body h3 { color: var(--v3-ink); font-size: 20px; line-height: 1.3; margin: 0 0 10px; }
+  .v3-article-body h2 { color: var(--v3-ink); font-family: Arial, Helvetica, sans-serif; font-size: clamp(30px, 3.7vw, 46px); font-weight: 800; letter-spacing: -.035em; line-height: 1.08; margin: 0 0 24px; }
+  .v3-article-body h3 { color: var(--v3-ink); font-size: 20px; font-weight: 800; line-height: 1.3; margin: 0 0 10px; }
   .v3-article-body p, .v3-article-body li { color: #344448; font-family: Georgia, 'Times New Roman', serif; font-size: 19px; line-height: 1.72; }
   .v3-article-body p { margin: 0 0 22px; }
   .v3-story-lead { font-size: 20px; }
@@ -409,6 +405,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   .v3-product-intro p { font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.6; }
   .v3-ingredients { display: flex; flex-wrap: wrap; gap: 8px; }
   .v3-ingredients span { background: #fff; border: 1px solid #d6e1de; border-radius: 999px; color: #2e4245; font-size: 12px; font-weight: 700; padding: 8px 11px; }
+  .v3-product-cta { margin-top: 24px; }
   .v3-pillars { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
   .v3-pillars article { border-top: 3px solid var(--v3-accent); padding: 22px 8px 10px 0; }
   .v3-pillars span { color: var(--v3-accent-dark); font-size: 12px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
@@ -416,6 +413,9 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   .v3-honesty { background: #eef4f3; border: 1px solid #d7e3e0; border-radius: var(--v3-radius); padding: 40px; }
   .v3-honesty ol { margin: 28px 0; padding-left: 24px; }
   .v3-honesty li { font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.5; margin-bottom: 12px; padding-left: 8px; }
+  .v3-inline-cta { align-items: center; background: var(--v3-blue); border-radius: var(--v3-radius); display: grid; gap: 28px; grid-template-columns: 1fr auto; margin: -30px 0 72px; padding: 26px 28px; }
+  .v3-inline-cta strong { color: var(--v3-ink); display: block; font-size: 18px; font-weight: 800; line-height: 1.3; margin-bottom: 5px; }
+  .v3-inline-cta span { color: var(--v3-muted); display: block; font-size: 14px; line-height: 1.5; }
   .v3-observe { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; margin: 30px 0; }
   .v3-observe span { background: var(--v3-surface); border-radius: 12px; color: #304246; font-size: 15px; font-weight: 700; line-height: 1.4; padding: 20px; }
   .v3-comparison > div { display: grid; gap: 0; grid-template-columns: 1fr 1.1fr 1fr; }
@@ -435,18 +435,9 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   .v3-cta { align-items: center; background: var(--v3-accent); border: 2px solid var(--v3-accent); border-radius: 999px; color: #fff !important; display: inline-flex; font-size: 16px; font-weight: 800; justify-content: center; line-height: 1; min-height: 54px; padding: 0 24px; text-decoration: none !important; transition: background .2s ease, border-color .2s ease, transform .2s ease; white-space: nowrap; }
   .v3-cta:hover { background: var(--v3-accent-dark); border-color: var(--v3-accent-dark); }
   .v3-cta:active { transform: scale(.98); }
-  .v3-pricing { border-top: 1px solid var(--v3-line); padding-top: 58px; }
-  .v3-price-featured { align-items: center; background: var(--v3-surface-strong); border: 2px solid var(--v3-accent); border-radius: var(--v3-radius); display: grid; gap: 28px; grid-template-columns: 1.2fr .8fr; margin: 28px 0 12px; padding: 28px; }
-  .v3-price-featured p, .v3-price-secondary p { font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0; }
-  .v3-price-featured h3, .v3-price-secondary h3 { margin-top: 10px; }
-  .v3-price-label, .v3-price-secondary span { color: var(--v3-accent-dark); font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
-  .v3-price { text-align: right; }
-  .v3-price strong { display: block; font-size: 34px; line-height: 1.2; }
-  .v3-price span { color: var(--v3-muted); font-size: 13px; line-height: 1.45; }
-  .v3-price-secondary { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; margin-bottom: 18px; }
-  .v3-price-secondary article { border: 1px solid var(--v3-line); border-radius: var(--v3-radius); padding: 24px; }
-  .v3-price-secondary strong { display: block; font-size: 27px; margin-bottom: 8px; }
-  .v3-price-note { color: var(--v3-muted) !important; font-family: Arial, Helvetica, sans-serif !important; font-size: 12px !important; line-height: 1.5 !important; }
+  .v3-next-step { background: var(--v3-surface-strong); border: 1px solid #c8d8d4; border-radius: var(--v3-radius); padding: 40px; text-align: center; }
+  .v3-next-step h2 { margin-left: auto; margin-right: auto; max-width: 620px; }
+  .v3-next-step > p:not(.v3-kicker) { font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.6; margin-left: auto; margin-right: auto; max-width: 590px; }
   .v3-for-whom { align-items: start; display: grid; gap: 30px; grid-template-columns: 1.25fr .75fr; }
   .v3-for-whom ul { margin: 0; padding-left: 22px; }
   .v3-for-whom li { margin-bottom: 12px; }
@@ -480,7 +471,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   .v3-sticky-card > img { aspect-ratio: 1; display: block; object-fit: cover; width: 100%; }
   .v3-sticky-card > div { padding: 24px; }
   .v3-sticky-card span { color: var(--v3-accent-dark); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
-  .v3-sticky-card h2 { font-size: 25px; letter-spacing: -.02em; line-height: 1.1; margin: 9px 0 12px; }
+  .v3-sticky-card h2 { font-size: 25px; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; margin: 9px 0 12px; }
   .v3-sticky-card p, .v3-sticky-card li { color: var(--v3-muted); font-size: 14px; line-height: 1.5; }
   .v3-sticky-card ul { margin: 18px 0 22px; padding-left: 18px; }
   .v3-sticky-card .v3-cta { width: 100%; }
@@ -500,7 +491,6 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   }
 
   @media (max-width: 720px) {
-    .ad-disclosure { font-size: 10px; padding: 8px 16px; }
     .v3-hero { display: flex; flex-direction: column; min-height: auto; }
     .v3-hero-copy { padding: 42px 18px 30px; }
     .v3-hero h1 { font-size: clamp(38px, 11vw, 50px); line-height: 1.02; }
@@ -518,7 +508,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
     .v3-article-body blockquote { font-size: 24px; margin: 30px 0; padding-left: 20px; }
     .v3-question { font-size: 23px; padding: 26px 22px; }
     .v3-gap-section, .v3-honesty, .v3-guarantee { border-radius: 14px; padding: 28px 22px; }
-    .v3-gap-grid, .v3-requirements, .v3-pillars, .v3-observe, .v3-price-secondary, .v3-for-whom, .v3-choice-grid { grid-template-columns: 1fr; }
+    .v3-gap-grid, .v3-requirements, .v3-pillars, .v3-observe, .v3-for-whom, .v3-choice-grid { grid-template-columns: 1fr; }
     .v3-clean-list { columns: 1; }
     .v3-study { gap: 14px; grid-template-columns: 52px 1fr; }
     .v3-study-marker { font-size: 17px; height: 46px; width: 46px; }
@@ -530,8 +520,9 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
     .v3-comparison article:nth-child(2) { transform: none; }
     .v3-guarantee { grid-template-columns: 1fr; }
     .v3-guarantee-number { border-left: 0; border-top: 1px solid rgba(255,255,255,.2); padding: 24px 0 0; }
-    .v3-price-featured { align-items: start; grid-template-columns: 1fr; padding: 24px; }
-    .v3-price { text-align: left; }
+    .v3-inline-cta { align-items: stretch; grid-template-columns: 1fr; margin-top: -14px; padding: 24px 20px; }
+    .v3-inline-cta .v3-cta { width: 100%; }
+    .v3-next-step { padding: 32px 22px; }
     .v3-closing-image img { min-height: 340px; object-fit: cover; object-position: 60% center; }
     .v3-mobile-cta { background: rgba(251,252,252,.94); bottom: 0; display: block; left: 0; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); position: fixed; right: 0; z-index: 20; }
     .v3-open-loop .v3-mobile-cta { display: none; }
