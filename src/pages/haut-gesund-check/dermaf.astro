@@ -1,0 +1,964 @@
+---
+const title = "Derma Renew Complex | Entwickelt von einer Frau, die es versteht";
+const description =
+  "Derma Renew Complex: Dreischritt-Ansatz mit DHT-Hemmung, Kollagen und Hyaluronsäure für Frauen 40+.";
+
+const ctaUrl = "https://dermapuris.de/product/derma-renew-komplex/";
+
+const heroTestimonials = [
+  {
+    quote:
+      "Ich habe über 3.000€ für Cremes ausgegeben. Nichts half. Nach 8 Wochen mit Derma Renew fragte mich meine Tochter, ob ich etwas gemacht hätte.",
+    author: "Maria K., 52",
+  },
+  {
+    quote:
+      "Endlich jemand, der versteht, was wir durchmachen. Claudias Geschichte hat mich zum Weinen gebracht.",
+    author: "Susanne T., 47",
+  },
+  {
+    quote:
+      "Ich hatte aufgegeben. Dann las ich von DHT. Nach 3 Monaten sah ich im Spiegel wieder die Frau von früher.",
+    author: "Birgit L., 55",
+  },
+  {
+    quote:
+      "Mein Mann hat es bemerkt. Er sagte: Du siehst irgendwie frischer aus. Das war nach 4 Wochen.",
+    author: "Petra K., 44",
+  },
+  {
+    quote:
+      "Ich war skeptisch, weil nichts half. Nach 6 Wochen sehe ich im Spiegel eine andere Frau.",
+    author: "Anna-Lena, 48",
+  },
+];
+
+const ingredients = [
+  {
+    title: "Sägepalme (Serenoa repens)",
+    img: "/images/sawpal.webp",
+    body: "320mg hochkonzentrierter Extrakt, der die kollagenblockierenden Effekte von DHT hemmt.",
+    benefit: "Verlangsamt die Zeichen zukünftiger Hautalterung",
+  },
+  {
+    title: "Hydrolysiertes Kollagen (Typ I & III)",
+    img: "/images/kollagen.webp",
+    body: "500mg ultra-absorbierende Peptide, die den Kollagenvorrat natürlich auffüllen.",
+    benefit: "Straffere, festere Haut",
+  },
+  {
+    title: "Hyaluronsäure (Natriumhyaluronat)",
+    img: "/images/hyalauron.webp",
+    body: "120mg niedermolekulare Hyaluronsäure für zelluläre Hydration.",
+    benefit: "Glättet Linien und Falten",
+  },
+  {
+    title: "Zink",
+    img: "/images/zink.webp",
+    body: "10mg als Unterstützung für Hautregeneration und Kollagensynthese.",
+    benefit: "Unterstützt den natürlichen Heilungsprozess",
+  },
+  {
+    title: "Vitamin C",
+    img: "/images/vitamine.webp",
+    body: "80mg als Kofaktor für die Kollagenstabilisierung.",
+    benefit: "Schützt vor freien Radikalen",
+  },
+  {
+    title: "Biotin",
+    img: "/images/biotin.webp",
+    body: "50µg als klassisches Schönheits-Vitamin für Haut, Haare und Nägel.",
+    benefit: "Positiver Nebeneffekt fürs Gesamtbild",
+  },
+];
+
+const customerTestimonials = [
+  {
+    img: "/images/0img1.webp",
+    quote:
+      "Ich war genau wie Claudia: 3.000€ ausgegeben, kein Ergebnis. Nach 8 Wochen mit Derma Renew fragte mich mein Mann, ob ich etwas gemacht hätte.",
+    author: "Maria K., 52, München",
+  },
+  {
+    img: "/images/0img2.webp",
+    quote:
+      "Endlich jemand, der versteht, was wir durchmachen. Die DHT-Erklärung hat alles Sinn ergeben lassen.",
+    author: "Susanne T., 47, Hamburg",
+  },
+  {
+    img: "/images/0img3.webp",
+    quote:
+      "Nach 3 Monaten sah ich im Spiegel wieder die Frau, die ich vor 10 Jahren kannte.",
+    author: "Birgit L., 55, Köln",
+  },
+  {
+    img: "/images/0img4.webp",
+    quote:
+      "Mein Mann sagte nach 4 Wochen: Du siehst irgendwie frischer aus. Ich habe geweint vor Freude.",
+    author: "Petra K., 44",
+  },
+  {
+    img: "/images/0img5.webp",
+    quote:
+      "Ich war skeptisch, weil nichts half. Nach 6 Wochen sehe ich im Spiegel eine andere Frau.",
+    author: "Anna-Lena, 48",
+  },
+  {
+    img: "/images/0img6.webp",
+    quote:
+      "Zweite Bestellung ist raus. Ich will nie wieder ohne sein. Meine Haut fühlt sich an wie mit 35.",
+    author: "Julia T., 46",
+  },
+];
+
+const timeline = [
+  {
+    phase: "Woche 1-2",
+    body: "Erste subtile Veränderungen: hydratisierteres Hautgefühl, morgens weniger müder Teint.",
+  },
+  {
+    phase: "Monat 1",
+    body: "Sichtbare Texturverbesserung: feinere Hauttextur, verfeinerte Poren, erste Spannkraft-Rückkehr.",
+  },
+  {
+    phase: "Monat 2",
+    body: "Strukturelle Veränderungen: Wangen wirken voller, Linien um die Augen sanfter.",
+  },
+  {
+    phase: "Monat 3",
+    body: "Der Wendepunkt: straffere Konturen, gleichmäßigerer Teint, sichtbarer Glow.",
+  },
+  {
+    phase: "Monat 6",
+    body: "Transformation sichtbar: mehr Selbstbewusstsein und wieder Freude an Fotos.",
+  },
+  {
+    phase: "Monat 12",
+    body: "Neue Normalität: dauerhaft gepflegtes Erscheinungsbild und spürbar verlangsamte Hautalterung.",
+  },
+];
+
+const faqItems = [
+  {
+    q: "Was genau ist der Derma Renew Complex?",
+    a: "Die Formel wurde mit Dr. Thomas Grenzdörffer entwickelt und kombiniert Sägepalme (DHT-Hemmung), hydrolysiertes Kollagen und Hyaluronsäure in einer abgestimmten Rezeptur.",
+  },
+  {
+    q: "Wie schnell sehe ich Ergebnisse?",
+    a: "Viele Kundinnen berichten nach 2-3 Wochen von subtilen Veränderungen. Sichtbare Ergebnisse zeigen sich typischerweise nach 60-90 Tagen.",
+  },
+  {
+    q: "Ist es sicher? Gibt es Nebenwirkungen?",
+    a: "Die Formel besteht aus natürlichen und körpereigenen Stoffen sowie pflanzlichen Extrakten. Bei spezifischen Erkrankungen sollten Sie vorab ärztlichen Rat einholen.",
+  },
+  {
+    q: "Kann ich das während der Wechseljahre nehmen?",
+    a: "Ja, gerade dann ist der Ansatz relevant, da in dieser Phase DHT häufig steigt und Östrogen sinkt.",
+  },
+  {
+    q: "Was ist, wenn es bei mir nicht wirkt?",
+    a: "Sie haben 90 Tage Geld-zurück-Garantie. Wenn Sie nicht zufrieden sind, erhalten Sie den Kaufpreis zurück.",
+  },
+  {
+    q: "Ist das laborgeprüft?",
+    a: "Jede Charge wird von unabhängigen Laboren auf Reinheit und Wirkstoffgehalt geprüft.",
+  },
+  {
+    q: "Wie nehme ich den Derma Renew Complex ein?",
+    a: "Täglich 2 Kapseln mit einem Glas Wasser zu einer Mahlzeit Ihrer Wahl.",
+  },
+  {
+    q: "Warum ist Derma Renew besser als einzelne Produkte?",
+    a: "Die Wirkstoffe sind exakt aufeinander abgestimmt. Einzeln eingesetzt fehlt häufig der ganzheitliche Effekt.",
+  },
+  {
+    q: "Wie wird Derma Renew Complex geliefert?",
+    a: "Diskret in 1-3 Werktagen. SSL-verschlüsselte Zahlung per PayPal, Visa, Mastercard, Klarna oder Apple Pay.",
+  },
+];
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="de_DE" />
+    <link rel="icon" type="image/png" href="/images/gesofav.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="top-bar-wrap">
+      <div class="announcement-bar">
+        <p class="announce-msg">⚠️ WICHTIG: Aktuelle Charge nur noch begrenzt verfügbar - nach der letzten Veröffentlichung war Derma Renew Komplex innerhalb von 11 Tagen ausverkauft</p>
+        <div class="countdown" aria-label="Countdown">
+          <div class="count-item"><span id="days">00</span><small>TAGE</small></div>
+          <div class="count-item"><span id="hours">00</span><small>STD</small></div>
+          <div class="count-item"><span id="minutes">00</span><small>MIN</small></div>
+          <div class="count-item"><span id="seconds">00</span><small>SEK</small></div>
+        </div>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>LIMITIERTES ANGEBOT: BIS ZU 43% SPAREN ✦</span>
+          <span>LIMITIERTES ANGEBOT: BIS ZU 43% SPAREN ✦</span>
+          <span>LIMITIERTES ANGEBOT: BIS ZU 43% SPAREN ✦</span>
+          <span>LIMITIERTES ANGEBOT: BIS ZU 43% SPAREN ✦</span>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero section-pad">
+        <div class="container hero-grid">
+          <div>
+            <h1>Hören Sie auf, sich mit schlaffer Haut, eingefallenen Wangen und dem Gefühl abzufinden, dass Ihre Haut einfach so älter wird</h1>
+            <p class="lead">Für Frauen 40+, die die Ursache adressieren wollen, statt immer neue Cremes zu testen.</p>
+            <a class="btn scroll-to-pricing" href="#pricing">JA, ICH MÖCHTE JÜNGER AUSSEHEN →</a>
+            <div class="trust-row">
+              <div class="avatar-row" aria-hidden="true">
+                <img src="/images/0img1.webp" alt="" loading="lazy" />
+                <img src="/images/0img2.webp" alt="" loading="lazy" />
+                <img src="/images/0img3.webp" alt="" loading="lazy" />
+                <img src="/images/0img4.webp" alt="" loading="lazy" />
+                <img src="/images/0img5.webp" alt="" loading="lazy" />
+              </div>
+              <p>3.847+ zufriedene Kundinnen • ★★★★★ 4.8/5</p>
+              <p class="trust-list">✓ 90-Tage Geld-zurück-Garantie &nbsp; ✓ Kostenloser Versand ab 3 Gläsern</p>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img src="/images/derma-pl.webp" alt="Derma Renew Complex" loading="lazy" />
+          </div>
+        </div>
+        <div class="hero-testimonials-mobile full-bleed">
+          <div class="testimonial-strip">
+            {[...heroTestimonials, ...heroTestimonials.slice(0, 2)].map((item) => (
+              <article class="quote-card">
+                <p class="stars">★★★★★</p>
+                <p>"{item.quote}"</p>
+                <p class="author">— {item.author}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad founder">
+        <div class="container two-col">
+          <img src="/images/151.webp" alt="Claudia M." loading="lazy" />
+          <div>
+            <p class="eyebrow">Gründerin von Derma Renew Complex</p>
+            <h2>Hallo, ich bin Claudia M.</h2>
+            <p>Vor drei Jahren stand ich vor meinem Badezimmerspiegel und weinte. Ich war 49 und hatte gerade 3.000 Euro für eine Anti-Aging-Kur ausgegeben.</p>
+            <p>Meine Wangen waren schlaff, die Kinnlinie verschwamm, ich vermied Spiegel und Fotos. Ich fragte mich immer wieder: Was mache ich falsch?</p>
+            <p>Ich hatte alles probiert: teure Creme, Kollagen-Pulver, Retinol und sogar Botox. Nichts half. Bis ich nachts über DHT las - das Hormon, das keine Creme bekämpfen kann.</p>
+            <p>Gemeinsam mit Dr. Thomas Grenzdörffer entwickelte ich dann die Formel, die ich selbst verzweifelt suchte.</p>
+            <a class="text-link scroll-to-pricing" href="#pricing">Zum Angebot</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad white-bg">
+        <div class="container narrow">
+          <h2>Meine persönliche Odyssee begann mit einer Frage</h2>
+          <p>Als ich mit 49 Jahren in den Spiegel sah, erkannte ich mich kaum wieder. Ich war die perfekte Kundin und kaufte alles, was versprach, mich jünger aussehen zu lassen.</p>
+          <p>500€ Creme, Kollagen-Pulver, Hyaluron-Seren, Retinol, Microneedling, Botox - alles probiert. Und trotzdem wurden die Linien tiefer und die Spannkraft verschwand weiter.</p>
+          <p>Die Antwort war erschütternd: Nichts, was ich auftrage, kann das Problem lösen, das ab 40 wirklich zählt.</p>
+          <img src="/images/1.webp" alt="Schönheitsprodukte ohne Wirkung" loading="lazy" />
+          <a class="text-link scroll-to-pricing" href="#pricing">Jetzt Lösung ansehen</a>
+        </div>
+      </section>
+
+      <section class="section-pad mechanism">
+        <div class="container two-col reverse-mobile">
+          <div>
+            <h2>Das Hormon, von dem Ihnen niemand erzählt (weil es keine Creme bekämpfen kann)</h2>
+            <p>Mit Dr. Thomas Grenzdörffer fand ich die Antwort: DHT, Dihydrotestosteron.</p>
+            <p>Rund um die Perimenopause steigt DHT, während Östrogen sinkt. Das ist der Kipppunkt.</p>
+            <p>DHT blockiert auf zellulärer Ebene die Kollagenbildung in der tiefen Hautschicht - dort, wo keine Creme hinkommt.</p>
+            <p>Das erklärt, warum sich die Haut oft nicht langsam verändert, sondern scheinbar über Nacht.</p>
+            <a class="text-link scroll-to-pricing" href="#pricing">Zur Dreischritt-Lösung</a>
+          </div>
+          <img class="dht-visual" src="/images/dhtw.webp" alt="DHT blockiert Kollagen in der Dermis" loading="lazy" />
+        </div>
+      </section>
+
+      <section class="section-pad white-bg">
+        <div class="container">
+          <h2>Warum Cremes und Kollagen allein das Problem nicht lösen</h2>
+          <div class="split-grid">
+            <article class="compare-card negative">
+              <h3>🚫 Cremes</h3>
+              <p>Selbst teure Cremes erreichen nur die Epidermis. DHT wirkt darunter, in der Dermis. Ich habe 3.000€ für Cremes ausgegeben - sie kamen nie dort an, wo sie gebraucht wurden.</p>
+            </article>
+            <article class="compare-card negative">
+              <h3>🚫 Kollagen allein</h3>
+              <p>Kollagen liefert Bausteine. Aber wenn DHT blockiert, werden sie nicht effizient verbaut. Erst nach DHT-Hemmung konnte mein Körper Kollagen wirklich nutzen.</p>
+            </article>
+          </div>
+          <blockquote>"Wer DHT nicht zuerst adressiert, liefert Baumaterial auf eine Baustelle, die niemand betreten darf." — Dr. Thomas Grenzdörffer, Mitentwickler</blockquote>
+          <img class="cremevis-image" src="/images/cremevis.webp" alt="Creme versus von innen" loading="lazy" />
+          <a class="text-link scroll-to-pricing" href="#pricing">Jetzt Derma Renew entdecken</a>
+        </div>
+      </section>
+
+      <section class="section-pad gradient-bg">
+        <div class="container">
+          <h2>Der Dreischritt-Ansatz, den ich selbst verzweifelt suchte</h2>
+          <div class="step-grid">
+            <article class="step-card">
+              <img src="/images/sawpal.webp" alt="Sägepalme" loading="lazy" />
+              <h3>① DHT hemmen</h3>
+              <p>Sägepalme blockiert das Enzym 5-Alpha-Reduktase. Studien zeigen über Monate eine signifikante Senkung des DHT-Spiegels.</p>
+              <p class="benefit">→ Ermöglicht den Wiederaufbau der Hautstruktur</p>
+            </article>
+            <article class="step-card">
+              <img src="/images/kollagen.webp" alt="Kollagen" loading="lazy" />
+              <h3>② Kollagen von innen aufbauen</h3>
+              <p>Typ I & III Kollagen-Peptide liefern die exakten Bausteine, die die Haut ab 40 weniger produziert.</p>
+              <p class="benefit">→ Für sichtbar straffere, festere Haut</p>
+            </article>
+            <article class="step-card">
+              <img src="/images/hyalauron.webp" alt="Hyaluronsäure" loading="lazy" />
+              <h3>③ Zelluläre Hydration wiederherstellen</h3>
+              <p>Niedermolekulare Hyaluronsäure erreicht die Hautzellen über die Blutbahn und verbessert die Hydration von innen.</p>
+              <p class="benefit">→ Für sichtbar glattere, strahlendere Haut</p>
+            </article>
+          </div>
+          <p class="section-note">Zusammen bilden diese drei Schritte den Ansatz, den ich für mich entwickelt habe - weil nichts anderes funktionierte.</p>
+          <a class="btn ghost scroll-to-pricing" href="#pricing">Zum Paketpreis</a>
+        </div>
+      </section>
+
+      <section class="section-pad">
+        <div class="container two-col">
+          <img src="/images/derma1.webp" alt="Derma Renew Complex Produkt" loading="lazy" />
+          <div>
+            <h2>Darf ich vorstellen: Der Dermapuris Derma Renew Complex</h2>
+            <p class="lead">Alle drei Wirkmechanismen - vereint in einer einzigen täglichen Kapsel.</p>
+            <p>Nach Monaten des Experimentierens gelang es, alle Schlüsselwirkstoffe ohne Wirksamkeitsverlust zu kombinieren.</p>
+            <a class="text-link scroll-to-pricing" href="#pricing">Pakete ansehen</a>
+          </div>
+        </div>
+        <div class="container ingredient-grid six">
+          {ingredients.map((item) => (
+            <article class="ingredient-card">
+              <img src={item.img} alt={item.title} loading="lazy" />
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+              <p class="benefit">→ {item.benefit}</p>
+            </article>
+          ))}
+        </div>
+        <p class="container section-note">PLUS: Vitamin E, Kupfer, Selen für zusätzliche Unterstützung.</p>
+      </section>
+
+      <section class="section-pad white-bg">
+        <div class="container split-grid">
+          <article class="list-card good">
+            <h2>Ist der Derma Renew Complex das Richtige für Sie?</h2>
+            <ul>
+              <li>Frauen 40+, deren Haut scheinbar über Nacht altert</li>
+              <li>Frauen, die Kollagen probiert haben, aber kaum Ergebnisse sahen</li>
+              <li>Frauen, die die Ursache (DHT) statt nur Symptome adressieren wollen</li>
+              <li>Frauen, die einer Gründerin vertrauen, die es selbst erlebt hat</li>
+              <li>Frauen, die eine einfache tägliche Routine suchen</li>
+            </ul>
+          </article>
+          <article class="list-card bad">
+            <h2>Für wen ist es nicht gedacht?</h2>
+            <ul>
+              <li>Wer eine Wunder-Creme für sofortige Effekte erwartet</li>
+              <li>Wer nicht bereit ist, täglich 2 Kapseln einzunehmen</li>
+              <li>Wer glaubt, Hautalterung sei unvermeidbar</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-pad">
+        <div class="container two-col">
+          <div>
+            <h2>Schweizer Präzision - von der Forschung bis zur Kapsel</h2>
+            <p>Als ich Derma Renew entwickelte, war Qualität ohne Kompromisse mein wichtigster Maßstab.</p>
+            <ul class="quality-list">
+              <li>Unabhängige Laborprüfung auf Reinheit und Wirksamkeit</li>
+              <li>Produktion nach GMP-Standards</li>
+              <li>Ohne künstliche Farbstoffe und unnötige Füllstoffe</li>
+            </ul>
+            <p>Was auf dem Etikett steht, ist auch drin. Garantiert.</p>
+            <p>Dr. Grenzdörffer überwacht jeden Schritt, ich teste jede Charge persönlich.</p>
+            <a class="text-link scroll-to-pricing" href="#pricing">Jetzt bestellen</a>
+          </div>
+          <img src="/images/hf_20260216_161752_c56c374f-6b78-4430-be16-b2b59c1a7043.webp" alt="Qualitätskontrolle" loading="lazy" />
+        </div>
+      </section>
+
+      <section class="section-pad gradient-bg">
+        <div class="container">
+          <h2 class="center">Was Sie erwarten können - Monat für Monat</h2>
+          <p class="lead">(Basierend auf meiner eigenen Erfahrung und tausender Kundinnen)</p>
+          <div class="timeline">
+            {timeline.map((item, i) => (
+              <article class={`timeline-item ${i % 2 ? 'right' : 'left'}`}>
+                <h3>{item.phase}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+          <a class="text-link scroll-to-pricing" href="#pricing">Passendes Paket wählen</a>
+        </div>
+      </section>
+
+      <section class="section-pad white-bg">
+        <div class="container">
+          <h2 class="center">Das sagen Frauen, die den Unterschied erlebt haben</h2>
+          <div class="customer-grid">
+            {customerTestimonials.map((item) => (
+              <article class="customer-card">
+                <p class="stars">★★★★★</p>
+                <p>"{item.quote}"</p>
+                <p class="author">— {item.author}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad">
+        <div class="container">
+          <h2 class="center">Warum Derma Renew Complex anders ist</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Kriterium</th>
+                  <th>Derma Renew Complex</th>
+                  <th>Andere Produkte</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Bekämpft DHT</td><td>✓ Ja</td><td>✗ Nein</td></tr>
+                <tr><td>Kollagen von innen</td><td>✓ Ja</td><td>◐ Teilweise</td></tr>
+                <tr><td>Hyaluronsäure oral</td><td>✓ Ja</td><td>✗ Meist topisch</td></tr>
+                <tr><td>Entwickelt von einer Frau</td><td>✓ Ja</td><td>✗ Nein</td></tr>
+                <tr><td>Vitamin-Komplex</td><td>✓ 6+ Vitamine</td><td>✗ Oft keiner</td></tr>
+                <tr><td>Wirkt ganzheitlich</td><td>✓ Haut, Haar, Nägel</td><td>✗ Nur Oberfläche</td></tr>
+                <tr><td>Bioverfügbarkeit</td><td>✓ Maximiert</td><td>✗ Oft gering</td></tr>
+                <tr><td>Drittanbieter-getestet</td><td>✓ Ja</td><td>✗ Selten</td></tr>
+                <tr><td>GMP-zertifiziert</td><td>✓ Ja</td><td>✗ Nicht immer</td></tr>
+                <tr><td>Geld-zurück-Garantie</td><td>✓ 90 Tage</td><td>✗ Meist 14-30 Tage</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <a class="btn scroll-to-pricing" href="#pricing">Jetzt Derma Renew testen</a>
+        </div>
+      </section>
+
+      <section class="section-pad white-bg">
+        <div class="container">
+          <h2 class="center">So einfach ist die Anwendung</h2>
+          <div class="how-grid">
+            <article><span>💊</span><h3>Schritt 1</h3><p>2 Kapseln einnehmen</p></article>
+            <article><span>💧</span><h3>Schritt 2</h3><p>Mit einem Glas Wasser</p></article>
+            <article><span>📅</span><h3>Schritt 3</h3><p>Täglich, am besten morgens</p></article>
+          </div>
+          <p class="section-note">Nehmen Sie 2 Kapseln täglich zu einer Mahlzeit ein. Keine komplizierten Routinen, nur 30 Sekunden am Morgen.</p>
+        </div>
+      </section>
+
+      <section class="section-pad pricing" id="pricing">
+        <div class="container">
+          <h2 class="center">Wählen Sie Ihre Haut-Routine</h2>
+          <p class="lead center">Wählen Sie Ihr Paket - und sparen Sie bis zu 43%</p>
+          <div class="pricing-grid">
+            <article class="price-card">
+              <h3>Probierpaket</h3>
+              <p class="small">1x DERMA RENEW COMPLEX</p>
+              <p class="small">★★★★★ (4.8)</p>
+              <p class="price-old">statt 49,00€</p>
+              <p class="price-new">NUR 37,90€</p>
+              <p class="small">11,10€ gespart</p>
+              <a class="btn" href="https://dermapuris.de/cart/52503609278805:1">JETZT BESTELLEN</a>
+              <p class="small">✓ 90-Tage Geld-zurück-Garantie</p>
+            </article>
+            <article class="price-card featured">
+              <p class="badge">🏷️ BESTER WERT</p>
+              <h3>6 Monate Vorrat</h3>
+              <p class="small">6x DERMA RENEW COMPLEX</p>
+              <p class="small">★★★★★ (4.8)</p>
+              <p class="price-old">statt 294,00€</p>
+              <p class="price-new">NUR 27,90€ / Stück</p>
+              <p class="small">167,40€ gesamt (126,60€ gespart)</p>
+              <a class="btn" href="https://dermapuris.de/cart/52503609278805:6">JETZT BESTELLEN</a>
+              <p class="small">✓ Garantie ✓ Kostenloser Versand</p>
+            </article>
+            <article class="price-card">
+              <h3>3 Monate Transformation</h3>
+              <p class="small">3x DERMA RENEW COMPLEX</p>
+              <p class="small">★★★★★ (4.8)</p>
+              <p class="price-old">statt 147,00€</p>
+              <p class="price-new">NUR 34,90€ / Stück</p>
+              <p class="small">104,70€ gesamt (42,30€ gespart)</p>
+              <a class="btn" href="https://dermapuris.de/cart/52503609278805:3">JETZT BESTELLEN</a>
+              <p class="small">✓ Garantie ✓ Kostenloser Versand</p>
+              <p class="small highlight">(Das ist das Paket, das ich selbst nehme)</p>
+            </article>
+          </div>
+          <p class="payment-row">💳 Sichere Bezahlung: PayPal, Visa, Mastercard, Klarna, Apple Pay</p>
+          <p class="payment-row">🔒 SSL-verschlüsselt für Ihren vollständigen Schutz</p>
+          <p class="payment-row">📦 Schneller, diskreter Versand (1-3 Werktage)</p>
+        </div>
+      </section>
+
+      <section class="section-pad white-bg">
+        <div class="container">
+          <div class="badge-row">
+            <article>🚚 SCHNELLER VERSAND</article>
+            <article>🔒 SICHERE BEZAHLUNG</article>
+            <article>🛡 90-TAGE GELD-ZURÜCK</article>
+            <article>🧪 LABORGEPRÜFT</article>
+          </div>
+          <article class="guarantee-box">
+            <h2>Unsere 90-Tage Geld-zurück-Garantie</h2>
+            <p>Ich bin so überzeugt, dass Sie die Ergebnisse lieben werden, dass ich Ihnen volle 90 Tage Zeit gebe, es risikofrei auszuprobieren.</p>
+            <p>Wenn Sie unzufrieden sind, senden Sie die Dosen zurück - selbst wenn sie leer sind - und Sie erhalten den vollen Kaufpreis zurück.</p>
+            <p>Keine Fragen. Kein Ärger. Kontaktieren Sie mich persönlich unter <a href="mailto:info@dermpauris.de">info@dermpauris.de</a>.</p>
+            <p>Ich trage das Risiko, nicht Sie.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-pad mission">
+        <div class="container narrow center">
+          <h2>Meine Überzeugung</h2>
+          <p>Ich glaube, dass jede Frau es verdient, sich in ihrer Haut wohlzufühlen - in jedem Alter.</p>
+          <p>Ich glaube nicht an leere Versprechen. Ich glaube an Wissenschaft.</p>
+          <p>Seit der Gründung haben wir über 3.847 Frauen geholfen, ihre Haut von innen heraus zu verjüngen.</p>
+          <a class="btn scroll-to-pricing" href="#pricing">JETZT BESTELLEN &amp; BIS ZU 43% SPAREN →</a>
+        </div>
+      </section>
+
+      <section class="section-pad white-bg faq-section">
+        <div class="container narrow">
+          <h2>Häufig gestellte Fragen</h2>
+          <div class="faq">
+            {faqItems.map((item, idx) => (
+              <article class="faq-item">
+                <button class="faq-question" aria-expanded={idx === 0 ? 'true' : 'false'}>
+                  <span>{item.q}</span>
+                  <span>+</span>
+                </button>
+                <div class={`faq-answer ${idx === 0 ? 'open' : ''}`}>
+                  <p>{item.a}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad final-cta">
+        <div class="container narrow center">
+          <h2>Sie stehen an einem Scheideweg</h2>
+          <p>Sie können weitersuchen und weitere Cremes testen. Oder Sie probieren den Ansatz, der DHT wirklich blockiert - risikofrei.</p>
+          <p>Für weniger als 1€ pro Tag. Mit Geld-zurück-Garantie.</p>
+          <p>Ich habe diesen Schritt vor drei Jahren gewagt. Es war die beste Entscheidung meines Lebens.</p>
+          <p>Mit herzlichen Grüßen,<br />Claudia M.</p>
+          <a class="btn" href={ctaUrl}>JETZT BESTELLEN &amp; BIS ZU 43% SPAREN →</a>
+          <p class="small final-benefits">✓ 90-Tage Geld-zurück-Garantie ✓ Kostenloser Versand ab 3 Gläsern ✓ Lieferung in 1-3 Werktagen</p>
+          <p class="warning">⚠️ Hinweis: Aufgrund hoher Nachfrage war die letzte Charge innerhalb von 11 Tagen ausverkauft.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <h3>DERMAPURIS</h3>
+          <p>Hautpflege von innen - entwickelt von einer Frau, die es versteht.</p>
+          <p><a href="mailto:info@dermpauris.de">info@dermpauris.de</a></p>
+        </div>
+        <nav>
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+          <a href="#">AGB</a>
+          <a href="#">Widerrufsbelehrung</a>
+          <a href="mailto:info@dermpauris.de">Kontakt</a>
+        </nav>
+      </div>
+      <p class="container legal">© 2025 Dermapuris. Alle Rechte vorbehalten. * Nahrungsergänzungsmittel. Kein Ersatz für eine ausgewogene Ernährung und gesunde Lebensweise.</p>
+    </footer>
+
+    <a class="mobile-sticky-cta" href="#pricing">Jetzt bestellen</a>
+
+    <script is:inline>
+      const END_KEY = 'dermaf-rolling-end';
+      const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+      const pad = (v) => String(v).padStart(2, '0');
+
+      const getEndDate = () => {
+        const stored = Number(window.localStorage.getItem(END_KEY));
+        const now = Date.now();
+        if (!stored || stored <= now) {
+          const next = now + ONE_DAY_MS;
+          window.localStorage.setItem(END_KEY, String(next));
+          return next;
+        }
+        return stored;
+      };
+
+      let countdownEnd = getEndDate();
+
+      const renderCountdown = () => {
+        const now = Date.now();
+        if (countdownEnd <= now) {
+          countdownEnd = now + ONE_DAY_MS;
+          window.localStorage.setItem(END_KEY, String(countdownEnd));
+        }
+
+        const diff = countdownEnd - now;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById('days').textContent = pad(days);
+        document.getElementById('hours').textContent = pad(hours);
+        document.getElementById('minutes').textContent = pad(minutes);
+        document.getElementById('seconds').textContent = pad(seconds);
+      };
+
+      renderCountdown();
+      window.setInterval(renderCountdown, 1000);
+
+      document.querySelectorAll('.scroll-to-pricing').forEach((el) => {
+        el.addEventListener('click', (event) => {
+          event.preventDefault();
+          document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      const faqItems = Array.from(document.querySelectorAll('.faq-item'));
+      faqItems.forEach((item) => {
+        const button = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        button?.addEventListener('click', () => {
+          const willOpen = !answer?.classList.contains('open');
+          faqItems.forEach((other) => {
+            other.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+            other.querySelector('.faq-answer')?.classList.remove('open');
+          });
+          if (willOpen) {
+            button.setAttribute('aria-expanded', 'true');
+            answer?.classList.add('open');
+          }
+        });
+      });
+    </script>
+
+    <style>
+      :root {
+        --bg: #FFF8F0;
+        --white: #FFFFFF;
+        --rose-gold: #C4956A;
+        --burgundy: #6B2D5B;
+        --gold: #D4A76A;
+        --text: #2D2D2D;
+        --muted: #6B6B6B;
+        --success: #4A8C5C;
+        --error: #C45B5B;
+      }
+
+      * { box-sizing: border-box; }
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+
+      body {
+        margin: 0;
+        padding-top: 116px;
+        font-family: 'DM Sans', sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3 {
+        font-family: 'Playfair Display', serif;
+        line-height: 1.2;
+        margin: 0 0 1rem;
+        color: #2f2330;
+      }
+
+      p { margin: 0 0 1rem; }
+      .container { width: min(1120px, 92vw); margin: 0 auto; }
+      .narrow { width: min(800px, 92vw); }
+      .center { text-align: center; }
+      .section-pad { padding: 4.5rem 0; }
+      .white-bg { background: var(--white); }
+      .gradient-bg { background: radial-gradient(circle at top right, #ffe8d4, #fff8f0 55%, #fff 100%); }
+
+      .top-bar-wrap { position: fixed; inset: 0 0 auto 0; z-index: 60; }
+      .announcement-bar {
+        background: linear-gradient(90deg, var(--burgundy), #8f4f79 45%, var(--rose-gold));
+        color: #fff;
+        text-align: center;
+        padding: 0.45rem 0.8rem 0.55rem;
+      }
+      .announce-msg { font-size: 0.77rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem; }
+      .countdown { display: flex; justify-content: center; gap: 0.42rem; }
+      .count-item { min-width: 52px; border-radius: 0.55rem; background: rgba(255, 255, 255, 0.16); padding: 0.2rem 0.32rem; }
+      .count-item span { display: block; font-weight: 700; line-height: 1; }
+      .count-item small { font-size: 0.6rem; letter-spacing: 0.1em; }
+
+      .marquee { overflow: hidden; white-space: nowrap; background: #f5e6d5; color: #5b3250; border-bottom: 1px solid #e8d5c5; }
+      .marquee-track { display: inline-flex; gap: 2.3rem; padding: 0.45rem 0; animation: marquee 22s linear infinite; }
+      @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+      .hero-grid, .two-col { display: grid; gap: 2rem; align-items: center; }
+      .hero-grid { grid-template-columns: 1.05fr 1fr; }
+      .two-col { grid-template-columns: 1fr 1fr; }
+      h1 { font-size: clamp(1.5rem, 3.45vw, 2.48rem); }
+      h2 { font-size: clamp(1.7rem, 3.2vw, 2.55rem); }
+      h3 { font-size: 1.3rem; }
+
+      .lead { color: var(--muted); font-size: 1.06rem; }
+      .lead.center { margin-inline: auto; max-width: 640px; }
+      .eyebrow { color: var(--rose-gold); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.76rem; font-weight: 700; }
+
+      .btn {
+        display: inline-block;
+        border-radius: 999px;
+        padding: 0.85rem 1.3rem;
+        text-decoration: none;
+        background: linear-gradient(135deg, var(--burgundy), #874672);
+        color: #fff;
+        font-weight: 700;
+        box-shadow: 0 8px 20px rgba(107, 45, 91, 0.22);
+      }
+      .btn.ghost { background: transparent; border: 1px solid var(--rose-gold); color: #5d304b; box-shadow: none; }
+      .text-link { color: #5d304b; font-weight: 700; text-decoration: underline; }
+
+      .avatar-row { display: flex; margin: 0.8rem 0; }
+      .avatar-row img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; margin-right: -10px; }
+      .trust-list { color: #2f6f3d; font-weight: 500; }
+
+      .hero-visual img,
+      .two-col img,
+      .narrow img,
+      .step-card img,
+      .customer-card img { width: 100%; display: block; border-radius: 1rem; }
+      .ingredient-card img {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 0.85rem;
+        display: block;
+      }
+      .cremevis-image {
+        display: block;
+        width: min(460px, 82vw);
+        margin: 1rem auto;
+        border-radius: 0.9rem;
+        filter: saturate(0.72) contrast(0.92) brightness(1.02);
+      }
+      .dht-visual {
+        width: min(520px, 62vw);
+        max-width: 100%;
+        margin-inline: auto;
+      }
+
+      .hero-visual img {
+        padding: 1rem;
+        background: radial-gradient(circle at 10% 10%, #ffe9d2, #fff8f0 58%, #ffffff);
+      }
+
+      .hero-testimonials-mobile {
+        margin-top: 1.6rem;
+        overflow-x: hidden;
+        padding-inline: 0;
+      }
+      .full-bleed {
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+      .testimonial-strip { display: flex; gap: 1rem; width: max-content; animation: slider 36s linear infinite; }
+      @keyframes slider { from { transform: translateX(0); } to { transform: translateX(-46%); } }
+
+      .quote-card, .compare-card, .list-card, .ingredient-card, .customer-card, .step-card {
+        background: #fff;
+        border: 1px solid #efdcc9;
+        border-radius: 1rem;
+        padding: 1rem;
+      }
+      .step-card h3 {
+        margin-top: 0.85rem;
+      }
+      .quote-card {
+        width: 320px;
+      }
+      .stars { color: #c58a2f; }
+      .author { color: #654158; font-weight: 700; }
+
+      .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+      .negative { border-left: 4px solid var(--error); }
+      blockquote {
+        margin: 1.2rem 0;
+        border-left: 4px solid var(--rose-gold);
+        background: #fef1e4;
+        border-radius: 0.8rem;
+        padding: 1rem;
+        color: #5e4558;
+      }
+
+      .step-grid, .ingredient-grid, .customer-grid, .how-grid, .pricing-grid, .badge-row {
+        display: grid;
+        gap: 1rem;
+      }
+      .step-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ingredient-grid.six { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 1.3rem; }
+      .customer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .how-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .pricing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .badge-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+      .benefit { color: #5a7d45; font-weight: 700; }
+      .section-note { margin-top: 1rem; color: #6b3e5d; }
+
+      .list-card ul, .quality-list { padding-left: 1.15rem; margin: 0; }
+      .list-card h2 { font-size: clamp(1.45rem, 2.35vw, 1.95rem); }
+      .list-card.good li::marker, .quality-list li::marker { color: var(--success); }
+      .list-card.bad li::marker { color: var(--error); }
+
+      .timeline { position: relative; display: grid; gap: 1rem; }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #ebd7c8;
+        transform: translateX(-50%);
+      }
+      .timeline-item {
+        width: calc(50% - 1.1rem);
+        background: #fff;
+        border: 1px solid #ead7c6;
+        border-radius: 0.9rem;
+        padding: 0.95rem;
+      }
+      .timeline-item.left { justify-self: start; }
+      .timeline-item.right { justify-self: end; }
+
+      .table-wrap {
+        overflow-x: auto;
+        border: 1px solid #eddccf;
+        border-radius: 0.9rem;
+        background: #fff;
+        margin: 1rem 0 1.3rem;
+      }
+      table { width: 100%; border-collapse: collapse; min-width: 700px; }
+      th, td { border-bottom: 1px solid #f1e3d7; padding: 0.8rem; text-align: left; }
+      th { background: #f8ebdf; }
+
+      .how-grid article { text-align: center; padding: 1rem; border: 1px solid #eedaca; border-radius: 1rem; background: #fff; }
+      .how-grid span { font-size: 2rem; }
+
+      .pricing { background: linear-gradient(180deg, #fff7ef, #fffdf9); }
+      .price-card { background: #fff; border: 1px solid #e8d2c1; border-radius: 1rem; padding: 1rem; }
+      .price-card.featured { border-color: var(--rose-gold); box-shadow: 0 14px 28px rgba(133, 75, 101, 0.18); }
+      .badge { display: inline-block; margin-bottom: 0.4rem; border-radius: 999px; padding: 0.2rem 0.6rem; background: #f5dfc8; color: #654158; font-size: 0.75rem; font-weight: 700; }
+      .price-old { color: #826f64; text-decoration: line-through; margin-bottom: 0.2rem; }
+      .price-new { font-size: 1.75rem; font-weight: 700; color: var(--burgundy); margin-bottom: 0.25rem; }
+      .small { font-size: 0.92rem; color: var(--muted); }
+      .small.highlight { color: #70496a; font-weight: 700; }
+      .payment-row { text-align: center; margin-top: 0.35rem; color: #5f5654; }
+
+      .badge-row article { text-align: center; border: 1px solid #e8d4c4; border-radius: 0.9rem; padding: 0.9rem; background: #fff; }
+      .guarantee-box { margin-top: 1rem; background: linear-gradient(145deg, #fff4e7, #fff); border: 1px solid #ebd8c9; border-radius: 1rem; padding: 1.2rem; }
+
+      .mission {
+        color: #fff;
+        background:
+          linear-gradient(rgba(107, 45, 91, 0.75), rgba(107, 45, 91, 0.75)),
+          url('/images/hero1.webp') center/cover;
+      }
+      .mission h2, .final-cta h2 { color: #fff; }
+
+      .faq { display: grid; gap: 0.75rem; }
+      .faq-item { border: 1px solid #eddccf; border-radius: 0.8rem; background: #fff; }
+      .faq-question {
+        width: 100%;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        text-align: left;
+        padding: 0.95rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font: inherit;
+        font-weight: 700;
+      }
+      .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.28s ease; }
+      .faq-answer p { margin: 0; padding: 0 1rem 1rem; color: #5a5753; }
+      .faq-answer.open { max-height: 240px; }
+
+      .final-cta { background: linear-gradient(120deg, #7b4267, #9a6285 42%, #c4956a 100%); color: #fff; }
+      .final-cta .btn { margin-bottom: 1rem; }
+      .final-cta .small { color: #fff; }
+      .final-cta p.final-benefits { color: #fff !important; }
+      .warning { color: #fff1d8; }
+
+      footer { background: #2f2330; color: #f2e6dc; padding: 2rem 0 5rem; }
+      .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 1rem; }
+      footer nav { display: grid; gap: 0.5rem; }
+      footer nav a, footer a { color: #f2e6dc; text-decoration: none; }
+      .legal { margin-top: 1rem; color: #d8c2b3; font-size: 0.85rem; }
+
+      .mobile-sticky-cta {
+        display: none;
+        position: fixed;
+        left: 0.8rem;
+        right: 0.8rem;
+        bottom: 0.8rem;
+        z-index: 70;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 999px;
+        padding: 0.9rem 1rem;
+        background: linear-gradient(135deg, var(--burgundy), #91557b);
+        color: #fff;
+        font-weight: 700;
+        box-shadow: 0 10px 24px rgba(70, 32, 58, 0.38);
+      }
+
+      @media (max-width: 840px) {
+        body { padding-top: 124px; }
+        .section-pad { padding: 3rem 0; }
+        .hero-grid, .two-col, .split-grid, .step-grid, .ingredient-grid.six, .customer-grid, .how-grid, .pricing-grid, .badge-row, .footer-grid { grid-template-columns: 1fr; }
+        .reverse-mobile > :first-child { order: 2; }
+        .timeline::before { left: 10px; }
+        .timeline-item, .timeline-item.left, .timeline-item.right { width: 100%; justify-self: stretch; margin-left: 1.2rem; }
+        .mobile-sticky-cta { display: block; }
+        .quote-card { width: 280px; }
+      }
+    </style>
+  </body>
+</html>

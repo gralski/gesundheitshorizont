@@ -1,5 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { getDateLocale, normalizeLocale } from '../i18n/locale';
+import { ui } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -21,6 +23,7 @@ interface Props {
   sidebarCta?: string;
   sidebarCtaUrl?: string;
   sidebarImage?: string;
+  locale?: 'de' | 'fr';
 }
 
 const {
@@ -42,27 +45,30 @@ const {
   sidebarDescription,
   sidebarCta,
   sidebarCtaUrl,
-  sidebarImage
+  sidebarImage,
+  locale: rawLocale = 'de'
 } = Astro.props;
+const locale = normalizeLocale(rawLocale);
+const t = ui[locale];
 
-const formattedDate = pubDate.toLocaleDateString('de-DE', {
+const formattedDate = pubDate.toLocaleDateString(getDateLocale(locale), {
   day: 'numeric',
   month: 'long',
   year: 'numeric'
 });
 ---
 
-<BaseLayout title={title} description={description} image={heroImage}>
+<BaseLayout title={title} description={description} image={heroImage} locale={locale}>
 
   <!-- Sticky Top Banner -->
   <div class="sticky top-0 z-50 bg-primary text-white py-2.5 px-4 text-center">
     <div class="flex items-center justify-center gap-3 text-sm sm:text-base">
-      <span class="font-medium">Entdecken Sie strahlende Haut</span>
+      <span class="font-medium">{locale === 'fr' ? 'Découvrez une peau éclatante' : 'Entdecken Sie strahlende Haut'}</span>
       <a
         href={ctaUrl}
         class="inline-flex items-center px-4 py-1.5 bg-white text-primary font-bold text-xs sm:text-sm rounded hover:bg-gray-100 transition-colors uppercase tracking-wide"
       >
-        Jetzt ansehen
+        {locale === 'fr' ? 'Voir maintenant' : 'Jetzt ansehen'}
       </a>
     </div>
   </div>
@@ -78,7 +84,7 @@ const formattedDate = pubDate.toLocaleDateString('de-DE', {
           <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
           </svg>
-          <span class="text-sm text-slate-300">Basierend auf verifizierten Kundenerfahrungen</span>
+          <span class="text-sm text-slate-300">{locale === 'fr' ? 'Basé sur des expériences clients vérifiées' : 'Basierend auf verifizierten Kundenerfahrungen'}</span>
         </div>
 
         <!-- Author & Date -->
@@ -97,8 +103,8 @@ const formattedDate = pubDate.toLocaleDateString('de-DE', {
             </div>
           )}
           <div>
-            <p class="text-sm text-slate-400">Von <span class="text-white font-medium">{author}</span></p>
-            <p class="text-xs text-slate-500">Aktualisiert am {formattedDate}</p>
+            <p class="text-sm text-slate-400">{locale === 'fr' ? 'Par' : 'Von'} <span class="text-white font-medium">{author}</span></p>
+            <p class="text-xs text-slate-500">{locale === 'fr' ? 'Mis à jour le' : 'Aktualisiert am'} {formattedDate}</p>
           </div>
         </div>
 
@@ -164,7 +170,7 @@ const formattedDate = pubDate.toLocaleDateString('de-DE', {
                 </div>
               )}
               <div>
-                <p class="text-xs uppercase tracking-wider text-gray-400 mb-1">Verfasst von</p>
+                <p class="text-xs uppercase tracking-wider text-gray-400 mb-1">{t.article.writtenBy}</p>
                 <p class="font-semibold text-lg text-gray-900">{author}</p>
                 <p class="text-sm text-gray-600 mt-2">
                   {authorRole} mit über 20 Jahren klinischer Erfahrung in der dermatologischen Praxis.
@@ -185,7 +191,7 @@ const formattedDate = pubDate.toLocaleDateString('de-DE', {
                 <div class="p-6 pb-0">
                   <img
                     src={sidebarImage}
-                    alt={sidebarTitle || "Promotion"}
+                    alt={sidebarTitle || t.article.promoTitle}
                     class="w-full h-auto rounded-lg"
                   />
                 </div>
@@ -201,16 +207,16 @@ const formattedDate = pubDate.toLocaleDateString('de-DE', {
 
               <div class="p-6">
                 <h3 class="text-xl font-bold mb-3">
-                  {sidebarTitle || "Entdecken Sie mehr"}
+                  {sidebarTitle || t.article.promoTitle}
                 </h3>
                 <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                  {sidebarDescription || "Erfahren Sie mehr über unsere Produkte und wie sie Ihnen zu einem gesünderen Leben verhelfen können."}
+                  {sidebarDescription || t.article.promoBody}
                 </p>
                 <a
                   href={sidebarCtaUrl || "#"}
                   class="inline-flex items-center justify-center w-full px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-colors"
                 >
-                  {sidebarCta || "Mehr erfahren"}
+                  {sidebarCta || t.article.promoCta}
                   <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

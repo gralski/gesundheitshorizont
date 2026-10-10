@@ -1,12 +1,22 @@
 ---
+import { normalizeLocale } from '../i18n/locale';
+import { ui } from '../i18n/ui';
+
+interface Props {
+  locale?: 'de' | 'fr';
+}
+
+const { locale: rawLocale = 'de' } = Astro.props;
+const locale = normalizeLocale(rawLocale);
+const t = ui[locale];
 const currentPath = Astro.url.pathname;
 
 const navItems = [
-  { href: "/", label: "Startseite" },
-  { href: "/kategorie/gehirngesundheit", label: "Gehirngesundheit" },
-  { href: "/kategorie/ernaehrung", label: "Ernährung" },
-  { href: "/kategorie/langlebigkeit", label: "Langlebigkeit" },
-  { href: "/kategorie/forschung", label: "Forschung" },
+  { href: "/", label: t.nav.home },
+  { href: "/kategorie/gehirngesundheit", label: t.nav.brainHealth },
+  { href: "/kategorie/ernaehrung", label: t.nav.nutrition },
+  { href: "/kategorie/langlebigkeit", label: t.nav.longevity },
+  { href: "/kategorie/forschung", label: t.nav.research },
 ];
 
 // Only exact match or direct child path for active state
@@ -21,9 +31,10 @@ const isActive = (href: string) => {
     <div class="flex items-center justify-between py-3">
 
       <!-- Logo - Left aligned -->
-      <span class="group flex-shrink-0 sm:-ml-20 cursor-pointer">
-        <img src="/images/geshoz.png" alt="Gesundheitshorizont" class="h-6 sm:h-10 w-auto" />
-      </span>
+      <a href="/" class="brand-mark group flex-shrink-0 sm:-ml-20" aria-label="Auramio - Startseite">
+        <span class="brand-symbol" aria-hidden="true">a</span>
+        <span class="brand-name">auramio</span>
+      </a>
 
       <!-- Desktop Navigation - Right aligned -->
       <nav class="hidden sm:block">
@@ -44,7 +55,7 @@ const isActive = (href: string) => {
       <button
         type="button"
         class="sm:hidden text-gray-600 hover:text-primary p-1"
-        aria-label="Menu öffnen"
+        aria-label={t.nav.openMenu}
         onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -72,7 +83,57 @@ const isActive = (href: string) => {
 </header>
 
 <style>
-  .font-serif {
-    font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
+  .brand-mark {
+    align-items: center;
+    color: #162d33;
+    display: inline-flex;
+    gap: .48rem;
+    text-decoration: none;
+  }
+
+  .brand-symbol {
+    align-items: center;
+    background: #0d9488;
+    border-radius: 50%;
+    color: #fff;
+    display: inline-flex;
+    font-family: Georgia, Cambria, 'Times New Roman', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    height: 1.72rem;
+    justify-content: center;
+    line-height: 1;
+    transition: transform .2s ease, background-color .2s ease;
+    width: 1.72rem;
+  }
+
+  .brand-name {
+    font-size: 1.25rem;
+    font-weight: 750;
+    letter-spacing: -.055em;
+    line-height: 1;
+  }
+
+  .brand-mark:hover .brand-symbol {
+    background: #0f766e;
+    transform: translateY(-1px);
+  }
+
+  @media (min-width: 640px) {
+    .brand-symbol {
+      font-size: 1.55rem;
+      height: 2.28rem;
+      width: 2.28rem;
+    }
+
+    .brand-name {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .brand-symbol {
+      transition: none;
+    }
   }
 </style>

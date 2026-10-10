@@ -41,7 +41,7 @@ Lesen Sie weiter und entdecken Sie, warum ich — und tausende andere Frauen —
 
 ---
 
-<div class="two-col">
+<div class="two-col reversed">
 <div class="col-text">
 
 ## Grund 1: Erleben Sie eine echte Transformation — keine leeren Versprechen
@@ -64,7 +64,7 @@ Während andere kurzfristige "Wundermittel" nur an der Oberfläche kratzen, erle
 
 ---
 
-<div class="two-col reversed">
+<div class="two-col">
 <div class="col-text">
 
 ## Grund 2: Speziell entwickelt für die Herausforderungen reifer Haut
@@ -98,7 +98,7 @@ Das Forschungsteam hat **über 3 Jahre intensiv** daran gearbeitet, die perfekte
 
 ---
 
-<div class="two-col">
+<div class="two-col reversed">
 <div class="col-text">
 
 ## Grund 3: Erstklassige Inhaltsstoffe aus der Natur — wissenschaftlich optimiert
@@ -124,44 +124,28 @@ Derma Renew Complex vereint **sorgfältig ausgewählte, hochwertige Naturstoffe*
 
 ---
 
+<div class="two-col">
+<div class="col-text">
+
 ## Grund 4: Begeisterte Kundinnen geben uns 4.8 von 5 Sternen
 
 **Über 12.000 verifizierte Bewertungen** — lesen Sie, was echte Frauen berichten:
 
-<div class="testimonial-card">
-<div class="stars">★★★★★</div>
-<div class="badge">Verifizierte Käuferin</div>
-<blockquote>
-"Meine Haut sieht nicht nur jünger aus — sie fühlt sich auch so an! Ich habe endlich wieder Freude am Blick in den Spiegel."
-</blockquote>
-<p class="author">— Maria, 42, München</p>
-</div>
+**★★★★★** *"Meine Haut sieht nicht nur jünger aus — sie fühlt sich auch so an! Ich habe endlich wieder Freude am Blick in den Spiegel."*
+— Maria, 42, München
 
-<div class="testimonial-card">
-<div class="stars">★★★★★</div>
-<div class="badge">Verifizierte Käuferin</div>
-<blockquote>
-"Nach nur 6 Wochen haben mich Freundinnen gefragt, ob ich etwas an meiner Hautpflege verändert habe. Die Ergebnisse sind wirklich sichtbar — und ich habe nur eine Sache geändert."
-</blockquote>
-<p class="author">— Sandra, 55, Hamburg</p>
-</div>
+**★★★★★** *"Nach nur 6 Wochen haben mich Freundinnen gefragt, ob ich etwas an meiner Hautpflege verändert habe. Die Ergebnisse sind wirklich sichtbar."*
+— Sandra, 55, Hamburg
 
-<div class="testimonial-card">
-<div class="stars">★★★★★</div>
-<div class="badge">Verifizierte Käuferin</div>
-<blockquote>
-"Die feinen Linien um meine Augen sind deutlich zurückgegangen. Ich fühle mich wieder richtig wohl in meiner Haut — zum ersten Mal seit Jahren!"
-</blockquote>
-<p class="author">— Christine, 47, Berlin</p>
-</div>
+**★★★★★** *"Die feinen Linien um meine Augen sind deutlich zurückgegangen. Ich fühle mich wieder richtig wohl in meiner Haut!"*
+— Christine, 47, Berlin
 
-<div class="testimonial-card">
-<div class="stars">★★★★★</div>
-<div class="badge">Verifizierte Käuferin</div>
-<blockquote>
-"Nicht nur mein Gesicht, auch die Haut an meinen Armen und meinem Dekolleté ist straffer und schöner geworden. Mein Mann hat es sofort bemerkt."
-</blockquote>
-<p class="author">— Petra, 58, Wien</p>
+</div>
+<div class="col-image">
+
+![Kundenbewertungen](/images/placeholder-reviews.webp)
+
+</div>
 </div>
 
 ---
@@ -212,6 +196,37 @@ Aber wir gehen noch weiter: Wir sind so überzeugt von der Wirkung, dass wir Ihn
 
 <div class="cta-center">
 <a href="https://dermapuris.de/products/derma-renew-komplex?variant=52502210543957" class="cta-button">Jetzt risikofrei testen →</a>
+</div>
+
+---
+
+<div class="two-col reversed">
+<div class="col-text">
+
+## Grund 7: Die beste Zeit zu starten ist jetzt
+
+Jeden Tag, an dem Sie warten, verliert Ihre Haut weiter an Kollagen. Der Prozess beschleunigt sich mit jedem Jahr.
+
+**Aber das muss nicht so weitergehen.**
+
+Mit dem Derma Renew Complex haben Sie jetzt die Möglichkeit, diesen Prozess zu verlangsamen — und sogar umzukehren.
+
+- **Kein Risiko** — 90-Tage-Geld-zurück-Garantie
+- **Keine Wartezeit** — Schneller Versand
+- **Keine komplizierten Routinen** — Nur 2 Kapseln täglich
+
+**Die Frage ist nicht, ob Sie etwas für Ihre Haut tun wollen.** Die Frage ist, ob Sie bereit sind, endlich einen Ansatz zu wählen, der wirklich funktioniert.
+
+</div>
+<div class="col-image">
+
+![Jetzt starten](/images/placeholder-start.webp)
+
+</div>
+</div>
+
+<div class="cta-center">
+<a href="https://dermapuris.de/products/derma-renew-komplex?variant=52502210543957" class="cta-button">Jetzt Ihre Hautverjüngung starten →</a>
 </div>
 
 ---
@@ -343,26 +358,6 @@ Aktivieren Sie die natürliche Regenerationskraft Ihrer Haut.
 
 <a href="https://dermapuris.de/products/derma-renew-komplex?variant=52502210543957" class="cta-button">Jetzt Verfügbarkeit prüfen →</a>
 
-</div>
-
----
-
-## Grund 7: Die beste Zeit zu starten ist jetzt
-
-Jeden Tag, an dem Sie warten, verliert Ihre Haut weiter an Kollagen. Der Prozess beschleunigt sich mit jedem Jahr.
-
-**Aber das muss nicht so weitergehen.**
-
-Mit dem Derma Renew Complex haben Sie jetzt die Möglichkeit, diesen Prozess zu verlangsamen — und sogar umzukehren.
-
-- **Kein Risiko** — 90-Tage-Geld-zurück-Garantie
-- **Keine Wartezeit** — Schneller Versand
-- **Keine komplizierten Routinen** — Nur 2 Kapseln täglich
-
-**Die Frage ist nicht, ob Sie etwas für Ihre Haut tun wollen.** Die Frage ist, ob Sie bereit sind, endlich einen Ansatz zu wählen, der wirklich funktioniert.
-
-<div class="cta-center">
-<a href="https://dermapuris.de/products/derma-renew-komplex?variant=52502210543957" class="cta-button">Jetzt Ihre Hautverjüngung starten →</a>
 </div>
 
 ---

@@ -1,0 +1,874 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "7 Gründe warum Frauen ab 40 zu diesem revolutionären Hautkomplex greifen";
+const titleHighlight = "revolutionären Hautkomplex";
+const description = "Entdecken Sie den Durchbruch in der Hautpflege, der Ihre Haut um Jahre verjüngen kann — und warum über 12.000 Frauen bereits begeistert sind.";
+const author = "Sarah Ziegler";
+const authorRole = "Medizinische Redaktion";
+const authorAvatar = "/images/stephanm.webp";
+const heroImage = "/images/0img1.webp";
+const ctaUrl = "https://dermapuris.de/products/derma-renew-komplex?variant=52502210543957";
+
+const formattedDate = new Date('2026-02-16').toLocaleDateString('de-DE', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+---
+
+<BaseLayout title={title} description={description} image={heroImage}>
+
+  <article class="derma-page">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="author-info">
+          <img src={authorAvatar} alt={author} class="author-avatar" />
+          <div>
+            <p class="author-name">Von <strong>{author}</strong> • {authorRole}</p>
+            <p class="author-date">Aktualisiert am {formattedDate}</p>
+          </div>
+        </div>
+
+        <h1 class="hero-title">
+          <Fragment set:html={title.replace(titleHighlight, `<span class="highlight">${titleHighlight}</span>`)} />
+        </h1>
+
+        <p class="hero-description">{description}</p>
+
+        <div class="hero-image-wrapper">
+          <img src={heroImage} alt={title} class="hero-image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <!-- Intro Quote -->
+      <section class="intro-section">
+        <blockquote class="intro-quote">
+          "Als die ersten Fältchen um meine Augen erschienen, wollte ich nicht einfach zusehen. Diese Kapseln haben alles verändert — die Falten hatten keine Chance, und auch Jahre später strahlt meine Haut wie mit 30!"
+        </blockquote>
+        <p class="intro-text">
+          <strong>Einfach in der Anwendung. Überraschend effektiv.</strong> Eine Entscheidung, die mein gesamtes Erscheinungsbild verjüngt hat.
+        </p>
+        <p class="intro-subtext">
+          Lesen Sie weiter und entdecken Sie, warum ich — und tausende andere Frauen — auf diesen Durchbruch schwören.
+        </p>
+      </section>
+
+      <!-- Benefits Box -->
+      <section class="benefits-section">
+        <h2>Sechs kraftvolle Wirkungen in einem Produkt vereint</h2>
+        <ul class="benefits-list">
+          <li><span class="check">✓</span> <strong>Strafft die Haut sichtbar</strong> und mindert Falten von innen heraus</li>
+          <li><span class="check">✓</span> <strong>Reduziert Pigmentflecken</strong> und ungleichmäßige Hautverfärbungen</li>
+          <li><span class="check">✓</span> <strong>Aktiviert Ihre natürliche Kollagenproduktion</strong> — der Schlüssel zu jugendlicher Haut</li>
+          <li><span class="check">✓</span> <strong>Verbessert die Hautelastizität</strong> am ganzen Körper — nicht nur im Gesicht</li>
+          <li><span class="check">✓</span> <strong>Versorgt die Haut mit essentiellen Nährstoffen</strong>, die sie zum Strahlen bringt</li>
+          <li><span class="check">✓</span> <strong>Steigert die Hautzellerneuerung</strong> mit hochwertigen, wissenschaftlich geprüften Naturstoffen</li>
+        </ul>
+      </section>
+
+      <!-- Grund 1: Image Left, Text Right -->
+      <section class="reason-section">
+        <div class="reason-grid">
+          <div class="reason-image">
+            <img src="/images/0img11.webp" alt="Sichtbare Hautverjüngung" />
+          </div>
+          <div class="reason-text">
+            <h2>Grund 1: Erleben Sie eine echte Transformation — keine leeren Versprechen</h2>
+            <p>In nur <strong>3-4 Wochen</strong> werden Sie die <strong>ersten aufregenden Veränderungen</strong> entdecken — und das ist erst der Anfang.</p>
+            <p><strong>Stellen Sie sich vor:</strong> Jeden Morgen schauen Sie in den Spiegel und sehen, wie Ihre Haut von Woche zu Woche strahlender und jugendlicher wird. Ihre Freundinnen fragen Sie, was Sie anders machen. Ihr Partner bemerkt den Unterschied.</p>
+            <p>Während andere kurzfristige "Wundermittel" nur an der Oberfläche kratzen, erleben Sie mit Derma Renew Complex eine <strong>tiefgreifende, dauerhafte Verwandlung</strong> Ihrer Haut.</p>
+            <p><strong>Das ist kein Wunschdenken.</strong> Das berichten uns Frauen jeden Tag.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grund 2: Text Left, Image Right -->
+      <section class="reason-section reversed">
+        <div class="reason-grid">
+          <div class="reason-image">
+            <img src="/images/0img2.webp" alt="Speziell für Frauen ab 40" />
+          </div>
+          <div class="reason-text">
+            <h2>Grund 2: Speziell entwickelt für die Herausforderungen reifer Haut</h2>
+            <p>Seien wir ehrlich: Ab einem gewissen Alter verändert sich unsere Haut. Das ist Biologie, keine Schwäche.</p>
+            <ul class="negative-list">
+              <li><span class="x">✗</span> Die <strong>Kollagenproduktion</strong> lässt nach — etwa 1% weniger pro Jahr ab 30</li>
+              <li><span class="x">✗</span> Die <strong>Zellerneuerung</strong> verlangsamt sich dramatisch</li>
+              <li><span class="x">✗</span> Die ersten <strong>Zeichen der Zeit</strong> werden unübersehbar</li>
+              <li><span class="x">✗</span> Herkömmliche Cremes erreichen die tieferen Hautschichten nicht</li>
+            </ul>
+            <p><strong>Die unbequeme Wahrheit:</strong> Herkömmliche Hautpflege reicht dann oft nicht mehr aus — egal wie teuer sie ist.</p>
+            <p>Das Forschungsteam hat <strong>über 3 Jahre intensiv</strong> daran gearbeitet, die perfekte Kombination hochwirksamer Inhaltsstoffe zu finden. Das Ergebnis? Eine Formel, die <strong>dort wirkt, wo Cremes versagen</strong>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <a href={ctaUrl} class="cta-button">Jetzt Verfügbarkeit prüfen →</a>
+      </div>
+
+      <!-- Grund 3: Image Left, Text Right -->
+      <section class="reason-section">
+        <div class="reason-grid">
+          <div class="reason-image">
+            <img src="/images/0img6.webp" alt="Natürliche Inhaltsstoffe" />
+          </div>
+          <div class="reason-text">
+            <h2>Grund 3: Erstklassige Inhaltsstoffe aus der Natur — wissenschaftlich optimiert</h2>
+            <p>Derma Renew Complex vereint <strong>sorgfältig ausgewählte, hochwertige Naturstoffe</strong> in einer Formel, die Ihre Haut rund um die Uhr mit genau den Nährstoffen versorgt, die sie braucht.</p>
+            <p><strong>Keine Füllstoffe. Keine überflüssigen Zusätze.</strong> Nur das, was Ihre Haut wirklich braucht:</p>
+            <ul class="ingredient-list">
+              <li><strong>Hydrolysiertes Kollagen</strong> — die Bausteine für straffere Haut</li>
+              <li><strong>Hochwertige Hyaluronsäure</strong> — für pralle, feuchtigkeitsreiche Zellen</li>
+              <li><strong>Sägepalmenextrakt</strong> — reguliert die DHT-Werte, die Kollagenproduktion blockieren</li>
+              <li><strong>Vitamin A & B-Komplex</strong> — Beschleuniger für die Hauterneuerung</li>
+            </ul>
+            <p><strong>Alles in einer einzigen, einfachen Einnahme.</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grund 4: Text Left, Image Right -->
+      <section class="reason-section reversed">
+        <div class="reason-grid">
+          <div class="reason-image">
+            <img src="/images/placeholder-reviews.webp" alt="Kundenbewertungen" />
+          </div>
+          <div class="reason-text">
+            <h2>Grund 4: Begeisterte Kundinnen geben uns 4.8 von 5 Sternen</h2>
+            <p><strong>Über 12.000 verifizierte Bewertungen</strong> — lesen Sie, was echte Frauen berichten:</p>
+            <div class="mini-testimonials">
+              <div class="mini-testimonial">
+                <span class="stars">★★★★★</span>
+                <p><em>"Meine Haut sieht nicht nur jünger aus — sie fühlt sich auch so an!"</em></p>
+                <span class="name">— Maria, 42, München</span>
+              </div>
+              <div class="mini-testimonial">
+                <span class="stars">★★★★★</span>
+                <p><em>"Nach nur 6 Wochen haben mich Freundinnen gefragt, ob ich etwas verändert habe."</em></p>
+                <span class="name">— Sandra, 55, Hamburg</span>
+              </div>
+              <div class="mini-testimonial">
+                <span class="stars">★★★★★</span>
+                <p><em>"Die feinen Linien um meine Augen sind deutlich zurückgegangen."</em></p>
+                <span class="name">— Christine, 47, Berlin</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grund 5: Image Left, Text Right -->
+      <section class="reason-section">
+        <div class="reason-grid">
+          <div class="reason-image">
+            <img src="/images/0img9.webp" alt="Mehr Selbstvertrauen" />
+          </div>
+          <div class="reason-text">
+            <h2>Grund 5: Sie sehen besser aus — und fühlen sich so</h2>
+            <p><strong>Im Alltag. Auf Fotos. In Video-Calls.</strong></p>
+            <p>Geben wir es zu: Wir alle möchten uns in unserer Haut rundum wohl fühlen. Dieses Gefühl, wenn Sie in den Spiegel schauen und mit dem zufrieden sind, was Sie sehen. Wenn Sie Fotos nicht mehr vermeiden. Wenn Sie sich bei Zoom-Meetings nicht mehr darüber Gedanken machen, wie Ihre Haut aussieht.</p>
+            <p>Derma Renew Complex ist Ihre Chance, Ihrer Haut das zu geben, was sie wirklich braucht — um <strong>natürlich schön zu strahlen</strong>, von innen heraus.</p>
+            <p><strong>Das ist kein oberflächlicher Trick.</strong> Das ist echte, nachhaltige Veränderung.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grund 6: Text Left, Image Right -->
+      <section class="reason-section reversed">
+        <div class="reason-grid">
+          <div class="reason-image">
+            <img src="/images/img11.webp" alt="90-Tage-Garantie" />
+          </div>
+          <div class="reason-text">
+            <h2>Grund 6: Unsere 90-Tage-Zufriedenheitsgarantie — Ihr Schutz</h2>
+            <p>Nach 3-4 Wochen sehen Sie die ersten Ergebnisse. Das ist unser Versprechen.</p>
+            <p>Aber wir gehen noch weiter: Wir sind so überzeugt von der Wirkung, dass wir Ihnen <strong>volle 90 Tage</strong> Zeit geben, den Derma Renew Complex zu testen.</p>
+            <p><strong>Sind Sie nicht absolut begeistert von Ihrer Hautverbesserung?</strong> Dann erhalten Sie Ihr Geld zurück. Ganz ohne Wenn und Aber. Ohne unangenehme Fragen. Selbst wenn die Packungen leer sind.</p>
+            <p><strong>Das können wir nur anbieten, weil wir wissen, was diese Formel bewirkt.</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <a href={ctaUrl} class="cta-button">Jetzt risikofrei testen →</a>
+      </div>
+
+      <!-- Grund 7: Image Left, Text Right -->
+      <section class="reason-section">
+        <div class="reason-grid">
+          <div class="reason-image">
+            <img src="/images/placeholder-start.webp" alt="Jetzt starten" />
+          </div>
+          <div class="reason-text">
+            <h2>Grund 7: Die beste Zeit zu starten ist jetzt</h2>
+            <p>Jeden Tag, an dem Sie warten, verliert Ihre Haut weiter an Kollagen. Der Prozess beschleunigt sich mit jedem Jahr.</p>
+            <p><strong>Aber das muss nicht so weitergehen.</strong></p>
+            <p>Mit dem Derma Renew Complex haben Sie jetzt die Möglichkeit, diesen Prozess zu verlangsamen — und sogar umzukehren.</p>
+            <ul class="positive-list">
+              <li><span class="check">✓</span> <strong>Kein Risiko</strong> — 90-Tage-Geld-zurück-Garantie</li>
+              <li><span class="check">✓</span> <strong>Keine Wartezeit</strong> — Schneller Versand</li>
+              <li><span class="check">✓</span> <strong>Keine komplizierten Routinen</strong> — Nur 2 Kapseln täglich</li>
+            </ul>
+            <p><strong>Die Frage ist nicht, ob Sie etwas für Ihre Haut tun wollen.</strong> Die Frage ist, ob Sie bereit sind, endlich einen Ansatz zu wählen, der wirklich funktioniert.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <div class="cta-section">
+        <a href={ctaUrl} class="cta-button">Jetzt Ihre Hautverjüngung starten →</a>
+      </div>
+
+      <!-- More Testimonials -->
+      <section class="testimonials-section">
+        <h2>Weitere Erfahrungen von Derma Renew Komplex Nutzerinnen</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <span class="stars">★★★★★</span>
+            <span class="badge">Verifizierte Käuferin</span>
+            <p>"Mit 58 hatte ich besonders am Hals erschlaffte Haut. Ich dachte, das gehört jetzt einfach dazu. Nach 2 Monaten Derma Renew Complex ist sie deutlich straffer — sogar meine Tochter hat den Unterschied bemerkt!"</p>
+            <span class="author">— Barbara K., 58</span>
+          </div>
+          <div class="testimonial-card">
+            <span class="stars">★★★★★</span>
+            <span class="badge">Verifizierte Käuferin</span>
+            <p>"Als Krankenschwester im Schichtdienst sah ich immer müde und erschöpft aus — egal wie viel ich geschlafen habe. Der Komplex hat nach 6 Wochen einen echten Unterschied gemacht. Meine Haut strahlt wieder!"</p>
+            <span class="author">— Sandra M., 42</span>
+          </div>
+          <div class="testimonial-card">
+            <span class="stars">★★★★★</span>
+            <span class="badge">Verifizierte Käuferin</span>
+            <p>"Ich habe mit 39 die ersten Fältchen bemerkt und wollte vorbeugen. Der Complex macht die Haut spürbar frischer und praller — sogar meine Haare sind kräftiger geworden!"</p>
+            <span class="author">— Christina B., 39</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Timeline Section -->
+      <section class="timeline-section">
+        <h2>Das können Sie erwarten — Schritt für Schritt</h2>
+        <p class="timeline-intro">Die Wirkung setzt schneller ein als erwartet. Hier ist, was viele unserer Kundinnen berichten:</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Tag 1: Die Wirkstoffe erreichen Ihre Hautzellen</h3>
+            <p>Die Absorption der Wirkstoffe beginnt unmittelbar nach der ersten Einnahme. Das hydrolysierte Kollagen wird schnell vom Körper aufgenommen und zu den Hautzellen transportiert.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Woche 1: Aktivierung der Hauterneuerung</h3>
+            <p>Die B-Vitamine aktivieren die Energieversorgung der Hautzellen, während das hydrolysierte Kollagen erste Bausteine für die Hautregeneration bereitstellt.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Woche 3-4: Erste sichtbare Verbesserungen</h3>
+            <p>Die ersten Ergebnisse werden sichtbar! Ihre Haut zeigt bereits messbare Verbesserungen in Elastizität und Feuchtigkeitsgehalt.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Woche 6-8: Strukturelle Verbesserungen</h3>
+            <p>Die Gesichtskonturen wirken definierter. Das Hautbild wird ebenmäßiger. Die Poren erscheinen verfeinert.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Monat 2-3: Intensive Hauterneuerung</h3>
+            <p>Die Anzeichen der Hautalterung gehen messbar zurück. Ihre Haut gewinnt ihre jugendliche Festigkeit zurück.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Monat 3+: Tiefgreifende Transformation</h3>
+            <p>Die volle Wirkung zeigt sich. Die Ergebnisse sind nun stabil und nachhaltig.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <a href={ctaUrl} class="cta-button">Jetzt starten →</a>
+      </div>
+
+      <!-- Product Box -->
+      <section class="product-section">
+        <h2>Der Derma Renew Complex</h2>
+        <img src="/images/derma1.webp" alt="Derma Renew Complex" class="product-image" />
+        <p class="product-tagline">Aktivieren Sie die natürliche Regenerationskraft Ihrer Haut.</p>
+        <ul class="product-benefits">
+          <li><span class="check">✓</span> Steigert die Kollagenproduktion durch hocheffizientes, hydrolysiertes Kollagen</li>
+          <li><span class="check">✓</span> Aktiviert die natürlichen Hautschutz-Mechanismen durch Sägepalmenextrakt</li>
+          <li><span class="check">✓</span> Unterstützt die optimale Feuchtigkeitsversorgung durch hochwertige Hyaluronsäure</li>
+          <li><span class="check">✓</span> Fördert die Hautstraffung — essentiell für ein jugendliches Erscheinungsbild</li>
+          <li><span class="check">✓</span> Verbessert Elastizität und Spannkraft durch Vitamin A und B</li>
+        </ul>
+        <p class="product-usage"><strong>Zwei Kapseln am Morgen. Weniger als 60 Sekunden. Das ist alles.</strong></p>
+        <a href={ctaUrl} class="cta-button">Jetzt Verfügbarkeit prüfen →</a>
+      </section>
+
+      <!-- Sources -->
+      <section class="sources-section">
+        <h2>Quellen</h2>
+        <p>[1] https://pubmed.ncbi.nlm.nih.gov/29228816/</p>
+        <p>[2] Burford-Mason (2012) Eat well- age better</p>
+        <p>[3] https://www.thieme-connect.com/products/ejournals/pdf/10.1055/s-0034-1393066.pdf</p>
+        <p>[4] https://www.orthoknowledge.eu/neuigkeiten/hydrolysiertes-kollagen-gut-fur-die-hydratation</p>
+        <p>[5] Nomiyama, T., et al., The Journal of Biochemistry 171 (3): 325-338 (2021)</p>
+        <p>[6] Fu, J., et al., J Biol Chem. 287 (29): 24460–24472 (2012)</p>
+        <p>[7] Okabe, K., et al., Frontiers in Nutrition 9: 868640 (2022)</p>
+      </section>
+
+      <!-- Disclaimer -->
+      <p class="disclaimer">
+        Hinweis: Nahrungsergänzungsmittel sind kein Ersatz für eine abwechslungsreiche, ausgewogene Ernährung und eine gesunde Lebensweise. Die beschriebenen Ergebnisse können individuell variieren.
+      </p>
+
+      <!-- Author Card -->
+      <div class="author-card">
+        <img src={authorAvatar} alt={author} class="author-card-avatar" />
+        <div>
+          <span class="author-card-label">Verfasst von</span>
+          <h4>{author}</h4>
+          <p>{authorRole} — Unser Expertenteam recherchiert und verfasst fundierte Artikel zu Gesundheitsthemen.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </article>
+</BaseLayout>
+
+<style>
+  .derma-page {
+    background: #fff;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    background: #1e293b;
+    color: #fff;
+  }
+
+  .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+
+  .author-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #475569;
+  }
+
+  .author-name {
+    font-size: 0.875rem;
+    color: #cbd5e1;
+    margin: 0;
+  }
+
+  .author-name strong {
+    color: #fff;
+  }
+
+  .author-date {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title .highlight {
+    color: #0d9488;
+  }
+
+  .hero-description {
+    font-size: 1.125rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .hero-image-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Main Content */
+  .main-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  /* Intro Section */
+  .intro-section {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .intro-quote {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: #374151;
+    line-height: 1.7;
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+    border: none;
+  }
+
+  .intro-text {
+    font-size: 1.125rem;
+    color: #4b5563;
+    margin: 0 0 1rem 0;
+  }
+
+  .intro-subtext {
+    color: #6b7280;
+    margin: 0;
+  }
+
+  /* Benefits Section */
+  .benefits-section {
+    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  .benefits-section h2 {
+    font-size: 1.5rem;
+    color: #111827;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .benefits-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: #374151;
+  }
+
+  .check {
+    color: #0d9488;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .x {
+    color: #dc2626;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* Reason Sections */
+  .reason-section {
+    margin-bottom: 4rem;
+  }
+
+  .reason-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .reason-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    max-height: 400px;
+    object-fit: cover;
+  }
+
+  .reason-text h2 {
+    font-size: 1.5rem;
+    color: #111827;
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
+  }
+
+  .reason-text p {
+    color: #374151;
+    line-height: 1.7;
+    margin: 0 0 1rem 0;
+  }
+
+  .reason-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .negative-list,
+  .positive-list,
+  .ingredient-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+  }
+
+  .negative-list li,
+  .positive-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #374151;
+  }
+
+  .ingredient-list li {
+    color: #374151;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .ingredient-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #0d9488;
+    font-weight: 700;
+  }
+
+  /* Mini Testimonials */
+  .mini-testimonials {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mini-testimonial {
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .mini-testimonial .stars {
+    color: #f59e0b;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .mini-testimonial p {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  .mini-testimonial .name {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    text-align: center;
+    margin: 3rem 0;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: #0d9488;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .cta-button:hover {
+    background: #0f766e;
+  }
+
+  /* Testimonials Section */
+  .testimonials-section {
+    margin-bottom: 4rem;
+  }
+
+  .testimonials-section h2 {
+    font-size: 1.5rem;
+    color: #111827;
+    text-align: center;
+    margin: 0 0 2rem 0;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .testimonial-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .testimonial-card .stars {
+    color: #f59e0b;
+    font-size: 1.25rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .testimonial-card .badge {
+    display: inline-block;
+    background: #0d9488;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .testimonial-card p {
+    color: #374151;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .testimonial-card .author {
+    font-weight: 600;
+    color: #111827;
+  }
+
+  /* Timeline Section */
+  .timeline-section {
+    margin-bottom: 4rem;
+  }
+
+  .timeline-section h2 {
+    font-size: 1.5rem;
+    color: #111827;
+    text-align: center;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .timeline-intro {
+    text-align: center;
+    color: #6b7280;
+    margin: 0 0 2rem 0;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .timeline-item {
+    border-left: 4px solid #0d9488;
+    padding-left: 1.5rem;
+  }
+
+  .timeline-item h3 {
+    color: #0d9488;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .timeline-item p {
+    color: #374151;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Product Section */
+  .product-section {
+    background: #1e293b;
+    color: #fff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .product-section h2 {
+    font-size: 1.75rem;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .product-image {
+    max-width: 250px;
+    margin: 0 auto 1.5rem;
+    border-radius: 8px;
+  }
+
+  .product-tagline {
+    color: #cbd5e1;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .product-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 1.5rem;
+    text-align: left;
+    max-width: 500px;
+  }
+
+  .product-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .product-benefits .check {
+    color: #0d9488;
+  }
+
+  .product-usage {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.1rem;
+  }
+
+  /* Sources Section */
+  .sources-section {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .sources-section h2 {
+    font-size: 1.25rem;
+    color: #374151;
+    margin: 0 0 1rem 0;
+  }
+
+  .sources-section p {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin: 0 0 0.5rem 0;
+  }
+
+  /* Disclaimer */
+  .disclaimer {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+
+  /* Author Card */
+  .author-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .author-card-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .author-card-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+  }
+
+  .author-card h4 {
+    font-size: 1.125rem;
+    color: #111827;
+    margin: 0.25rem 0 0.5rem 0;
+  }
+
+  .author-card p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Responsive */
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .reason-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .reason-section.reversed .reason-image {
+      order: 2;
+    }
+
+    .reason-section.reversed .reason-text {
+      order: 1;
+    }
+
+    .testimonials-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-title {
+      font-size: 3rem;
+    }
+
+    .hero-content {
+      padding: 4rem 2rem;
+    }
+
+    .main-content {
+      padding: 4rem 2rem;
+    }
+  }
+</style>

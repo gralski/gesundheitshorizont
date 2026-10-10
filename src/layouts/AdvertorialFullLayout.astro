@@ -1,5 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { getDateLocale, normalizeLocale } from '../i18n/locale';
+import { ui } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -16,6 +18,7 @@ interface Props {
   ctaText?: string;
   ctaUrl?: string;
   tags?: string[];
+  locale?: 'de' | 'fr';
 }
 
 const {
@@ -32,17 +35,20 @@ const {
   ratingCount = "12.000+",
   ctaText = "Jetzt Verfügbarkeit prüfen",
   ctaUrl = "#",
-  tags = ["#Hautgesundheit", "#AntiAging", "#Wissenschaft"]
+  tags = ["#Hautgesundheit", "#AntiAging", "#Wissenschaft"],
+  locale: rawLocale = 'de'
 } = Astro.props;
+const locale = normalizeLocale(rawLocale);
+const t = ui[locale];
 
-const formattedDate = pubDate.toLocaleDateString('de-DE', {
+const formattedDate = pubDate.toLocaleDateString(getDateLocale(locale), {
   day: 'numeric',
   month: 'long',
   year: 'numeric'
 });
 ---
 
-<BaseLayout title={title} description={description} image={heroImage}>
+<BaseLayout title={title} description={description} image={heroImage} locale={locale}>
 
   <article class="advertorial-full bg-white">
 
@@ -80,12 +86,12 @@ const formattedDate = pubDate.toLocaleDateString('de-DE', {
             </div>
           </div>
           <div class="flex items-center gap-4">
-            <span>Veröffentlicht: {formattedDate}</span>
+            <span>{t.article.published}: {formattedDate}</span>
             <span class="flex items-center">
               <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              {readingTime} Lesezeit
+              {readingTime} {t.article.readingTime}
             </span>
           </div>
         </div>
@@ -125,7 +131,7 @@ const formattedDate = pubDate.toLocaleDateString('de-DE', {
             </div>
           )}
           <div>
-            <p class="text-xs uppercase tracking-wider text-gray-400 mb-1">Verfasst von</p>
+            <p class="text-xs uppercase tracking-wider text-gray-400 mb-1">{t.article.writtenBy}</p>
             <p class="font-semibold text-lg text-gray-900">{author}</p>
             <p class="text-sm text-gray-600 mt-2">
               {authorRole} — Unser Expertenteam recherchiert und verfasst fundierte Artikel zu Gesundheitsthemen, um Ihnen verlässliche Informationen für ein gesünderes Leben zu bieten.

@@ -1,0 +1,292 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = "Derma Renew Complex - Hautpflege von innen, entwickelt von einer Frau, die es versteht.",
+  image = "/images/og-derma-renew.jpg"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Meta Pixel Code -->
+    <script is:inline>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '2159506951617229');
+    </script>
+    <script is:inline src="/js/meta-tracker.js"></script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=2159506951617229&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Microsoft Clarity -->
+    <script is:inline>
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "ve5i1dxhd4");
+    </script>
+    <!-- End Microsoft Clarity -->
+
+    <!-- Google Analytics 4 -->
+    <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-TN4L5T7MFY" async></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TN4L5T7MFY');
+    </script>
+    <!-- End Google Analytics 4 -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/images/gesofav.png" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:locale" content="de_DE" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <meta name="generator" content={Astro.generator} />
+
+    <style is:global>
+      :root {
+        --primary-green: #2D5A3D;
+        --primary-green-light: #4A7C6F;
+        --primary-green-dark: #1E3D2A;
+        --accent-gold: #D4AF37;
+        --accent-gold-light: #E5C158;
+        --accent-gold-dark: #B8941F;
+        --neutral-white: #FFFFFF;
+        --neutral-cream: #F8F6F3;
+        --neutral-light: #F0EDE8;
+        --neutral-warm: #FAF9F7;
+        --text-primary: #1A1A1A;
+        --text-secondary: #4A4A4A;
+        --text-muted: #7A7A7A;
+        --success: #2D5A3D;
+        --urgency: #C45B3A;
+        --urgency-light: #D97B5C;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        color: var(--text-primary);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1, h2, h3, h4 {
+        font-family: 'DM Serif Display', Georgia, serif;
+        margin: 0;
+      }
+
+      .font-serif {
+        font-family: 'DM Serif Display', Georgia, serif;
+      }
+
+      .font-sans {
+        font-family: 'Inter', system-ui, sans-serif;
+      }
+
+      /* Button Styles */
+      .btn-primary {
+        background: var(--primary-green);
+        color: white;
+        padding: 20px 40px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(45, 90, 61, 0.3);
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-green-light);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(45, 90, 61, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--primary-green);
+        padding: 20px 40px;
+        border-radius: 8px;
+        font-weight: 600;
+        border: 2px solid var(--primary-green);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary-green);
+        color: white;
+      }
+
+      .btn-white {
+        background: white;
+        color: var(--primary-green);
+        padding: 20px 40px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+      }
+
+      .btn-white:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-urgency {
+        background: white;
+        color: var(--urgency);
+        padding: 20px 40px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+      }
+
+      .btn-urgency:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+      }
+
+      @keyframes pulseWarning {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+      }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+
+      .animate-pulse-slow {
+        animation: pulse 4s ease-in-out infinite;
+      }
+
+      .animate-pulse-warning {
+        animation: pulseWarning 3s ease-in-out infinite;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      @media (min-width: 640px) {
+        .container {
+          padding: 0 48px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .container {
+          padding: 0 64px;
+        }
+      }
+
+      /* Card hover effect */
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

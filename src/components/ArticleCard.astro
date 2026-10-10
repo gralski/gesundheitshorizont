@@ -1,4 +1,7 @@
 ---
+import { getDateLocale, normalizeLocale, withLocalePath } from '../i18n/locale';
+import { ui } from '../i18n/ui';
+
 interface Props {
   title: string;
   description: string;
@@ -7,23 +10,27 @@ interface Props {
   category: string;
   pubDate: Date;
   readingTime?: string;
+  locale?: 'de' | 'fr';
 }
 
-const { title, description, slug, heroImage, category, pubDate, readingTime } = Astro.props;
+const { title, description, slug, heroImage, category, pubDate, readingTime, locale: rawLocale = 'de' } = Astro.props;
+const locale = normalizeLocale(rawLocale);
+const t = ui[locale];
 
-const formattedDate = pubDate.toLocaleDateString('de-DE', {
+const formattedDate = pubDate.toLocaleDateString(getDateLocale(locale), {
   day: 'numeric',
   month: 'long',
   year: 'numeric'
 });
 
 // Calculate reading time if not provided
-const estimatedReadingTime = readingTime || "5 Min";
+const estimatedReadingTime = readingTime || (locale === 'fr' ? `5 min ${t.article.readingTime}` : '5 Min');
+const articleHref = withLocalePath(locale, `/artikel/${slug}`);
 ---
 
 <article class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
   <!-- Image -->
-  <a href={`/artikel/${slug}`} class="block aspect-[16/10] overflow-hidden bg-gray-100">
+  <a href={articleHref} class="block aspect-[16/10] overflow-hidden bg-gray-100">
     {heroImage ? (
       <img
         src={heroImage}
@@ -58,7 +65,7 @@ const estimatedReadingTime = readingTime || "5 Min";
     <!-- Title -->
     <h3 class="mb-2">
       <a
-        href={`/artikel/${slug}`}
+        href={articleHref}
         class="text-lg sm:text-xl font-semibold text-gray-900 group-hover:text-primary transition-colors line-clamp-2"
       >
         {title}

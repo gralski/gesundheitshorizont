@@ -1,5 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { getDateLocale, normalizeLocale } from '../i18n/locale';
+import { ui } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -19,6 +21,7 @@ interface Props {
   sidebarCta?: string;
   sidebarCtaUrl?: string;
   sidebarImage?: string;
+  locale?: 'de' | 'fr';
 }
 
 const {
@@ -38,26 +41,29 @@ const {
   sidebarDescription,
   sidebarCta,
   sidebarCtaUrl,
-  sidebarImage
+  sidebarImage,
+  locale: rawLocale = 'de'
 } = Astro.props;
+const locale = normalizeLocale(rawLocale);
+const t = ui[locale];
 
 // Combine single category with categories array
 const allCategories = categories.length > 0 ? categories : [category];
 
-const formattedPubDate = pubDate.toLocaleDateString('de-DE', {
+const formattedPubDate = pubDate.toLocaleDateString(getDateLocale(locale), {
   day: 'numeric',
   month: 'long',
   year: 'numeric'
 });
 
-const formattedUpdatedDate = updatedDate?.toLocaleDateString('de-DE', {
+const formattedUpdatedDate = updatedDate?.toLocaleDateString(getDateLocale(locale), {
   day: 'numeric',
   month: 'long',
   year: 'numeric'
 });
 ---
 
-<BaseLayout title={title} description={description} image={heroImage}>
+<BaseLayout title={title} description={description} image={heroImage} locale={locale}>
   <article class="bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       <div class="lg:grid lg:grid-cols-12 lg:gap-12">
@@ -97,11 +103,11 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('de-DE', {
 
           <!-- Meta Info: Dates & Reading Time -->
           <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 mb-6">
-            <span>Veröffentlicht: {formattedPubDate}</span>
+            <span>{t.article.published}: {formattedPubDate}</span>
             {formattedUpdatedDate && (
               <>
                 <span class="text-gray-300">•</span>
-                <span>Aktualisiert: {formattedUpdatedDate}</span>
+                <span>{t.article.updated}: {formattedUpdatedDate}</span>
               </>
             )}
             <span class="text-gray-300">•</span>
@@ -109,7 +115,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('de-DE', {
               <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              {readingTime} Lesezeit
+              {readingTime} {t.article.readingTime}
             </span>
           </div>
 
@@ -133,7 +139,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('de-DE', {
               <p class="text-sm text-gray-500">{authorRole}</p>
               {reviewedBy && (
                 <p class="text-xs text-gray-400 mt-0.5">
-                  <a href="#" class="text-primary hover:underline">Geprüft von {reviewedBy}</a>
+                  <a href="#" class="text-primary hover:underline">{t.article.reviewedBy} {reviewedBy}</a>
                 </p>
               )}
             </div>
@@ -161,7 +167,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('de-DE', {
                 </div>
               )}
               <div>
-                <p class="text-xs uppercase tracking-wider text-gray-400 mb-1">Verfasst von</p>
+                <p class="text-xs uppercase tracking-wider text-gray-400 mb-1">{t.article.writtenBy}</p>
                 <p class="font-semibold text-lg text-gray-900">{author}</p>
                 <p class="text-sm text-gray-600 mt-2">
                   Unser Expertenteam recherchiert und verfasst fundierte Artikel zu Gesundheitsthemen, um Ihnen verlässliche Informationen für ein gesünderes Leben zu bieten.
@@ -182,7 +188,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('de-DE', {
                 <div class="p-6 pb-0">
                   <img
                     src={sidebarImage}
-                    alt={sidebarTitle || "Promotion"}
+                    alt={sidebarTitle || t.article.promoTitle}
                     class="w-full h-auto rounded-lg"
                   />
                 </div>
@@ -198,16 +204,16 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('de-DE', {
 
               <div class="p-6">
                 <h3 class="text-xl font-bold mb-3">
-                  {sidebarTitle || "Entdecken Sie mehr"}
+                  {sidebarTitle || t.article.promoTitle}
                 </h3>
                 <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                  {sidebarDescription || "Erfahren Sie mehr über unsere Produkte und wie sie Ihnen zu einem gesünderen Leben verhelfen können."}
+                  {sidebarDescription || t.article.promoBody}
                 </p>
                 <a
                   href={sidebarCtaUrl || "#"}
                   class="inline-flex items-center justify-center w-full px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-colors"
                 >
-                  {sidebarCta || "Mehr erfahren"}
+                  {sidebarCta || t.article.promoCta}
                   <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

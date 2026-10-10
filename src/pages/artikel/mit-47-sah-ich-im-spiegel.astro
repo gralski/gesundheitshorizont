@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Mit 47 sah ich im Spiegel meine Mutter zurückblicken – und begann leise zu weinen';
+const description = 'Eine persönliche Beauty-Kolumne über das Älterwerden, Hautpflege und eine neue Routine.';
+const heroImage = '/images/mit-47/v2/editorial-hero.webp';
+const offer = new URL('https://dermapuris.de/products/derma-renew-komplex');
+offer.searchParams.set('utm_source', 'gesundheitshorizont');
+offer.searchParams.set('utm_medium', 'advertorial');
+offer.searchParams.set('utm_campaign', 'mit_47_spiegel');
+const offerLink = (placement: string) => {
+  const url = new URL(offer);
+  url.searchParams.set('utm_content', placement);
+  return url.href;
+};
+---
+
+<BaseLayout title={title} description={description} image={heroImage}>
+  <article class="mirror-story">
+    <div class="ad-label">Anzeige</div>
+
+    <header class="story-header">
+      <p class="eyebrow">Beauty & Wohlbefinden</p>
+      <h1>Mit 47 sah ich im Spiegel meine Mutter zurückblicken – und begann leise zu weinen</h1>
+      <p class="dek">Eine persönliche Kolumne über den Moment, in dem sich der Blick auf die eigene Haut verändert.</p>
+      <div class="story-meta">
+        <img class="author-photo" src="/images/mit-47/v2/annika-vogler.webp" alt="Annika Vogler" width="1254" height="1254" loading="eager" />
+        <div><strong>Annika Vogler</strong><span>Freie Journalistin für Wellness, Beauty und Frauenmedizin</span></div>
+        <span class="read-time">7 Minuten Lesezeit</span>
+      </div>
+      <figure class="hero-image">
+        <img src={heroImage} alt="Frau betrachtet sich nachdenklich im Spiegel" width="1200" height="896" fetchpriority="high" />
+      </figure>
+    </header>
+
+    <div class="story-body">
+      <p class="lead"><strong>Ich hatte mir geschworen, nie eine dieser Frauen zu werden, die über ihr Alter jammern. Und dann geschah es doch. An einem ganz normalen Dienstagmorgen, im Licht meines Badezimmerspiegels, verlor ich zum ersten Mal seit Jahren die Fassung.</strong></p>
+      <p>Es war kein dramatischer Moment. Kein Geburtstag, keine Krise, kein Anlass. Nur ich, ungeschminkt, um 7:12 Uhr, mit einer Tasse Kaffee in der Hand.</p>
+      <p>Und plötzlich – da war sie.</p>
+      <p>Nicht ich. Meine Mutter. Die Frau, die ich als Kind bewundert hatte. Die gleichen Falten um den Mund. Die gleichen erschlafften Wangen. Die gleiche Müdigkeit unter den Augen, die einfach nicht mehr verschwinden wollte, egal wie lange ich geschlafen hatte.</p>
+      <p><strong>Ich war 47. Und ich sah aus wie 57.</strong></p>
+
+      <section>
+        <h2>Der Moment, in dem mir klar wurde: Cremes werden mich nicht retten</h2>
+        <p>Ich möchte ehrlich sein: Ich habe in den letzten zehn Jahren wahrscheinlich mehr Geld für Hautpflege ausgegeben als für meinen ersten Gebrauchtwagen.</p>
+        <p>Die 180-Euro-Nachtcreme aus dem KaDeWe. Das Retinol-Serum, das mir eine Freundin aus Paris mitgebracht hatte. Die koreanische 10-Schritte-Routine, die ich zwei Monate lang religiös durchzog. Sheet-Masken, LED-Geräte, Jade-Roller, Vitamin-C-Ampullen aus der Apotheke.</p>
+        <p><strong>Nichts. Hat. Wirklich. Etwas. Verändert.</strong></p>
+        <p>Klar – meine Haut fühlte sich manchmal für eine Stunde geschmeidiger an. Aber die tiefen Falten? Die schlaffe Partie am Kinn? Der graue Teint, der jeden Morgen aus dem Spiegel starrte?</p>
+        <p>Blieben.</p>
+        <blockquote>„Sie können von außen so viel eincremen, wie Sie wollen. Wenn der Kollagenabbau von innen läuft, arbeiten Sie gegen einen Fluss, den Sie nicht sehen.“ <span>– dieser Satz meiner Dermatologin verfolgte mich noch Wochen später.</span></blockquote>
+      </section>
+
+      <section>
+        <h2>Was mir niemand erklärt hatte: Ab 30 verliert die Haut jedes Jahr Kollagen</h2>
+        <p>Ich war Journalistin lang genug, um zu wissen, wann ich recherchieren musste, statt weiter Geld zu verbrennen.</p>
+        <p>Also grub ich mich ein. Studien, Fachartikel, Gespräche mit zwei Hautärzten und einer Ernährungsmedizinerin in München.</p>
+        <p>Und was ich lernte, hat mich wütend gemacht.</p>
+        <figure>
+          <img src="/images/mit-47/v2/morning-routine.webp" alt="Frau betrachtet eine einfache Morgenroutine mit Wasser und Nahrungsergänzung" width="1536" height="1024" loading="lazy" />
+          <figcaption>Ein fester Moment kann einer neuen Routine einen Platz im Alltag geben.</figcaption>
+        </figure>
+        <p>Die Kosmetikindustrie verkauft uns seit Jahrzehnten die Idee, dass Falten ein Oberflächenproblem sind. Dass wir sie „wegcremen“ können. Aber die Wahrheit ist: <strong class="highlight">Ab etwa 30 verliert die Haut jedes Jahr rund ein Prozent ihres Kollagens.</strong> Bis 50 sind das teilweise 30 Prozent oder mehr.</p>
+        <p>Kollagen ist das Gerüst. Wenn das Gerüst zerfällt, kann keine Creme der Welt das Haus wieder aufrichten.</p>
+        <p>Man muss das Gerüst selbst neu aufbauen. Von innen.</p>
+      </section>
+
+      <section>
+        <h2>Die Entdeckung, die mich völlig umgestimmt hat</h2>
+        <p>Bis dahin hatte ich Nahrungsergänzungsmittel für Esoterik gehalten. Bunte Kapseln in bunten Dosen mit noch bunteren Versprechen. Nichts für mich.</p>
+        <p>Aber während meiner Recherche stieß ich auf einen Wirkstoffkomplex, der in der deutschen Dermatologie-Community gerade viel Aufmerksamkeit bekam: <strong>Derma Renew Komplex von Dermapuris</strong>.</p>
+        <p>Was mich zuerst überzeugte, war nicht das Marketing. Es war die Zutatenliste.</p>
+        <p>Kein „Beauty-Blend-Proprietary-Mix“ mit versteckten Mengen. Sondern jede Zutat ausgewiesen, jede Dosierung transparent aufgeschlüsselt:</p>
+        <ul>
+          <li><strong>400 mg</strong> Fisch-hydrolysiertes Kollagen (Peptan® F)</li>
+          <li><strong>200 mg</strong> Sägepalme</li>
+          <li><strong>97,1 mg</strong> reine Hyaluronsäure</li>
+          <li><strong>200 mg</strong> MSM</li>
+          <li><strong>100 mg</strong> Wilde-Yamswurzel-Extrakt mit Diosgenin</li>
+          <li><strong>40 mg</strong> Schachtelhalm-Extrakt</li>
+          <li>Ein hochdosierter B-Vitamin-Komplex</li>
+          <li>Vitamin A</li>
+        </ul>
+        <p>Zwölf Wirkstoffe. Klinisch relevante Mengen. Entwickelt in Deutschland, hergestellt in Europa. Vegan-freundliche Rezeptur (bis auf das marine Kollagen), glutenfrei, ohne künstliche Zusätze.</p>
+        <p>Und – was für mich als Journalistin fast das Wichtigste war – eine <strong>90-Tage-Geld-zurück-Garantie</strong>. Ohne Fragen, ohne Kleingedrucktes.</p>
+        <a class="text-cta" href={offerLink('first_cta')} rel="sponsored">Ich bestellte drei Gläser. Genau hier ging ich zur Bestellung <span aria-hidden="true">→</span></a>
+      </section>
+
+      <section>
+        <h2>Woche 1 bis 3: Fast nichts. Und ich war fast erleichtert.</h2>
+        <p>Ich muss zugeben, ein Teil von mir wartete auf ein Wunder. Auf den Instagram-Vorher-Nachher in sieben Tagen.</p>
+        <p>Das kam nicht. Und das war das erste Zeichen, dass ich diesmal etwas Seriösem in die Finger bekommen hatte.</p>
+        <p>Die ersten zwei Wochen: nichts Sichtbares. Aber meine Haut fühlte sich morgens weniger „dürr“ an. Weniger dieser trockene, papierne Zug, den ich seit meinem 44. Geburtstag kannte.</p>
+        <p>In Woche drei bemerkte mein Mann etwas beim Frühstück. Er sagte nichts Konkretes – nur: „Du siehst irgendwie ausgeschlafen aus.“ Ich hatte fünf Stunden geschlafen.</p>
+      </section>
+
+      <section>
+        <h2>Woche 4: Der Moment im Aufzug</h2>
+        <p>Es war ein Montag Ende des ersten Monats. Ich fuhr im gläsernen Aufzug meines Bürogebäudes nach oben und sah mich zufällig in der Spiegelung.</p>
+        <p>Und ich stutzte.</p>
+        <p>Die Partie um meinen Mund – diese verschatteten, hängenden Linien, die mich morgens so verstört hatten – war noch da. Aber sie war <em>weicher</em>. Weniger tief. Als hätte jemand einen sehr subtilen Filter über mein Gesicht gelegt.</p>
+        <p>Ich dachte, ich bilde mir das ein.</p>
+        <p>Bis meine Assistentin am selben Nachmittag mit einer neuen Foundation-Empfehlung um die Ecke kam und meinte: „Ehrlich, du brauchst gerade fast keine mehr. Was machst du?“</p>
+      </section>
+
+      <section>
+        <h2>Woche 8: Ich fotografierte mich zum ersten Mal seit Jahren wieder gern</h2>
+        <p>Der zweite Monat war der Wendepunkt.</p>
+        <p>Meine Wangen fühlten sich fester an, wenn ich sie am Morgen wusch. Nicht mehr diese weiche, teigige Beweglichkeit, die ich unbewusst gehasst hatte. Meine Haut hatte wieder Spannung. Struktur. Sie <em>hielt</em> sich.</p>
+        <figure>
+          <img src="/images/mit-47/v2/mother-daughter.webp" alt="Mutter und erwachsene Tochter machen gemeinsam ein Foto im Café" width="1536" height="1024" loading="lazy" />
+        </figure>
+        <p>Der Teint war der zweite große Sprung. Dieser graue, müde Schleier, den ich für „meinen neuen Hautton“ gehalten hatte – er war einfach weg. Meine Haut hatte wieder einen inneren Glow. Nicht Highlighter. Nicht Filter. Echt.</p>
+        <p>Meine Tochter machte an einem Sonntag ein Selfie mit mir und ich zuckte nicht zusammen, als ich es sah.</p>
+        <p>Das mag Ihnen banal vorkommen. Für mich war es ein Sieg, den ich Jahre lang für unmöglich gehalten hatte.</p>
+        <blockquote>„Ich habe nicht wieder ausgesehen wie 27. Ich habe endlich wieder ausgesehen wie ich – nur ausgeruht, gesund und vital. Und das war alles, was ich je wollte.“</blockquote>
+      </section>
+
+      <section>
+        <h2>Monat 3 und 4: Der Effekt, den mir niemand vorhergesagt hatte</h2>
+        <p>Was mich in den Monaten drei und vier überraschte, war nicht mal die Haut selbst.</p>
+        <p>Es war das Gefühl.</p>
+        <p>Ich hörte auf, mich zu verstecken. Ich sagte Ja zu Kameras. Ich verabredete mich wieder zu Mittagessen, die ich sonst mit „zu viel Arbeit“ abgesagt hätte. Ich trug Rot – eine Farbe, die ich mir mit 45 aberzogen hatte, weil sie „zu viel Aufmerksamkeit“ bringe.</p>
+        <p>Meine Haut hatte sich verändert. Aber genauer gesagt: <strong>Etwas in mir hatte sich zurückgeholt.</strong></p>
+        <p>Das ist es, was seriöse Hautpflege eigentlich verspricht, ohne es je halten zu können, wenn sie nur von außen arbeitet.</p>
+      </section>
+
+      <section>
+        <h2>Warum ich diese Kolumne überhaupt schreibe</h2>
+        <p>Ich bekomme fast jede Woche Nachrichten von Freundinnen, Leserinnen und Kolleginnen zwischen 38 und 60, die dasselbe fragen: „Was hast du gemacht?“</p>
+        <p>Ich habe die Kolumne so lange hinausgeschoben, weil ich nicht wollte, dass sie wie eine Werbung klingt. Aber irgendwann wurde mir klar: Das eigentliche Problem ist nicht, dass ich es aufschreibe. Das eigentliche Problem war, dass mir früher niemand darüber geschrieben hat.</p>
+        <p>Also hier ist es, klar und ohne Umschweife:</p>
+        <p><strong>Wenn Sie über 35 sind, wenn Ihre Haut in den letzten Jahren spürbar an Spannkraft verloren hat, wenn Sie das Gefühl haben, gegen einen Fluss anzucremen – dann probieren Sie Derma Renew Komplex aus.</strong></p>
+        <a class="text-cta" href={offerLink('recommendation_cta')} rel="sponsored">Hier kommen Sie direkt zur offiziellen Bestellseite <span aria-hidden="true">→</span></a>
+      </section>
+
+      <section>
+        <h2>Was Sie wissen sollten, bevor Sie bestellen</h2>
+        <p>Ich bin nicht die Frau, die Ihnen sagt: „Bestellen Sie jetzt oder es ist zu spät!“</p>
+        <p>Aber ich bin auch nicht mehr die Frau, die sich einredet, dass Warten irgendetwas verändert.</p>
+        <p>Ein paar ehrliche Punkte:</p>
+        <p><strong>Es funktioniert nicht in einer Woche.</strong> Wer das erwartet, ist bei jedem Kollagenprotokoll enttäuscht – egal welcher Marke. Der Aufbau von Hautstruktur braucht mindestens 30 Tage, sichtbar wird es meist nach 6–8 Wochen. Die dauerhafte Wirkung entfaltet sich über 3–4 Monate.</p>
+        <p><strong>Man muss es täglich nehmen.</strong> Zwei Kapseln zum Essen. Wer das drei Tage macht und dann vergisst, wird die Ergebnisse nicht sehen.</p>
+        <p><strong>Es ersetzt nicht Ihre Basispflege.</strong> Es ergänzt sie. Ich creme immer noch. Ich trinke immer noch Wasser. Ich schlafe. Ich lebe. Aber jetzt arbeite ich zum ersten Mal <em>mit</em> meiner Haut, nicht <em>gegen</em> sie.</p>
+        <p><strong>Die Garantie ist real.</strong> 90 Tage Geld zurück. Ohne Nachfragen. Das war für mich der Punkt, an dem ich dachte: Was habe ich zu verlieren außer der Chance?</p>
+      </section>
+
+      <aside class="product-box" aria-label="Derma Renew Produktinformationen">
+        <p class="eyebrow">Derma Renew Komplex</p>
+        <h2>Was in Ihrem Paket steckt</h2>
+        <div class="product-content">
+          <img src="/images/mit-47/v2/derma-renew-lifestyle.webp" alt="Derma Renew Komplex auf einem hellen Natursteinregal" width="1254" height="1254" loading="lazy" />
+          <div>
+            <span class="guarantee">✓ 90-Tage Geld-zurück-Garantie</span>
+            <ul class="check-list">
+              <li>Premium-Glasflakon in dunklem Bernstein</li>
+              <li>60 hochdosierte Kapseln – ein Monatsvorrat</li>
+              <li>12 wissenschaftlich dosierte Wirkstoffe, transparent ausgewiesen</li>
+              <li>Entwickelt in Deutschland, Made in Europe</li>
+              <li>Gratis Versand ab 39 € Bestellwert in Deutschland</li>
+              <li>Lieferung in 2–3 Werktagen</li>
+              <li>4,75/5 Sternen bei 378+ Bewertungen</li>
+            </ul>
+            <a class="button-cta" href={offerLink('product_box')} rel="sponsored">Zur offiziellen Bestellseite von Dermapuris <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </aside>
+
+      <section>
+        <h2>Meine ehrliche Empfehlung</h2>
+        <figure>
+          <img src="/images/mit-47/v2/closing-portrait.webp" alt="Frau blickt ruhig und selbstsicher aus dem Fenster" width="1536" height="1024" loading="lazy" />
+        </figure>
+        <p>Wenn ich heute vor dem Spiegel stehe, sehe ich nicht mehr meine Mutter mit 57.</p>
+        <p>Ich sehe eine 47-jährige Frau, die aussieht wie 47 – nur eben in der besten Version davon. Ausgeschlafen. Vital. Präsent.</p>
+        <p>Das ist alles, was ich mir jemals gewünscht hatte. Nicht 27 zu sein. Sondern <em>mit sich selbst</em> zu sein, in der Haut, die man gerade hat.</p>
+        <p>Wenn Sie das auch wollen, tun Sie sich einen Gefallen und probieren Sie es aus. Drei Monate. Bei einer 90-Tage-Garantie gibt es keinen ehrlichen Grund, es nicht zu tun.</p>
+        <a class="button-cta final-cta" href={offerLink('final_cta')} rel="sponsored">Jetzt Derma Renew Komplex bestellen – risikofrei mit 90-Tage-Garantie <span aria-hidden="true">→</span></a>
+      </section>
+
+      <footer class="article-note">
+        <p><em>Annika Vogler ist freie Journalistin für Wellness, Beauty und Frauenmedizin. Diese Kolumne wurde in Zusammenarbeit mit Dermapuris veröffentlicht. Die persönlichen Erfahrungen der Autorin sind individuell. Ergebnisse können von Person zu Person variieren.</em></p>
+        <p><em>Nahrungsergänzungsmittel ersetzen keine ausgewogene Ernährung und gesunde Lebensweise. Die empfohlene Tagesdosis nicht überschreiten. Außerhalb der Reichweite kleiner Kinder aufbewahren. Bei Schwangerschaft, Stillzeit, Erkrankungen oder Medikamenteneinnahme die Anwendung ärztlich abklären. Enthält Fischbestandteile; aktuelle Verpackungsangaben beachten.</em></p>
+      </footer>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  :global(.mirror-story) { --ink:#1a1a2e; --muted:#606776; --gold:#b77f55; --cream:#fff4e7; --line:#e7e4df; background:#fff; color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,sans-serif; }
+  .ad-label { padding:8px 16px; background:#f7f7f5; color:#737780; text-align:center; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+  .story-header,.story-body { width:min(100% - 40px, 760px); margin-inline:auto; }
+  .story-header { padding-top:clamp(40px,7vw,82px); }
+  .eyebrow { margin:0 0 14px; color:var(--gold); font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+  h1,h2 { letter-spacing:-.035em; color:var(--ink); text-wrap:balance; }
+  h1 { max-width:19ch; margin:0; font-family:Georgia,serif; font-size:clamp(2.3rem,5.1vw,4.05rem); font-weight:400; line-height:1.04; }
+  .dek { max-width:58ch; margin:22px 0 24px; color:var(--muted); font-size:clamp(1.05rem,2vw,1.24rem); line-height:1.58; }
+  .story-meta { display:flex; align-items:center; gap:12px; margin-bottom:34px; color:var(--muted); font-size:13px; line-height:1.35; }
+  .story-meta > div:nth-child(2) { display:grid; gap:2px; }.story-meta strong { color:var(--ink); }.read-time { margin-left:auto; padding-left:18px; border-left:1px solid var(--line); white-space:nowrap; }
+  .author-photo { display:block; width:46px; height:46px; flex:0 0 auto; border-radius:50%; object-fit:cover; object-position:center 22%; }
+  figure { margin:38px 0; } figure img { display:block; width:100%; height:auto; border-radius:3px; } figcaption { margin-top:9px; color:var(--muted); font-size:12px; line-height:1.45; }
+  .hero-image { width:min(100vw - 64px, 1000px); margin:0 50% 56px; transform:translateX(-50%); }.hero-image img { border-radius:0; }
+  .story-body { font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; padding-bottom:76px; }
+  p,li { color:#353944; font-size:clamp(1rem,1.7vw,1.125rem); line-height:1.78; }.lead { margin-top:0; }.lead:first-letter { float:left; margin:.04em .12em 0 0; color:var(--ink); font-family:Georgia,serif; font-size:4.5em; line-height:.75; }.story-body section { margin-top:64px; }.story-body section:first-of-type { margin-top:46px; }
+  h2 { margin:0 0 20px; font-family:Georgia,serif; font-size:clamp(1.8rem,4vw,2.75rem); font-weight:400; line-height:1.12; }.highlight { background:linear-gradient(transparent 64%,#fce19c 0); }
+  blockquote { margin:38px 0; padding:26px 30px; border-left:4px solid var(--gold); background:#faf9f7; color:var(--ink); font-family:Georgia,serif; font-size:clamp(1.28rem,2.6vw,1.65rem); font-style:italic; line-height:1.5; } blockquote span { display:block; margin-top:12px; color:var(--muted); font-family:ui-sans-serif,system-ui,sans-serif; font-size:13px; font-style:normal; }
+  ul { margin:24px 0; padding-left:22px; } li { padding-left:7px; margin:10px 0; } li::marker { color:var(--gold); }
+  .text-cta { display:inline-flex; margin-top:8px; color:var(--ink); font-weight:800; text-decoration-color:var(--gold); text-decoration-thickness:2px; text-underline-offset:6px; }.text-cta:hover { color:var(--gold); }
+  .product-box { margin:70px -40px 64px; padding:clamp(28px,5vw,54px); border:1px solid #f2d5bc; border-top:6px solid var(--gold); background:var(--cream); }.product-box h2 { margin-bottom:30px; text-align:center; }.product-box > .eyebrow { text-align:center; }.product-content { display:grid; grid-template-columns:minmax(180px,.78fr) 1.35fr; align-items:center; gap:clamp(28px,5vw,55px); }.product-content > img { width:100%; }.guarantee { display:inline-block; margin-bottom:18px; padding:7px 12px; border:1px solid #a7d3ad; border-radius:100px; background:#edf9ee; color:#286638; font-size:13px; font-weight:800; }.check-list { list-style:none; margin:0 0 26px; padding:0; }.check-list li { position:relative; padding-left:25px; margin:10px 0; font-size:15px; line-height:1.45; }.check-list li::before { content:'✓'; position:absolute; left:0; color:var(--gold); font-weight:900; }.button-cta { display:block; padding:15px 20px; border-radius:3px; background:var(--ink); color:white; font-size:15px; font-weight:800; line-height:1.35; text-align:center; text-decoration:none; transition:transform .2s,background .2s; }.button-cta:hover { transform:translateY(-2px); background:var(--gold); }.final-cta { margin-top:28px; }
+  .article-note { margin-top:74px; padding-top:26px; border-top:1px solid var(--line); }.article-note p { color:var(--muted); font-size:13px; line-height:1.65; }
+  @media (max-width: 680px) { .story-header,.story-body { width:min(100% - 32px, 760px); }.story-header { padding-top:42px; }.story-meta { align-items:flex-start; }.read-time { display:none; }.hero-image { width:100%; margin-inline:0; transform:none; }.story-body section { margin-top:50px; }.product-box { margin:56px -16px; padding:30px 22px; }.product-content { grid-template-columns:1fr; }.product-content > img { width:min(220px,70%); margin:0 auto; }.product-box h2 { text-align:left; } .product-box > .eyebrow { text-align:left; } blockquote { margin:30px 0; padding:22px; } }
+  @media (prefers-reduced-motion: reduce) { .button-cta { transition:none; } }
+</style>

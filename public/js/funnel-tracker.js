@@ -97,49 +97,37 @@
   }
 
   function forwardToMeta(eventName, props) {
-    if (typeof window.fbq !== 'function') return;
+    var metaEventName = {
+      view_content: 'ViewContent',
+      add_to_cart: 'AddToCart',
+      initiate_checkout: 'InitiateCheckout',
+      purchase: 'Purchase',
+      shop_click: 'ShopClick'
+    }[eventName];
 
-    if (eventName === 'view_content') {
-      window.fbq('track', 'ViewContent', {
-        content_name: props.item_name || 'Derma Renew Komplex',
-        content_ids: [props.item_id || 'derma-renew-complex'],
-        content_type: 'product',
-        value: toNumber(props.value, 0),
-        currency: props.currency || 'EUR'
-      });
+    if (!metaEventName) return;
+
+    var payload = {
+      content_name: props.item_name || 'Derma Renew Komplex',
+      content_ids: [props.item_id || 'derma-renew-complex'],
+      content_type: 'product',
+      value: toNumber(props.value, 0),
+      currency: props.currency || 'EUR',
+      num_items: toNumber(props.quantity, 1),
+      package_name: props.package_name,
+      cta_location: props.cta_location,
+      cta_text: props.cta_text,
+      funnel_name: props.funnel_name,
+      trigger: props.trigger
+    };
+
+    if (window.GHMeta && typeof window.GHMeta.track === 'function') {
+      window.GHMeta.track(metaEventName, payload);
+      return;
     }
 
-    if (eventName === 'add_to_cart') {
-      window.fbq('track', 'AddToCart', {
-        content_name: props.item_name || 'Derma Renew Komplex',
-        content_ids: [props.item_id || 'derma-renew-complex'],
-        content_type: 'product',
-        value: toNumber(props.value, 0),
-        currency: props.currency || 'EUR',
-        num_items: toNumber(props.quantity, 1)
-      });
-    }
-
-    if (eventName === 'initiate_checkout') {
-      window.fbq('track', 'InitiateCheckout', {
-        content_name: props.item_name || 'Derma Renew Komplex',
-        content_ids: [props.item_id || 'derma-renew-complex'],
-        content_type: 'product',
-        value: toNumber(props.value, 0),
-        currency: props.currency || 'EUR',
-        num_items: toNumber(props.quantity, 1)
-      });
-    }
-
-    if (eventName === 'purchase') {
-      window.fbq('track', 'Purchase', {
-        content_name: props.item_name || 'Derma Renew Komplex',
-        content_ids: [props.item_id || 'derma-renew-complex'],
-        content_type: 'product',
-        value: toNumber(props.value, 0),
-        currency: props.currency || 'EUR',
-        num_items: toNumber(props.quantity, 1)
-      });
+    if (typeof window.fbq === 'function') {
+      window.fbq(metaEventName === 'ShopClick' ? 'trackCustom' : 'track', metaEventName, payload);
     }
   }
 
@@ -199,6 +187,7 @@
       view_content: 0,
       add_to_cart: 0,
       initiate_checkout: 0,
+      shop_click: 0,
       purchase: 0
     };
 

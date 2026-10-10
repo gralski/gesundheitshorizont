@@ -1,4 +1,14 @@
 ---
+import { normalizeLocale } from '../i18n/locale';
+import { ui } from '../i18n/ui';
+
+interface Props {
+  locale?: 'de' | 'fr';
+}
+
+const { locale: rawLocale = 'de' } = Astro.props;
+const locale = normalizeLocale(rawLocale);
+const t = ui[locale];
 const currentYear = new Date().getFullYear();
 ---
 
@@ -8,20 +18,20 @@ const currentYear = new Date().getFullYear();
       <!-- Logo & Tagline -->
       <div class="text-center md:text-left">
         <a href="/" class="text-xl font-semibold text-gray-900 hover:text-primary transition-colors">
-          Gesundheitshorizont
+          Auramio
         </a>
         <p class="mt-2 text-sm text-gray-500">
-          Ihr Wegweiser zu einem gesünderen Leben
+          {t.siteTagline}
         </p>
       </div>
 
       <!-- Legal Links -->
       <nav class="flex items-center space-x-6 text-sm">
         <a href="/impressum" class="text-gray-600 hover:text-primary transition-colors">
-          Impressum
+          {t.legal.imprint}
         </a>
         <a href="/datenschutz" class="text-gray-600 hover:text-primary transition-colors">
-          Datenschutz
+          {t.legal.privacy}
         </a>
       </nav>
     </div>
@@ -29,7 +39,7 @@ const currentYear = new Date().getFullYear();
     <!-- Copyright -->
     <div class="mt-8 pt-8 border-t border-gray-200 text-center">
       <p class="text-sm text-gray-400">
-        © {currentYear} Gesundheitshorizont. Alle Rechte vorbehalten.
+        © {currentYear} Auramio. {t.legal.allRightsReserved}
       </p>
     </div>
   </div>

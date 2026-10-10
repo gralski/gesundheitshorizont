@@ -1,0 +1,248 @@
+---
+// Isolated advertorial variant: no changes to existing funnels or shared layouts.
+const title = 'Der Tiegel war leer. Die Frage blieb.';
+const description = 'Noch ein Beauty-Versprechen? Eine Geschichte über volle Pflegeschubladen, neue Perspektiven und die Zwei-Kapsel-Routine von Derma Renew.';
+const productImage = '/images/dermarenew-pal.webp';
+const heroImage = '/images/advertorial-v3/volle-pflegeschublade.webp';
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const offer = new URL('https://dermapuris.de/products/derma-renew-komplex');
+offer.searchParams.set('utm_source', 'gesundheitshorizont');
+offer.searchParams.set('utm_medium', 'advertorial');
+offer.searchParams.set('utm_campaign', 'beauty_routine_story');
+const offerLink = (placement: string) => {
+  const url = new URL(offer);
+  url.searchParams.set('utm_content', placement);
+  return url.href;
+};
+const questions = [
+  ['Wie nehme ich Derma Renew ein?', 'Täglich zwei Kapseln mit ausreichend Wasser, vorzugsweise zu einer Mahlzeit. Bitte beachten Sie die Verzehrempfehlung und Hinweise auf der aktuellen Verpackung.'],
+  ['Kann ich meine gewohnte Pflege weiterverwenden?', 'Derma Renew ist eine Nahrungsergänzung. Reinigung, Feuchtigkeitspflege und Sonnenschutz behalten ihren Platz. Ebenso wichtig bleiben eine abwechslungsreiche, ausgewogene Ernährung und eine gesunde Lebensweise.'],
+  ['Wann kann ich mit einem Ergebnis rechnen?', 'Eine bestimmte sichtbare Veränderung oder ein fester Zeitpunkt lässt sich nicht versprechen. Persönliche Erfahrungen unterscheiden sich. Die einfache Einnahme ist für eine regelmäßige Anwendung gedacht, nicht für einen Soforteffekt.'],
+  ['Ist das Produkt vegan?', 'Nein. Die Rezeptur enthält Fischkollagen. Bei einer Fischallergie ist dieser Bestandteil besonders zu beachten. Die vollständige Zutaten- und Allergenkennzeichnung finden Sie beim Produkt.'],
+  ['Wo finde ich Preis und Bestellbedingungen?', 'Über die Angebotslinks gelangen Sie direkt zum Dermapuris-Shop. Dort finden Sie den aktuellen Preis, verfügbare Optionen sowie die geltenden Versand- und Rückgabebedingungen.'],
+];
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | Gesundheitshorizont</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/images/gesofav.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(heroImage, Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <a class="skip" href="#artikel">Zum Artikel</a>
+    <div class="disclosure">Anzeige <span>·</span> Werbebeitrag für Dermapuris</div>
+    <header class="masthead">
+      <a href="/" aria-label="Gesundheitshorizont – Startseite"><img src="/images/geshoz.png" alt="Gesundheitshorizont" width="300" height="52" /></a>
+      <span class="edition">Beauty & Wohlbefinden</span>
+    </header>
+
+    <main id="artikel">
+      <article>
+        <header class="hero">
+          <p class="eyebrow">Die Geschichte hinter dem nächsten Beauty-Kauf</p>
+          <h1>Der Tiegel war leer.<br /><em>Die Frage blieb.</em></h1>
+          <p class="deck">Noch eine Creme. Noch ein Serum. Noch einmal hoffen?<br class="desktop-break" /> Warum vor dem nächsten Beauty-Kauf ein Blick über den Badezimmerschrank hinaus lohnt.</p>
+          <div class="byline"><span>Gesundheitshorizont · Beauty</span><span>7 Minuten Lesezeit</span></div>
+          <figure class="hero-photo">
+            <img src={heroImage} width="1500" height="1125" alt="Eine offene Badezimmerschublade voller Cremes und Seren" fetchpriority="high" />
+            <figcaption>Eine volle Schublade. Und die Sehnsucht nach einer Entscheidung, die sich richtig anfühlt. <span>Symbolbild · KI-generiert</span></figcaption>
+          </figure>
+        </header>
+
+        <div class="reading-layout">
+          <div class="story">
+            <section class="opening">
+              <p class="scene-label">Eine Alltagsszene, beispielhaft erzählt</p>
+              <p class="dropcap">Sie dreht den Tiegel noch einmal um. Vielleicht reicht der Rest für heute Abend. Auf dem Glas steht dasselbe Versprechen wie vor ein paar Wochen. Nur die Vorfreude von damals ist nicht mehr dieselbe.</p>
+              <p>Am Anfang hatte diese Creme einen festen Platz. Direkt neben dem Spiegel. Jeden Abend aufgetragen, sorgfältig einmassiert. Vielleicht würde sie diesmal genau das finden, wonach sie gesucht hatte.</p>
+              <p>Jetzt schraubt sie den Deckel zu. Öffnet die Schublade. Und stellt den Tiegel zu den anderen.</p>
+              <p><strong>Würde sie ihn noch einmal kaufen?</strong></p>
+              <p>Eigentlich möchte sie sich einfach gern um sich kümmern. Sich wohlfühlen. Freude am eigenen Aussehen haben. Doch zwischen all den Fläschchen fühlt sich die nächste Entscheidung plötzlich erstaunlich schwer an.</p>
+              <p>Die Frage ist längst größer als dieser eine Tiegel.</p>
+            </section>
+
+            <section>
+              <h2>Wie oft möchte man noch einmal von vorne anfangen?</h2>
+              <p>Ein neues Produkt bringt immer auch eine kleine Vorstellung mit: wie angenehm es wäre, endlich eine Routine zu finden, bei der man bleiben möchte.</p>
+              <p>Dann kommt die nächste Empfehlung. Ein anderer Wirkstoff. Ein zusätzlicher Schritt für den Abend. Aus einer überschaubaren Pflege wird eine Sammlung von Möglichkeiten.</p>
+              <p>Das kann Spaß machen. Es kann aber auch müde machen, ständig neu vergleichen und entscheiden zu müssen.</p>
+              <p class="pullquote">Der Wunsch ist einfach.<br />Die Auswahl ist es längst nicht mehr.</p>
+              <p>Hier lohnt sich eine Pause vor dem nächsten Kauf. Und eine Frage, die auf keinem Cremetiegel beantwortet wird:</p>
+              <p><strong>Welche Rolle spielt eigentlich die Ernährung in meiner Beauty-Routine?</strong></p>
+            </section>
+
+            <section>
+              <p class="eyebrow section-label">Der Perspektivwechsel</p>
+              <h2>Hautpflege beginnt im Badezimmer.<br />Der Blick darf weitergehen.</h2>
+              <p>Reinigung, Feuchtigkeitspflege, Sonnenschutz: Äußere Pflege hat ihren festen Platz. Gleichzeitig ist die Haut Teil des Körpers und auf eine normale Versorgung mit Nährstoffen angewiesen.</p>
+              <p>So trägt Vitamin C zu einer normalen Kollagenbildung für eine normale Funktion der Haut bei. Das ist eine klar umrissene Funktion eines Nährstoffs — und ein guter Grund, sich neben der Pflege auch mit Ernährung zu beschäftigen.<sup><a href="#quelle">1</a></sup></p>
+              <p><strong>Ein neuer Blick auf eine vertraute Routine:</strong> Was von außen gepflegt wird, darf auch bei der Ernährung Aufmerksamkeit bekommen.</p>
+              <div class="perspective">
+                <div><span>Außen pflegen</span><p>Reinigung.<br />Feuchtigkeit.<br />Sonnenschutz.</p></div>
+                <span class="plus" aria-hidden="true">+</span>
+                <div><span>Innen mitdenken</span><p>Ernährung.<br />Nährstoffe.<br />Bewusste Ergänzung.</p></div>
+              </div>
+              <p>Wer sich für ein Beauty-Supplement entscheidet, braucht deshalb mehr als eine hübsche Dose. Entscheidend sind die Rezeptur, nachvollziehbare Angaben und eine Anwendung, die tatsächlich zum Alltag passt.</p>
+            </section>
+
+            <section id="derma-renew" class="product-section">
+              <p class="eyebrow section-label">Derma Renew Komplex von Dermapuris</p>
+              <h2>Ein neuer Platz in der Routine.<br />Zwei Kapseln am Tag.</h2>
+              <figure class="product-figure">
+                <img src={productImage} width="1074" height="1074" loading="lazy" alt="Derma Renew Komplex: braune Produktflasche mit goldenem Deckel" />
+                <figcaption>Derma Renew Komplex · Nahrungsergänzungsmittel</figcaption>
+              </figure>
+              <p>Derma Renew bringt Fischkollagen, Hyaluronsäure, Vitamine und Mineralstoffe in einer Kapselrezeptur zusammen. Die tägliche Anwendung: <strong>zwei Kapseln mit Wasser, vorzugsweise zu einer Mahlzeit.</strong></p>
+              <p>Kein Pulver abwiegen. Keinen Drink anrühren. Keine neue Geschmacksrichtung, an die man sich erst gewöhnen muss.</p>
+              <p>Das ist der praktische Gedanke dahinter: eine Ergänzung, die an etwas anknüpft, das ohnehin stattfindet. Zum Beispiel das Frühstück.</p>
+              <a class="cta" href={offerLink('product_reveal')} rel="sponsored">Derma Renew & aktuelles Angebot ansehen <span aria-hidden="true">↗</span></a>
+              <p class="cta-note">Direkt zum Dermapuris-Shop · Zutaten, Preise und Bestelloptionen</p>
+            </section>
+
+            <section>
+              <h2>Kollagen. Hyaluron. Nährstoffe.<br />In einer täglichen Ergänzung.</h2>
+              <p>Wer sich mit Beauty beschäftigt, begegnet diesen Namen immer wieder. Derma Renew führt sie in einer Rezeptur zusammen. So braucht es für diese Kombination keine Sammlung verschiedener Pulver und Drinks.</p>
+              <dl class="formula-list">
+                <div><dt><span>01</span> Fischkollagen</dt><dd>Hydrolysiertes Kollagen aus Fisch ist Teil der Kombination. Bereits in der Kapsel enthalten, ohne zusätzliches Pulver zum Anrühren. Wegen des tierischen Ursprungs ist das Produkt nicht vegan.</dd></div>
+                <div><dt><span>02</span> Hyaluronsäure</dt><dd>Ein bekannter Name aus der Beauty-Welt, hier als Bestandteil einer Nahrungsergänzung. Zusammen mit den weiteren Zutaten in derselben täglichen Anwendung.</dd></div>
+                <div><dt><span>03</span> Vitamine & Mineralstoffe</dt><dd>Ergänzen die Kombination aus Kollagen und Hyaluronsäure. Alle Zutaten und Mengen je Tagesportion lassen sich in den Produktinformationen im Shop nachlesen.</dd></div>
+              </dl>
+              <p><strong>Eine Rezeptur. Zwei Kapseln. Ein fester Moment am Tag.</strong> Für alle, die ihre Beauty-Routine ergänzen möchten, ohne die Anwendung komplizierter zu machen.</p>
+            </section>
+
+            <figure class="routine-photo">
+              <img src="/images/advertorial-v3/zwei-kapseln-routine.webp" width="1500" height="1000" loading="lazy" alt="Hände halten zwei Kapseln neben einem Glas Wasser" />
+              <figcaption>Ein fester Moment macht aus einer neuen Idee eine Gewohnheit. <span>Symbolbild · KI-generiert</span></figcaption>
+            </figure>
+
+            <section>
+              <h2>Eine Routine muss auch an einem ganz normalen Dienstag funktionieren.</h2>
+              <p>Wenn das Frühstück schnell gehen muss. Wenn die Tasche schon an der Tür steht. Wenn der Tag voller ist als geplant.</p>
+              <p>Für solche Tage ist eine einfache Anwendung wertvoll. Zwei Kapseln zu einer Mahlzeit lassen sich mit einer bestehenden Gewohnheit verbinden. Die Pflege im Badezimmer kann bleiben, wie sie ist.</p>
+              <p>Stellen Sie die Dose zu einer bestehenden Frühstücksroutine. Nehmen Sie sich diesen kleinen Moment für sich. So bekommt der gute Vorsatz einen festen Platz im Tag.</p>
+              <p class="pullquote">Weniger Aufwand beim Anwenden.<br />Mehr Klarheit beim Entscheiden.</p>
+            </section>
+
+            <section class="questions">
+              <p class="eyebrow section-label">Vor der Entscheidung</p>
+              <h2>Die Fragen, die bleiben dürfen.</h2>
+              {questions.map(([question, answer]) => <details><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}
+            </section>
+
+            <section class="closing" id="angebot">
+              <p class="eyebrow section-label">Der nächste Schritt</p>
+              <h2>Bevor der nächste Tiegel<br />in der Schublade landet.</h2>
+              <p>Geben Sie Ihrer Beauty-Routine eine neue Perspektive. Mit einer täglichen Ergänzung, die Kollagen, Hyaluronsäure und Nährstoffe zusammenbringt — und in den Alltag passt.</p>
+              <p><strong>Entdecken Sie jetzt Derma Renew.</strong> Im Shop finden Sie die vollständige Rezeptur und das aktuelle Angebot für Ihren Einstieg in die Zwei-Kapsel-Routine.</p>
+              <a class="cta" href={offerLink('closing')} rel="sponsored">Jetzt Derma Renew entdecken <span aria-hidden="true">↗</span></a>
+              <p class="cta-note">Alle Preise und Bestellbedingungen im Dermapuris-Shop</p>
+            </section>
+
+            <aside class="article-notes" aria-label="Hinweise und Quelle">
+              <p><strong>Zum Beitrag:</strong> Dies ist Werbung für Derma Renew von Dermapuris. Die Einstiegsszene ist beispielhaft erzählt und kein Kundinnenbericht. Die gekennzeichneten Alltagsszenen sind KI-generierte Symbolbilder.</p>
+              <p><strong>Zur Anwendung:</strong> Nahrungsergänzungsmittel ersetzen keine abwechslungsreiche, ausgewogene Ernährung und gesunde Lebensweise. Die empfohlene Tagesdosis nicht überschreiten. Außerhalb der Reichweite kleiner Kinder aufbewahren. Bei Schwangerschaft, Stillzeit, Erkrankungen oder Medikamenteneinnahme die Anwendung ärztlich abklären. Enthält Fischbestandteile; aktuelle Verpackungsangaben beachten.</p>
+              <p id="quelle"><strong>1 · Quelle:</strong> <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32012R0432" rel="noopener" target="_blank">EU-Verordnung 432/2012, zugelassene Angabe zu Vitamin C.</a> Die Aussage betrifft die Funktion des Nährstoffs und ist kein Nachweis einer Faltenreduktion durch das fertige Produkt.</p>
+            </aside>
+          </div>
+
+          <aside class="sidebar" aria-label="Produkt zum Beitrag">
+            <div class="sidebar-inner">
+              <p class="eyebrow">Im Beitrag</p>
+              <img src={productImage} width="1074" height="1074" loading="lazy" alt="Derma Renew Komplex" />
+              <p class="sidebar-brand">Dermapuris</p>
+              <h2>Derma Renew<br />Komplex</h2>
+              <p>Die Zwei-Kapsel-Routine für Ihren Beauty-Alltag.</p>
+              <a class="cta" href={offerLink('sidebar')} rel="sponsored">Zum Produkt <span aria-hidden="true">↗</span></a>
+              <p class="sidebar-note">Nahrungsergänzungsmittel<br />Enthält Fischkollagen</p>
+            </div>
+          </aside>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      <a href="/" class="footer-brand">Gesundheitshorizont</a>
+      <nav aria-label="Rechtliche Informationen"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a><a href="mailto:info@dermapuris.de">Produktfragen</a></nav>
+      <p>Werbebeitrag für Dermapuris · {new Date().getFullYear()}</p>
+    </footer>
+
+    <div class="mobile-offer" aria-label="Derma Renew Angebot" hidden>
+      <span><strong>Derma Renew Komplex</strong><small>2 Kapseln täglich</small></span>
+      <a class="cta" href={offerLink('mobile_sticky')} rel="sponsored">Zum Angebot <span aria-hidden="true">↗</span></a>
+    </div>
+    <script>
+      // The mobile offer appears only once the reader reaches the product reveal.
+      // No advertising or analytics scripts are loaded by this experimental route.
+      const reveal = document.querySelector('#derma-renew');
+      const bar = document.querySelector<HTMLElement>('.mobile-offer');
+      const footer = document.querySelector('footer');
+      if (reveal && bar && footer && 'IntersectionObserver' in window) {
+        let revealed = false;
+        let footerVisible = false;
+        const update = () => { bar.hidden = !revealed || footerVisible; };
+        new IntersectionObserver(([entry]) => {
+          revealed = entry.isIntersecting || entry.boundingClientRect.top < 0;
+          update();
+        }).observe(reveal);
+        new IntersectionObserver(([entry]) => {
+          footerVisible = entry.isIntersecting;
+          update();
+        }).observe(footer);
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  :global(*){box-sizing:border-box}
+  :global(html){scroll-behavior:smooth;scroll-padding-top:24px;background:#fcfbf8}
+  :global(body){margin:0;color:#262c28;font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+  :global(a){color:inherit;text-underline-offset:4px}
+  :global(a:focus-visible),:global(summary:focus-visible){outline:3px solid #b56837;outline-offset:5px}
+  :global(img){max-width:100%;height:auto;display:block}
+  :global(figure){margin:0}
+  :global(p){margin:0 0 22px}
+  :global(h1),:global(h2),:global(h3){font-family:Georgia,'Times New Roman',serif;text-wrap:balance;font-weight:400}
+  .skip{position:absolute;left:12px;top:-80px;background:#fff;padding:12px;z-index:5}.skip:focus{top:12px}
+  .disclosure{text-align:center;padding:9px 16px;font-size:11px;letter-spacing:.07em;background:#eceee7;color:#4e594f}.disclosure span{padding:0 7px}
+  .masthead{max-width:1140px;margin:auto;padding:23px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #d8dbd1;gap:16px}
+  .masthead img{width:245px;height:auto}.edition{font-size:12px;color:#687064}
+  .hero{max-width:960px;margin:0 auto;padding:49px 28px 0;text-align:center}
+  .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:10px;font-weight:700;color:#58684f;margin-bottom:22px;line-height:1.5}
+  h1{font-size:clamp(42px,5.8vw,76px);letter-spacing:-.047em;line-height:1.06;margin:0 0 26px}h1 em{color:#647456;font-weight:400}
+  .deck{font-size:18px;line-height:1.6;max-width:730px;margin:0 auto 25px;color:#535a52}
+  .byline{display:flex;justify-content:center;gap:24px;font-size:11px;color:#687064;margin-bottom:33px}
+  .hero-photo{text-align:left}.hero-photo img{width:100%;aspect-ratio:2.12;object-fit:cover;object-position:center 57%}
+  figcaption{font-size:11px;line-height:1.65;color:#70766c;margin-top:10px}figcaption span{display:block;color:#73786e;font-size:10px}
+  .reading-layout{display:grid;grid-template-columns:minmax(0,660px) 238px;gap:72px;max-width:1026px;padding:0 28px;margin:49px auto 0}
+  .story{min-width:0;font-size:18px;line-height:1.85}.story section{margin-bottom:57px}.story h2{font-size:35px;line-height:1.16;letter-spacing:-.035em;margin:0 0 26px}.story strong{font-weight:700}
+  .scene-label{font:10px/1.5 Arial,sans-serif;letter-spacing:.05em;color:#777d73;margin-bottom:20px}
+  .dropcap:first-letter{float:left;font:78px/.83 Georgia,serif;color:#586b4c;margin:7px 10px 0 0}
+  .pullquote{font:italic 31px/1.32 Georgia,serif;color:#526249;border-top:1px solid #cbd1c3;border-bottom:1px solid #cbd1c3;padding:29px 0;margin:35px 0;text-wrap:balance}
+  .section-label{margin-bottom:16px}.perspective{display:grid;grid-template-columns:1fr 32px 1fr;align-items:center;padding:29px 26px;background:#eff0e9;margin:32px 0}.perspective div>span{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#526249;font-weight:700}.perspective p{font:24px/1.45 Georgia,serif;margin:12px 0 0}.plus{font:30px Georgia,serif;color:#839278}
+  sup{font:11px Arial,sans-serif;padding-left:3px}.product-figure{background:#efeadb;margin:28px 0}.product-figure img{width:100%;aspect-ratio:1.35;object-fit:cover;object-position:center 48%}.product-figure figcaption{padding:9px 18px 13px;margin:0;font-size:11px}
+  .cta{display:flex;justify-content:center;align-items:center;gap:16px;padding:18px 20px;background:#3d543b;color:#fff;text-decoration:none;font:700 14px/1.45 Arial,sans-serif;border-radius:3px;transition:background .2s,transform .2s;text-align:center}.cta:hover{background:#2d422c;transform:translateY(-1px)}.cta:active{transform:translateY(1px)}.cta span{font-size:21px;font-weight:400}.cta-note{font:11px/1.6 Arial,sans-serif;color:#6e746b;text-align:center;margin:12px 0 0}
+  .formula-list{margin:28px 0}.formula-list>div{padding:23px 0;border-top:1px solid #d6dacd}.formula-list>div:last-child{border-bottom:1px solid #d6dacd}.formula-list dt{font:25px/1.3 Georgia,serif;margin-bottom:13px}.formula-list dt span{font:12px Arial,sans-serif;letter-spacing:.1em;color:#738468;margin-right:13px}.formula-list dd{margin:0;font-size:16px;line-height:1.8;color:#555e52}
+  .routine-photo{margin-bottom:48px}.routine-photo img{width:100%;aspect-ratio:1.55;object-fit:cover}
+  details{border-bottom:1px solid #d6dacd;padding:20px 0}details:first-of-type{border-top:1px solid #d6dacd}summary{cursor:pointer;list-style:none;font-size:16px;line-height:1.6;font-weight:700;display:flex;justify-content:space-between;gap:20px}summary::-webkit-details-marker{display:none}summary span{font-size:23px;font-weight:400;color:#647456}details[open] summary span{transform:rotate(45deg)}details p{font-size:16px;margin:14px 26px 0 0;color:#555e52}
+  .closing{background:#eff0e9;margin-left:-28px;margin-right:-28px;padding:35px 28px 30px}.closing .cta{margin-top:28px}.article-notes{border-top:1px solid #d6dacd;padding-top:24px;font-size:12px;line-height:1.8;color:#6a7266;margin-bottom:50px;overflow-wrap:anywhere}.article-notes p{margin-bottom:15px}
+  .sidebar-inner{position:sticky;top:30px;border-top:2px solid #607353;padding-top:20px}.sidebar .eyebrow{margin-bottom:16px}.sidebar img{aspect-ratio:1;object-fit:cover}.sidebar-brand{text-transform:uppercase;letter-spacing:.14em;font-size:10px;margin:23px 0 10px;color:#697660}.sidebar h2{font-size:30px;line-height:1.1;margin:0 0 15px}.sidebar p:not(.eyebrow):not(.sidebar-brand):not(.sidebar-note){font-size:13px;line-height:1.7;color:#626b5c}.sidebar .cta{padding:13px;font-size:13px}.sidebar-note{font-size:10px;line-height:1.7;text-align:center;color:#737b6d;margin:13px 0}
+  footer{max-width:1140px;margin:auto;border-top:1px solid #d6dacd;padding:33px 28px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}.footer-brand{font:20px Georgia,serif;text-decoration:none}footer nav{display:flex;gap:22px;font-size:12px}footer p{width:100%;font-size:10px;color:#747b6e;margin:0}.mobile-offer{display:none}
+  @media(min-width:1440px){.hero{padding-top:62px}}
+  @media(max-width:900px){.reading-layout{grid-template-columns:minmax(0,660px);max-width:716px;gap:0}.sidebar{display:none}.hero{max-width:800px}.mobile-offer:not([hidden]){position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 20px calc(12px + env(safe-area-inset-bottom));background:#fcfbf8;border-top:1px solid #cbd1c3;z-index:3;box-shadow:0 -4px 18px #2832230a}.mobile-offer strong{display:block;font-size:12px}.mobile-offer small{font-size:10px;color:#687660;display:block;margin-top:4px}.mobile-offer .cta{font-size:12px;padding:10px 14px;gap:8px}.article-notes{padding-bottom:65px}footer{padding-bottom:90px}}
+  @media(max-width:540px){.masthead{padding:18px 20px}.masthead img{width:190px}.edition{display:none}.disclosure{font-size:10px}.hero{padding:34px 20px 0}.hero .eyebrow{font-size:9px;letter-spacing:.1em;max-width:260px;margin:0 auto 19px}h1{font-size:43px;line-height:1.08;margin-bottom:21px}.deck{font-size:16px;line-height:1.65}.desktop-break{display:none}.byline{font-size:10px;gap:17px;margin-bottom:24px}.hero-photo img{aspect-ratio:1.4}.hero-photo figcaption{font-size:10px}.reading-layout{padding:0 22px;margin-top:33px}.story{font-size:17px;line-height:1.85}.story h2{font-size:30px}.story section{margin-bottom:42px}.pullquote{font-size:27px;padding:24px 0;margin:29px 0}.perspective{padding:24px 17px;grid-template-columns:1fr 25px 1fr}.perspective p{font-size:21px}.perspective div>span{font-size:10px}.closing{margin-left:-22px;margin-right:-22px;padding:30px 22px}.cta{font-size:13px;padding:17px 14px}.cta-note{font-size:10px}.product-figure img{aspect-ratio:1.1}footer{padding-left:22px;padding-right:22px}footer nav{gap:18px}}
+  @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.cta{transition:none}}
+</style>

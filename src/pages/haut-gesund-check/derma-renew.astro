@@ -22,12 +22,12 @@ const ctaUrl = "https://dermapuris.de/product/derma-renew-komplex/";
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '969658221708024');
-    fbq('track', 'PageView');
+    fbq('init', '2159506951617229');
   </script>
+  <script is:inline src="/js/meta-tracker.js"></script>
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=969658221708024&ev=PageView&noscript=1"/>
+      src="https://www.facebook.com/tr?id=2159506951617229&ev=PageView&noscript=1"/>
   </noscript>
 
   <!-- Microsoft Clarity -->
@@ -795,7 +795,8 @@ const ctaUrl = "https://dermapuris.de/product/derma-renew-komplex/";
       }, { passive: true });
     }
 
-    // Add-to-cart and checkout tracking for pricing card buttons
+    // A shop click is the real conversion on this pre-sale page. AddToCart,
+    // checkout, and purchase must be tracked by the shop itself after redirect.
     document.querySelectorAll('.card-cta').forEach(btn => {
       btn.addEventListener('click', function() {
         const card = this.closest('.pricing-card');
@@ -812,24 +813,16 @@ const ctaUrl = "https://dermapuris.de/product/derma-renew-komplex/";
         }
 
         if (window.GHFunnel) {
-          window.GHFunnel.track('add_to_cart', {
+          window.GHFunnel.track('shop_click', {
             funnel_name: 'dermapuris_to_derma_renew',
             item_id: 'derma-renew-complex',
             item_name: 'Derma Renew Komplex',
             package_name: heading,
             currency: 'EUR',
             value,
-            quantity
-          });
-
-          window.GHFunnel.track('initiate_checkout', {
-            funnel_name: 'dermapuris_to_derma_renew',
-            item_id: 'derma-renew-complex',
-            item_name: 'Derma Renew Komplex',
-            package_name: heading,
-            currency: 'EUR',
-            value,
-            quantity
+            quantity,
+            cta_location: 'pricing_card',
+            cta_text: (this.textContent || '').trim()
           });
         }
       });

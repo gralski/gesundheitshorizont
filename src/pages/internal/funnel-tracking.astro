@@ -123,7 +123,7 @@ const title = 'Internal Funnel Tracking';
   <div class="wrap">
     <section class="card">
       <h1>Funnel Tracking: Dermapuris → Derma Renew</h1>
-      <p class="muted">Events tracked: `link_click`, `landing_page_view`, `view_content`, `add_to_cart`, `initiate_checkout`, `purchase`.</p>
+      <p class="muted">Events tracked: `link_click`, `landing_page_view`, `view_content`, `shop_click`, `purchase`.</p>
       <div class="toolbar">
         <label for="range">Zeitraum:</label>
         <select id="range">
@@ -164,8 +164,7 @@ const title = 'Internal Funnel Tracking';
       'link_click',
       'landing_page_view',
       'view_content',
-      'add_to_cart',
-      'initiate_checkout',
+      'shop_click',
       'purchase'
     ];
 
@@ -173,8 +172,7 @@ const title = 'Internal Funnel Tracking';
       link_click: 'Link clicks',
       landing_page_view: 'Landing page views (LPV)',
       view_content: 'View content',
-      add_to_cart: 'Add to cart',
-      initiate_checkout: 'Initiate checkout',
+      shop_click: 'Shop clicks',
       purchase: 'Purchase'
     };
 
@@ -227,8 +225,7 @@ const title = 'Internal Funnel Tracking';
         link_click: 0,
         landing_page_view: 0,
         view_content: 0,
-        add_to_cart: 0,
-        initiate_checkout: 0,
+        shop_click: 0,
         purchase: 0
       };
 
@@ -259,8 +256,7 @@ const title = 'Internal Funnel Tracking';
       diagnosisEl.innerHTML = '';
 
       const clickToLpvRate = counts.link_click > 0 ? counts.landing_page_view / counts.link_click : 0;
-      const lpvToAtcRate = counts.landing_page_view > 0 ? counts.add_to_cart / counts.landing_page_view : 0;
-      const atcToPurchaseRate = counts.add_to_cart > 0 ? counts.purchase / counts.add_to_cart : 0;
+      const lpvToShopRate = counts.landing_page_view > 0 ? counts.shop_click / counts.landing_page_view : 0;
 
       if (counts.link_click > 0 && clickToLpvRate < 0.6) {
         addDiagnosis('High clicks → low LPV', 'Likely page speed, redirect, or tracking handoff issue between /dermapuris and /derma-renew.', 'bad');
@@ -268,20 +264,12 @@ const title = 'Internal Funnel Tracking';
         addDiagnosis('Clicks → LPV', 'No strong leak detected in handoff.', 'ok');
       }
 
-      if (counts.landing_page_view > 0 && lpvToAtcRate < 0.15) {
-        addDiagnosis('High LPV → low ATC', 'Likely offer/trust/messaging mismatch on /derma-renew.', 'bad');
-      } else if (counts.landing_page_view > 0 && lpvToAtcRate < 0.3) {
-        addDiagnosis('LPV → ATC', 'Moderate friction on offer or page trust signals.', 'warn');
+      if (counts.landing_page_view > 0 && lpvToShopRate < 0.15) {
+        addDiagnosis('High LPV → low shop clicks', 'Likely offer/trust/messaging mismatch on /derma-renew.', 'bad');
+      } else if (counts.landing_page_view > 0 && lpvToShopRate < 0.3) {
+        addDiagnosis('LPV → shop clicks', 'Moderate friction on offer or page trust signals.', 'warn');
       } else {
-        addDiagnosis('LPV → ATC', 'Healthy product interest conversion.', 'ok');
-      }
-
-      if (counts.add_to_cart > 0 && atcToPurchaseRate < 0.35) {
-        addDiagnosis('High ATC → low purchase', 'Likely checkout/shipping/payment friction on external checkout.', 'bad');
-      } else if (counts.add_to_cart > 0 && atcToPurchaseRate < 0.55) {
-        addDiagnosis('ATC → Purchase', 'Some checkout friction exists.', 'warn');
-      } else {
-        addDiagnosis('ATC → Purchase', 'Checkout completion looks healthy.', 'ok');
+        addDiagnosis('LPV → shop clicks', 'Healthy shop-intent conversion.', 'ok');
       }
 
       eventCountEl.textContent = 'Events in range: ' + events.length;
