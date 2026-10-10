@@ -13,6 +13,7 @@ const currentPath = Astro.url.pathname;
 
 const navItems = [
   { href: "/", label: t.nav.home },
+  { href: "/seiten", label: t.nav.pages },
   { href: "/kategorie/gehirngesundheit", label: t.nav.brainHealth },
   { href: "/kategorie/ernaehrung", label: t.nav.nutrition },
   { href: "/kategorie/langlebigkeit", label: t.nav.longevity },
@@ -41,11 +42,16 @@ const isActive = (href: string) => {
         <ul class="flex items-center space-x-6">
           {navItems.map((item) => (
             <li>
-              <span
-                class="text-sm font-medium transition-colors py-1 text-gray-600 hover:text-gray-900 cursor-pointer"
+              <a
+                href={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+                class:list={[
+                  'text-sm font-medium transition-colors py-1',
+                  isActive(item.href) ? 'text-primary' : 'text-gray-600 hover:text-gray-900',
+                ]}
               >
                 {item.label}
-              </span>
+              </a>
             </li>
           ))}
         </ul>
@@ -67,14 +73,19 @@ const isActive = (href: string) => {
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden sm:hidden pb-3">
       <ul class="space-y-1 border-t border-gray-100 pt-3">
-        {navItems.map((item) => (
-          <li>
-            <span
-              class="block px-3 py-2 text-sm font-medium rounded-lg transition-colors text-gray-600 hover:bg-gray-50 hover:text-gray-900 cursor-pointer"
-            >
-              {item.label}
-            </span>
-          </li>
+          {navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+                class:list={[
+                  'block px-3 py-2 text-sm font-medium rounded-lg transition-colors',
+                  isActive(item.href) ? 'bg-primary/10 text-primary' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                ]}
+              >
+                {item.label}
+              </a>
+            </li>
         ))}
       </ul>
     </div>

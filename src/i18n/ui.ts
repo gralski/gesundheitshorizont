@@ -4,6 +4,7 @@ type UiStrings = {
   siteTagline: string;
   nav: {
     home: string;
+    pages: string;
     brainHealth: string;
     nutrition: string;
     longevity: string;
@@ -48,6 +49,7 @@ export const ui: Record<Locale, UiStrings> = {
     siteTagline: 'Ihr Wegweiser zu einem gesünderen Leben',
     nav: {
       home: 'Startseite',
+      pages: 'Seiten',
       brainHealth: 'Gehirngesundheit',
       nutrition: 'Ernährung',
       longevity: 'Langlebigkeit',
@@ -90,6 +92,7 @@ export const ui: Record<Locale, UiStrings> = {
     siteTagline: 'Votre guide vers une vie plus saine',
     nav: {
       home: 'Accueil',
+      pages: 'Pages',
       brainHealth: 'Santé du cerveau',
       nutrition: 'Nutrition',
       longevity: 'Longévité',

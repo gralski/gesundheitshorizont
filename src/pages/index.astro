@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
+import { sitePages } from '../site-pages';
 
 const articles = await getCollection('artikel');
 const sortedArticles = articles.sort(
@@ -21,6 +22,37 @@ const sortedArticles = articles.sort(
         Entdecken Sie fundierte Artikel zu Gesundheit, Ernährung und Wohlbefinden.
         Wir begleiten Sie auf Ihrem Weg zu mehr Vitalität.
       </p>
+    </div>
+  </section>
+
+  <!-- Page Review Section -->
+  <section class="py-12 sm:py-16 bg-stone-50 border-y border-stone-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between mb-8 sm:mb-10">
+        <div>
+          <p class="text-primary text-sm font-semibold tracking-wide uppercase mb-2">Seitenübersicht</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Neue Seiten direkt prüfen</h2>
+          <p class="max-w-2xl mt-3 text-gray-600">Alle aktuell gebauten Artikel und Advertorials sind hier gesammelt und mit einem Klick erreichbar.</p>
+        </div>
+        <a href="/seiten" class="inline-flex items-center justify-center rounded-full bg-gray-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary">
+          Alle {sitePages.length} Seiten öffnen
+          <span aria-hidden="true" class="ml-2">→</span>
+        </a>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {sitePages.map((page) => (
+          <a href={page.href} class="group overflow-hidden rounded-2xl bg-white ring-1 ring-black/5 transition duration-200 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary">
+            <img src={page.image} alt="" class="h-44 w-full object-cover" loading="lazy" />
+            <div class="p-5">
+              <span class="text-xs font-bold uppercase tracking-wider text-primary">{page.type}</span>
+              <h3 class="mt-2 text-lg font-bold leading-snug text-gray-900 group-hover:text-primary">{page.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-gray-600">{page.description}</p>
+              <span class="mt-4 inline-flex items-center text-sm font-semibold text-gray-900 group-hover:text-primary">Seite ansehen <span aria-hidden="true" class="ml-1">→</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 
