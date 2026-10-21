@@ -1,10 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const title = 'Warum wirkt das Gesicht auf Fotos oft müder, als man sich fühlt?';
-const description = 'Viele Frauen ab 50 machen bei ihrer Hautpflege alles richtig und übersehen trotzdem denselben entscheidenden Punkt.';
+const title = 'Warum wirkt das Gesicht auf Fotos müder, als man sich fühlt – obwohl die Pflege stimmt?';
+const description = 'Viele Frauen ab 50 machen bei ihrer Hautpflege alles richtig. Was fast immer fehlt, ist keine stärkere Creme, sondern die Zeit zwischen Woche 3 und Woche 12.';
 const heroImage = '/images/advertorial-v3/hero-frau-am-handy.webp';
-const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502210543957';
+
+// Offer: links go straight to the cart for the matching variant. Prices as shown on the
+// German storefront – keep in sync with Shopify.
+const bundleUrl = 'https://dermapuris.de/cart/52503609311573:1';
+const bundlePrice = '104,70 €';
+const bundlePerTin = '34,90 €';
+
+// Social proof: only real, verified customer reviews (e.g. exported from the shop's review
+// app) with the customer's consent. Quotes must not promise health effects (EU 1924/2006).
+// The section stays hidden until at least one review is added.
+// Example entry: { name: 'Vorname N.', age: 54, city: 'Köln', weeks: 10, quote: '…', verified: true }
+const reviews: { name: string; age?: number; city?: string; weeks?: number; quote: string; verified: boolean }[] = [];
+// Example: { value: '4,8', count: '1.234', source: 'verifizierte Bewertungen im Dermapuris-Shop' }
+const rating: { value: string; count: string; source: string } | null = null;
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}>
@@ -13,7 +26,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
 
     <header class="v3-hero">
       <div class="v3-hero-copy">
@@ -22,11 +35,11 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
           <span class="v3-kicker">Gesundheitshorizont Beauty-Redaktion</span>
         </div>
         <h1>{title}</h1>
-        <p class="v3-deck">Viele Frauen ab 50 machen bei ihrer Hautpflege alles richtig und übersehen trotzdem denselben entscheidenden Punkt. <em>Dieser Punkt hat mit einer stärkeren Creme nichts zu tun.</em></p>
+        <p class="v3-deck">Viele Frauen ab 50 machen bei ihrer Hautpflege alles richtig und übersehen trotzdem denselben Punkt. <em>Er hat nichts mit einer stärkeren Creme zu tun – sondern mit dem, was zwischen Woche 3 und Woche 12 passiert.</em></p>
         <div class="v3-meta">
-          <span>Von der Dermapuris Beauty-Redaktion</span>
+          <span>Anzeige in Zusammenarbeit mit Dermapuris</span>
           <span aria-hidden="true">·</span>
-          <span>Lesedauer: etwa 18 Minuten</span>
+          <span>Lesedauer: etwa 8 Minuten</span>
         </div>
       </div>
       <figure class="v3-hero-media">
@@ -40,20 +53,19 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
           <p class="v3-dropcap">Der Moment kommt oft nicht vor dem Spiegel.</p>
           <p>Er kommt auf einem Foto.</p>
           <p>Vielleicht war es ein Familienessen. Ein Ausflug. Ein Geburtstag. Sie haben gut geschlafen. Sie haben sich wohlgefühlt. Sie haben gelacht.</p>
-          <p>Doch als später die Bilder auf dem Handy auftauchen, sehen Sie zuerst etwas anderes: Ein Gesicht, das müder wirkt, als Sie sich an diesem Tag gefühlt haben.</p>
+          <p>Doch als später die Bilder auf dem Handy auftauchen, sehen Sie zuerst etwas anderes: ein Gesicht, das müder wirkt, als Sie sich an diesem Tag gefühlt haben.</p>
           <p>Nicht alt. Nicht ungepflegt. Einfach weniger frisch, als das eigene Lebensgefühl vermuten lässt.</p>
-          <p>Am nächsten Morgen liegt das Make-up zunächst noch ruhig. Einige Stunden später sammelt es sich plötzlich an Stellen, die früher kaum aufgefallen sind. Die Haut fühlt sich schneller trocken an. Das Licht im Badezimmer wirkt unbarmherziger.</p>
+          <p>Am Morgen liegt das Make-up noch ruhig. Einige Stunden später sammelt es sich an Stellen, die früher kaum aufgefallen sind. Die Haut fühlt sich schneller trocken an. Das Licht im Badezimmer wirkt unbarmherziger.</p>
           <p>Und wenn jemand beiläufig fragt: „Bist du müde?“, obwohl Sie es gar nicht sind, bleibt die Frage länger hängen, als sie sollte.</p>
-          <p>Es geht dabei selten um eine einzelne Falte. Es geht um den irritierenden Abstand zwischen der Frau, die man innerlich noch immer ist, und dem Gesicht, das man auf einem ungeplanten Foto sieht.</p>
+          <p>Es geht selten um eine einzelne Falte. Es geht um den irritierenden Abstand zwischen der Frau, die man innerlich noch immer ist, und dem Gesicht auf einem ungeplanten Foto.</p>
         </section>
 
         <section>
           <h2>Zuerst verändert sich nur das Make-up</h2>
-          <p>Am Anfang ist es leicht, das Ganze zu ignorieren. Man kauft eine reichhaltigere Creme. Dann ein Hyaluronserum. Eine bessere Augenpflege. Vielleicht ein Retinolprodukt für den Abend.</p>
-          <p>Man verwendet eine neue Maske, einen Roller, ein Peeling oder eine Nachtpflege, die verspricht, am nächsten Morgen alles etwas glatter wirken zu lassen.</p>
-          <p>Und manche dieser Produkte fühlen sich durchaus angenehm an. Manche lassen die Haut für einige Stunden gepflegter erscheinen.</p>
+          <p>Am Anfang ist es leicht, das zu ignorieren. Man kauft eine reichhaltigere Creme. Dann ein Hyaluronserum. Eine bessere Augenpflege. Vielleicht ein Retinolprodukt für den Abend.</p>
+          <p>Manche dieser Produkte fühlen sich angenehm an. Manche lassen die Haut für einige Stunden gepflegter erscheinen.</p>
           <blockquote>Der Effekt scheint nur nie so konsequent zu sein wie die Routine.</blockquote>
-          <p>Die Produkte werden teurer. Die einzelnen Schritte werden mehr. Doch das Gesicht auf spontanen Fotos wirkt weiterhin müder, als man sich fühlt.</p>
+          <p>Die Produkte werden teurer. Die Schritte werden mehr. Doch das Gesicht auf spontanen Fotos wirkt weiterhin müder, als man sich fühlt.</p>
         </section>
 
         <figure class="v3-wide-figure">
@@ -63,108 +75,97 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
 
         <section>
           <h2>Dann wächst die Schublade</h2>
-          <p>Fast jede Frau, die sich über Jahre mit Hautpflege beschäftigt hat, kennt diese Schublade. Darin stehen Produkte, die einmal große Hoffnungen geweckt haben: die Creme, die für eine Woche fantastisch wirkte, das Serum mit dem angenehmen Hautgefühl oder die Augenpflege, die fast so viel kostete wie ein kompletter Einkauf.</p>
-          <p>Vielleicht kam irgendwann ein Kollagenpulver hinzu. Ein süßer Beauty-Drink. Oder einzelne Nahrungsergänzungsmittel, die jeden Morgen separat zusammengesucht werden mussten.</p>
-          <p>Doch auch diese Routinen scheitern häufig nicht daran, dass Frauen sich nicht genug bemühen. Sie scheitern daran, dass sie kompliziert sind.</p>
-          <div class="v3-question">Warum habe ich eine ganze Schublade voller Pflege und trotzdem das Gefühl, dass etwas Grundlegendes fehlt?</div>
+          <p>Fast jede Frau, die sich über Jahre mit Hautpflege beschäftigt hat, kennt diese Schublade: die Creme, die eine Woche lang fantastisch wirkte. Das Serum mit dem angenehmen Hautgefühl. Die Augenpflege, die fast so viel kostete wie ein Wocheneinkauf.</p>
+          <p>Und vielleicht haben Sie sogar schon geahnt, dass die Antwort nicht nur außen liegt. Vielleicht stand irgendwann ein Kollagenpulver in der Küche. Ein süßer Beauty-Drink. Eine Handvoll einzelner Nahrungsergänzungen.</p>
+          <p>Wenn ja: Wie lange haben Sie das durchgehalten?</p>
+          <div class="v3-question">Warum habe ich so viel ausprobiert – und trotzdem das Gefühl, dass nichts davon richtig angekommen ist?</div>
         </section>
 
         <section>
-          <h2>Die überraschende Antwort: Ihre Pflege war nicht unbedingt schlecht</h2>
-          <p>Cremes und Seren werden auf die Haut aufgetragen. Dort können sie die Oberfläche pflegen, Feuchtigkeit zuführen und das Hautgefühl verbessern.</p>
-          <p>Gute Hautpflege ist sinnvoll. Sonnenschutz ist sinnvoll. Eine ausgewogene Ernährung ist sinnvoll.</p>
-          <p>Doch die Haut ist kein äußerer Anstrich. Sie ist lebendes Körpergewebe. Kollagen ist ein Strukturprotein des Körpers. Hyaluronsäure kommt natürlicherweise im Gewebe vor. Vitamine und andere Nährstoffe werden dem Körper nicht über den Cremetiegel zugeführt.</p>
-          <p><strong>Und genau hier liegt der entscheidende Punkt, den klassische Beauty-Routinen fast immer übersehen.</strong></p>
+          <h2>Die überraschende Antwort: Ihre Pflege war nicht schlecht</h2>
+          <p>Cremes und Seren pflegen die Oberfläche. Sie spenden Feuchtigkeit und verbessern das Hautgefühl. Das ist sinnvoll – genau wie Sonnenschutz und eine ausgewogene Ernährung.</p>
+          <p>Doch die Haut ist kein äußerer Anstrich. Sie ist lebendes Gewebe. Kollagen ist ein Strukturprotein des Körpers, Hyaluronsäure kommt natürlicherweise im Gewebe vor. Deshalb untersucht die Forschung diese Stoffe seit Jahren auch als tägliche Einnahme von innen.</p>
+          <p><strong>Doch genau dort, bei der Innenseite, liegt ein Problem, über das in der Beauty-Werbung kaum jemand spricht.</strong></p>
         </section>
 
         <section class="v3-gap-section">
           <div class="v3-gap-copy">
-            <p class="v3-kicker">Die Beauty-Lücke</p>
-            <h2>Außen pflegen. Innen ergänzen.</h2>
-            <p>Jahrelang wurde Frauen beigebracht, fast ausschließlich an der sichtbaren Oberfläche anzusetzen. Eine umfassende Routine betrachtet beide Seiten, ohne gute Hautpflege zu ersetzen.</p>
+            <p class="v3-kicker">Die eigentliche Beauty-Lücke</p>
+            <h2>Die Studien dauern 12 Wochen. Die meisten Routinen enden nach drei.</h2>
+            <p>In den Untersuchungen, auf die sich Kollagen- und Hyaluronprodukte gern berufen, haben die Teilnehmenden ihre Präparate typischerweise acht bis zwölf Wochen lang täglich eingenommen – ohne Pause, jeden Morgen.</p>
+            <p>Im echten Leben sieht das anders aus.</p>
           </div>
-          <div class="v3-gap-grid" aria-label="Innen-und-außen-Routine">
-            <div>
-              <span class="v3-gap-label">Außen</span>
-              <strong>Reinigung</strong>
-              <strong>Feuchtigkeit</strong>
-              <strong>Sonnenschutz</strong>
-            </div>
-            <div>
-              <span class="v3-gap-label">Innen</span>
-              <strong>Ernährung</strong>
-              <strong>Nährstoffe</strong>
-              <strong>feste Routine</strong>
-            </div>
-          </div>
-          <p class="v3-gap-note">Eine gute Creme kann die Haut von außen pflegen. Sie kann jedoch keine tägliche Beauty-Routine von innen ersetzen.</p>
+          <ol class="v3-timeline" aria-label="Typischer Verlauf einer Beauty-Routine von innen">
+            <li><span>Woche 1</span><strong>Motivation</strong><p>Das Pulver wird abgemessen, angerührt, getrunken. Jeden Morgen.</p></li>
+            <li><span>Woche 3</span><strong>Der Bruch</strong><p>Der Geschmack nervt. Eine Reise, ein voller Morgen. Die Dose wandert in den Schrank.</p></li>
+            <li class="is-target"><span>Woche 8–12</span><strong>Hier beginnt die Studienzeit</strong><p>Der Zeitraum, in dem die Forschung überhaupt erst auswertet – und den kaum eine Alltagsroutine erreicht.</p></li>
+          </ol>
+          <p class="v3-gap-note">Die Beauty-Lücke ist nicht nur „außen gegen innen“. Sie ist die Lücke zwischen Woche 3 und Woche 12. Und die schließt keine stärkere Creme und kein neuer Trendwirkstoff – sondern nur eine Routine, die man tatsächlich durchhält.</p>
         </section>
 
         <section>
-          <h2>Deshalb konnte „noch mehr Creme“ die Lücke nicht schließen</h2>
-          <p>Wenn eine Strategie nur auf einer Seite ansetzt, kann die logische Antwort nicht immer darin bestehen, auf derselben Seite noch mehr zu tun.</p>
+          <h2>Deshalb konnte „noch mehr“ die Lücke nicht schließen</h2>
+          <p>Wenn das Problem das Durchhalten ist, macht jedes zusätzliche Produkt es schlimmer:</p>
           <ul class="v3-clean-list">
             <li>noch mehr Flaschen im Badezimmer</li>
             <li>noch mehr Schritte morgens und abends</li>
-            <li>noch mehr Inhaltsstoffe, die miteinander kombiniert werden müssen</li>
+            <li>noch mehr Pulver, die abgemessen und gemischt werden müssen</li>
             <li>noch mehr Geld für den nächsten Hoffnungskauf</li>
           </ul>
-          <p>Dabei wünschen sich die meisten Frauen gar keine kompliziertere Routine. Sie wünschen sich eine vollständigere.</p>
+          <p>Die meisten Frauen wünschen sich keine kompliziertere Routine. Sie wünschen sich eine, die Woche 12 erreicht.</p>
         </section>
 
         <section class="v3-research">
-          <h2>Was Wissenschaftler zu Beauty-Routinen von innen untersuchen</h2>
-          <p>In den letzten Jahren wurden Inhaltsstoffe, die man früher fast ausschließlich aus Cremes oder Beauty-Werbung kannte, zunehmend auch in oraler Form untersucht.</p>
+          <h2>Was die Forschung über diese zwölf Wochen zeigt</h2>
+          <p>Inhaltsstoffe, die man früher nur aus Cremes kannte, werden zunehmend in oraler Form untersucht – und zwar über Wochen täglicher Einnahme.<sup>1</sup></p>
 
           <article class="v3-study">
-            <div class="v3-study-marker">26</div>
+            <div class="v3-study-marker">26<small>Studien</small></div>
             <div>
               <h3>Kollagenpeptide</h3>
-              <p>Kollagen ist ein zentrales Strukturprotein der Haut. In einer Metaanalyse wurden 26 randomisierte Studien mit insgesamt 1.721 Teilnehmenden ausgewertet. Im Durchschnitt berichteten die Forschenden Verbesserungen bei gemessener Hautfeuchtigkeit und Elastizität.</p>
-              <p class="v3-caveat">Die Ergebnisse unterschieden sich je nach Produkt, Dosierung und Studienqualität. Sie beweisen nicht, dass jede beliebige Kollagenkapsel automatisch dasselbe Resultat erzeugt.</p>
+              <p>Kollagen ist ein zentrales Strukturprotein der Haut. Eine Metaanalyse wertete 26 randomisierte Studien mit insgesamt 1.721 Teilnehmenden aus. Im Durchschnitt berichteten die Forschenden Verbesserungen bei gemessener Hautfeuchtigkeit und Elastizität.</p>
             </div>
           </article>
 
           <article class="v3-study">
-            <div class="v3-study-marker">12</div>
+            <div class="v3-study-marker">12<small>Wochen</small></div>
             <div>
               <h3>Hyaluronsäure</h3>
-              <p>Hyaluronsäure ist vor allem für ihre Fähigkeit bekannt, Wasser zu binden. In einer randomisierten, doppelblinden und placebokontrollierten Untersuchung mit 150 Erwachsenen wurden 60 bis 120 Milligramm Natriumhyaluronat über zwölf Wochen untersucht. Dabei veränderten sich mehrere gemessene Hautparameter.</p>
-              <p class="v3-caveat">Die Ergebnisse einer bestimmten Hyaluronform und Dosierung lassen sich nicht automatisch auf jedes Produkt übertragen.</p>
+              <p>Hyaluronsäure ist für ihre Fähigkeit bekannt, Wasser zu binden. In einer randomisierten, doppelblinden und placebokontrollierten Untersuchung mit 150 Erwachsenen wurde Natriumhyaluronat zwölf Wochen lang täglich eingenommen. Dabei veränderten sich mehrere gemessene Hautparameter.</p>
             </div>
           </article>
 
           <article class="v3-study">
-            <div class="v3-study-marker">16</div>
+            <div class="v3-study-marker">16<small>Wochen</small></div>
             <div>
               <h3>MSM</h3>
-              <p>MSM ist eine organische Schwefelverbindung. In einer kleinen Humanstudie wurden tägliche Mengen von einem bis drei Gramm über 16 Wochen hinsichtlich verschiedener Hautparameter untersucht.</p>
-              <p class="v3-caveat">Die Untersuchung war klein und wurde nicht am Derma Renew Komplex durchgeführt.</p>
+              <p>MSM ist eine organische Schwefelverbindung. In einer Humanstudie wurde die tägliche Einnahme über 16 Wochen hinsichtlich verschiedener Hautparameter untersucht.</p>
             </div>
           </article>
 
-          <div class="v3-evidence-note"><strong>Wichtig:</strong> Ingredient-Studien sind keine Fertigproduktstudien. Sie erklären die wissenschaftliche Relevanz einzelner Inhaltsstoffe, nicht ein garantiertes persönliches Ergebnis.</div>
+          <div class="v3-evidence-note"><strong>Der gemeinsame Nenner:</strong> Keine dieser Untersuchungen dauerte drei Wochen. Wer eine Innenroutine fair beurteilen will, muss sie lange genug durchhalten.</div>
         </section>
 
         <section>
-          <h2>Vier Anforderungen an eine Routine, die tatsächlich durchgehalten wird</h2>
+          <h2>Vier Anforderungen an eine Routine, die Woche 12 erreicht</h2>
           <div class="v3-requirements">
-            <article><span>01</span><h3>Mehr als ein Trendwirkstoff</h3><p>Verschiedene Inhaltsstoffklassen sollten zusammengeführt werden, statt für jeden Bestandteil eine neue Dose zu verlangen.</p></article>
-            <article><span>02</span><h3>Einfach im Alltag</h3><p>Kein Abwiegen, kein Anrühren, kein süßer Drink und kein Pulver, das auf Reisen in der Küche zurückbleibt.</p></article>
-            <article><span>03</span><h3>Ergänzend gedacht</h3><p>Eine Innenroutine ersetzt weder Reinigung noch Feuchtigkeitspflege, Sonnenschutz, Ernährung oder eine gesunde Lebensweise.</p></article>
-            <article><span>04</span><h3>Realistisch testbar</h3><p>Beauty-Routinen lassen sich nicht seriös anhand eines einzigen Morgens beurteilen. Ein neuer Ansatz braucht Zeit.</p></article>
+            <article><span>01</span><h3>In Sekunden erledigt</h3><p>Kein Abwiegen, kein Anrühren, kein Shaker. Was länger als ein Glas Wasser dauert, fällt an vollen Tagen weg.</p></article>
+            <article><span>02</span><h3>Geschmacksneutral</h3><p>Kein süßer Drink und kein Pulvergeschmack, der nach drei Wochen zum Grund wird, aufzuhören.</p></article>
+            <article><span>03</span><h3>Alles in einer Routine</h3><p>Kollagen, Hyaluronsäure, MSM und Vitamine gebündelt, statt für jeden Baustein eine neue Dose.</p></article>
+            <article><span>04</span><h3>Ohne Risiko über die volle Zeit testbar</h3><p>Wer zwölf Wochen investieren soll, braucht eine Absicherung, die ebenso lange gilt.</p></article>
           </div>
         </section>
 
         <section class="v3-product-intro" data-product-reveal>
           <div class="v3-product-copy">
             <p class="v3-kicker">Die Zwei-Kapsel-Routine</p>
-            <h2>Derma Renew bündelt acht Beauty-Bausteine</h2>
-            <p>Zwei Kapseln täglich. Weniger als eine Minute. Keine separate Kollagenmischung am Morgen und kein Drink, dessen Geschmack nach drei Wochen stört.</p>
+            <h2>Derma Renew: gebaut, um durchgehalten zu werden</h2>
+            <p>Zwei Kapseln täglich mit einem Glas Wasser. Weniger als eine Minute. Kein Mischen, kein Geschmack, passt in jede Handtasche und jeden Koffer. Darin: acht Beauty-Bausteine, die Sie sonst aus mehreren Dosen zusammensuchen müssten.</p>
             <div class="v3-ingredients" aria-label="Inhaltsstoffe">
               <span>hydrolysiertes Fischkollagen</span><span>Hyaluronsäure</span><span>MSM</span><span>Vitamin A</span><span>Vitamin-B-Komplex</span><span>Sägepalme</span><span>Yamswurzel</span><span>Schachtelhalm</span>
             </div>
-            <a href={ctaUrl} class="v3-cta v3-product-cta" rel="sponsored">Derma Renew ansehen</a>
+            <a href={bundleUrl} class="v3-cta v3-product-cta" rel="sponsored">90-Tage-Packung sichern</a>
+            <p class="v3-cta-note">3 Dosen für 90 Tage · {bundlePerTin} pro Dose · 90-Tage-Geld-zurück-Garantie</p>
           </div>
           <figure>
             <img src="/images/dermarenew-pal.webp" alt="Derma Renew Komplex mit 60 Kapseln auf einem hellen Regal" width="1080" height="1080" loading="lazy" />
@@ -172,77 +173,93 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
         </section>
 
         <section>
-          <h2>Das 4-Säulen-Innenroutine-Prinzip</h2>
+          <h2>Das 4-Säulen-Prinzip in zwei Kapseln</h2>
           <div class="v3-pillars">
             <article><span>Struktur</span><h3>Kollagen und MSM</h3><p>Hydrolysiertes Fischkollagen bildet gemeinsam mit MSM die strukturelle Seite der Formel.</p></article>
-            <article><span>Feuchtigkeit</span><h3>Hyaluronsäure</h3><p>Die wasserbindende Komponente ist aus äußerer Pflege und der Forschung zu oralen Beauty-Routinen bekannt.</p></article>
-            <article><span>Hautfunktion</span><h3>Vitaminbestandteile</h3><p>Vitamin A trägt zur Erhaltung normaler Haut bei. Der Vitamin-B-Komplex ergänzt die Rezeptur.</p></article>
-            <article><span>Pflanzen</span><h3>Drei Extrakte</h3><p>Sägepalme, Yamswurzel und Schachtelhalm ergänzen die Mehrstoffformel.</p></article>
+            <article><span>Feuchtigkeit</span><h3>Hyaluronsäure</h3><p>Die wasserbindende Komponente, bekannt aus der Pflege und aus der Forschung zur Einnahme von innen.</p></article>
+            <article><span>Hautfunktion</span><h3>Vitamin A und B-Komplex</h3><p>Vitamin A trägt zur Erhaltung normaler Haut bei. Der Vitamin-B-Komplex ergänzt die Rezeptur.</p></article>
+            <article><span>Pflanzen</span><h3>Drei Extrakte</h3><p>Sägepalme, Yamswurzel und Schachtelhalm runden die Mehrstoffformel ab.</p></article>
           </div>
         </section>
 
-        <section class="v3-honesty">
-          <h2>Keine leeren Versprechen. Eine klare Entscheidung.</h2>
-          <p>Derma Renew will Sie nicht mit einem übertriebenen Vorher-nachher-Versprechen überzeugen. Die Stärke der Formel liegt in etwas Handfesterem: Sie bringt acht deklarierte Beauty-Bausteine in eine feste Zwei-Kapsel-Routine – jeden Tag gleich, ohne Mischen, Abwiegen oder ständig neue Einzelprodukte zu kaufen.</p>
-          <p><strong>Der entscheidende Vorteil ist nicht ein einzelner Trendstoff. Es ist die Kombination aus Kollagenpeptiden, Hyaluronsäure, MSM, Vitaminen und Pflanzenextrakten in einer Routine, die sich tatsächlich durchhalten lässt.</strong></p>
-          <ol>
-            <li>Sie ergänzen Ihre äußere Pflege gezielt von innen.</li>
-            <li>Sie ersetzen ein Sammelsurium aus Pulvern, Drinks und Einzeldosen durch zwei Kapseln täglich.</li>
-            <li>Sie geben der Routine 90 Tage Zeit, statt nach wenigen Tagen zum nächsten Produkt zu wechseln.</li>
-            <li>Sie entscheiden anhand Ihrer eigenen Erfahrung – abgesichert durch die Geld-zurück-Garantie gemäß den veröffentlichten Bedingungen.</li>
-          </ol>
-          <p class="v3-caveat">Transparent bleibt: Derma Renew Komplex selbst wurde nicht in einer randomisierten, placebokontrollierten Fertigproduktstudie geprüft. Die Forschung bezieht sich auf einzelne Inhaltsstoffe; persönliche Ergebnisse können variieren.</p>
-          <p><strong>Die eigentliche Frage lautet deshalb nicht, ob zwei Kapseln über Nacht zwanzig Jahre aus Ihrem Gesicht löschen.</strong> Die Frage ist: Wollen Sie weiter den nächsten Hoffnungskauf ins Bad stellen – oder jetzt eine einfache Innenroutine 90 Tage konsequent testen?</p>
-        </section>
+        {(rating || reviews.length > 0) && (
+          <section class="v3-reviews">
+            <p class="v3-kicker">Erfahrungen nach mehreren Wochen</p>
+            <h2>Was Kundinnen über ihre Routine berichten</h2>
+            {rating && (
+              <div class="v3-rating">
+                <span class="v3-rating-stars" aria-hidden="true">★★★★★</span>
+                <strong>{rating.value} von 5</strong>
+                <span>aus {rating.count} {rating.source}</span>
+              </div>
+            )}
+            {reviews.length > 0 && (
+              <div class="v3-review-grid">
+                {reviews.map((review) => (
+                  <figure class="v3-review">
+                    <blockquote>„{review.quote}“</blockquote>
+                    <figcaption>
+                      <strong>{review.name}{review.age ? `, ${review.age}` : ''}</strong>
+                      <span>
+                        {[review.city, review.weeks ? `nach ${review.weeks} Wochen` : null, review.verified ? 'verifizierter Kauf' : null].filter(Boolean).join(' · ')}
+                      </span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            )}
+            <p class="v3-caveat">Individuelle Erfahrungen von Kundinnen. Ergebnisse können von Person zu Person unterschiedlich ausfallen.</p>
+          </section>
+        )}
 
-        <div class="v3-inline-cta">
-          <div><strong>Passt eine Zwei-Kapsel-Routine zu Ihrem Alltag?</strong><span>Alle Produktdetails und Inhaltsstoffe finden Sie auf der offiziellen Produktseite.</span></div>
-          <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew ansehen</a>
-        </div>
+        <section class="v3-honesty">
+          <h2>Warum zwei Kapseln den Unterschied machen</h2>
+          <p>Der entscheidende Vorteil von Derma Renew ist kein einzelner Trendstoff. Es ist die Kombination aus acht Bausteinen in einer Routine, die so einfach ist, dass sie auch an hektischen Tagen stattfindet – und deshalb die Wochen erreicht, um die es eigentlich geht.</p>
+          <ol>
+            <li>Sie behalten Ihre Pflege, Ihren Sonnenschutz und Ihre Gewohnheiten – und ergänzen die fehlende Innenseite.</li>
+            <li>Sie ersetzen Pulver, Drinks und Einzeldosen durch zwei Kapseln am Morgen.</li>
+            <li>Sie geben der Routine die zwölf Wochen, die auch die Forschung ansetzt, statt nach drei Wochen zum nächsten Produkt zu wechseln.</li>
+            <li>Sie entscheiden anhand Ihrer eigenen Erfahrung – abgesichert durch die 90-Tage-Geld-zurück-Garantie.</li>
+          </ol>
+          <p><strong>Die Frage ist also nicht, ob zwei Kapseln über Nacht zwanzig Jahre aus Ihrem Gesicht löschen.</strong> Die Frage ist: Stellen Sie den nächsten Hoffnungskauf ins Bad – oder geben Sie einer Routine endlich die Zeit, die sie braucht?</p>
+        </section>
 
         <figure class="v3-wide-figure">
           <img src="/images/advertorial-v3/zwei-kapseln-routine.webp" alt="Reife Frauenhände mit genau zwei Kapseln und einem Glas Wasser" width="1500" height="1000" loading="lazy" />
           <figcaption>Zwei Kapseln und ein Glas Wasser: eine Routine, die auch an normalen Tagen funktioniert.</figcaption>
         </figure>
 
+        <section class="v3-comparison">
+          <h2>Warum nicht einfach Kollagenpulver oder ein Beauty-Drink?</h2>
+          <div>
+            <article><h3>Kollagenpulver</h3><p>Muss geöffnet, abgemessen und angerührt werden. Geschmack und Konsistenz sind für viele der Grund, nach wenigen Wochen aufzuhören.</p></article>
+            <article><h3>Derma Renew</h3><p>Zwei geschmacksneutrale Kapseln mit acht Bausteinen. In unter einer Minute erledigt – zu Hause, im Büro oder auf Reisen.</p></article>
+            <article><h3>Drinks &amp; Einzelpräparate</h3><p>Oft süß, oft teuer pro Tag, oder verteilt auf mehrere Dosen, die jeden Morgen einzeln zusammengesucht werden müssen.</p></article>
+          </div>
+        </section>
+
+
         <section>
-          <h2>Was bei einem echten 90-Tage-Test beobachtet werden sollte</h2>
-          <p>Derma Renew wurde nicht entwickelt, um nach einer Kapsel einen dramatischen Vorher-nachher-Moment zu erzeugen. Eine vernünftige Bewertung betrachtet das Gesamtbild.</p>
+          <h2>Ihr 12-Wochen-Check</h2>
+          <p>Machen Sie heute ein Foto bei Tageslicht und notieren Sie, wie Ihr Make-up nach einigen Stunden liegt. Wiederholen Sie das nach sechs und nach zwölf Wochen und achten Sie auf diese Punkte:</p>
           <div class="v3-observe">
             <span>Wie fühlt sich die Haut im Alltag an?</span>
             <span>Wie liegt das Make-up nach mehreren Stunden?</span>
             <span>Wie wirkt das Hautbild auf spontanen Fotos?</span>
-            <span>Ist die Einnahme so einfach, dass sie jeden Tag stattfindet?</span>
+            <span>Haben Sie die Einnahme jeden Tag geschafft?</span>
           </div>
-          <blockquote>Die seriöse Frage lautet nicht: „Sehe ich morgen zwanzig Jahre jünger aus?“ Sondern: „Was beobachte ich über einen realistischen Zeitraum?“</blockquote>
-        </section>
-
-        <section class="v3-comparison">
-          <h2>Warum nicht einfach Kollagenpulver oder ein Multivitamin?</h2>
-          <div>
-            <article><h3>Kollagenpulver</h3><p>Kann je nach Produkt höhere Grammmengen liefern. Es muss jedoch geöffnet, dosiert und gemischt werden. Geschmack und Konsistenz können auf Dauer stören.</p></article>
-            <article><h3>Derma Renew</h3><p>Verfolgt einen anderen Ansatz: eine portionierte, geschmacksneutrale Mehrstoffroutine in zwei Kapseln.</p></article>
-            <article><h3>Multivitamin</h3><p>Ist in der Regel nicht als gezielte Beauty-Routine mit Kollagen, Hyaluronsäure, MSM und Pflanzenextrakten zusammengestellt.</p></article>
-          </div>
-          <p class="v3-caveat">Wer ausschließlich die höchstmögliche Kollagenmenge sucht, sollte die bestätigten Produktmengen sorgfältig vergleichen.</p>
+          <blockquote>Die ehrliche Frage lautet nicht: „Sehe ich morgen zwanzig Jahre jünger aus?“ Sondern: „Was sehe ich nach zwölf Wochen, die ich wirklich durchgehalten habe?“</blockquote>
         </section>
 
         <section class="v3-guarantee">
           <div>
             <p class="v3-kicker">Die 90-Tage-Entscheidung</p>
             <h2>Testen. Beobachten. Selbst entscheiden.</h2>
-            <p>Sie beurteilen die Routine nicht anhand eines Models oder einer Werbegrafik. Sie beurteilen sie anhand Ihres Badezimmerspiegels, Ihres Make-ups, Ihrer Fotos und Ihres Alltags.</p>
-            <p>Wenn Sie nicht überzeugt sind, können Sie die 90-Tage-Geld-zurück-Garantie gemäß den veröffentlichten Garantiebedingungen nutzen.</p>
-            <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew ansehen</a>
+            <p>Sie beurteilen die Routine nicht anhand eines Models oder einer Werbegrafik, sondern anhand Ihres Spiegels, Ihres Make-ups und Ihrer Fotos.</p>
+            <p>Wenn Sie nicht überzeugt sind, nutzen Sie die 90-Tage-Geld-zurück-Garantie. Das Risiko liegt beim Hersteller, nicht bei Ihnen.</p>
+            <a href={bundleUrl} class="v3-cta" rel="sponsored">90-Tage-Packung sichern</a>
           </div>
-          <div class="v3-guarantee-number"><strong>90</strong><span>Tage Zeit für Ihre Entscheidung</span></div>
-        </section>
-
-        <section class="v3-next-step">
-          <p class="v3-kicker">Der nächste Schritt</p>
-          <h2>Alle Produktdetails auf einen Blick</h2>
-          <p>Auf der offiziellen Produktseite können Sie die vollständigen Angaben prüfen, verfügbare Optionen vergleichen und anschließend in Ruhe entscheiden.</p>
-          <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew ansehen</a>
+          <div class="v3-guarantee-number"><strong>90</strong><span>Tage Geld-zurück-Garantie</span></div>
         </section>
 
         <section>
@@ -250,28 +267,29 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
           <div class="v3-for-whom">
             <ul>
               <li>Frauen, die auf Fotos müder aussehen, als sie sich fühlen</li>
-              <li>Frauen, die bereits viel Geld für Cremes, Seren und einzelne Beauty-Produkte ausgegeben haben</li>
-              <li>Frauen, die Kollagen und Hyaluronsäure interessant finden, aber Pulver und süße Drinks nicht mögen</li>
-              <li>Frauen, die ihre äußere Pflege durch eine konsequente Innenroutine ergänzen möchten</li>
+              <li>Frauen, die schon viel Geld für Cremes, Seren und einzelne Beauty-Produkte ausgegeben haben</li>
+              <li>Frauen, die ein Kollagenpulver oder einen Beauty-Drink schon einmal nach wenigen Wochen aufgegeben haben</li>
+              <li>Frauen, die ihre Pflege von außen um eine einfache Routine von innen ergänzen möchten</li>
             </ul>
           </div>
         </section>
 
         <section class="v3-faq">
           <h2>Häufige Fragen vor der Bestellung</h2>
-          <details open><summary>Wie schnell kann ich etwas bemerken?</summary><p><strong>Denken Sie nicht in Tagen, sondern in Wochen.</strong> Untersuchungen zu einzelnen Kollagen- und Hyaluronformen liefen häufig über acht bis zwölf Wochen. Genau deshalb ist Derma Renew als konsequente 90-Tage-Routine gedacht: täglich einnehmen, Hautgefühl, Make-up und Fotos beobachten und danach selbst entscheiden. Ein fester Zeitpunkt lässt sich nicht versprechen, da Ergebnisse von Person zu Person variieren.</p></details>
-          <details><summary>Entfernt Derma Renew Falten?</summary><p>Kein Nahrungsergänzungsmittel sollte versprechen, normale Hautalterung oder Falten vollständig zu beseitigen. Derma Renew ist keine kosmetische Behandlung und kein medizinischer Eingriff in Kapselform.</p></details>
-          <details><summary>Muss ich meine normale Hautpflege absetzen?</summary><p>Nein. Reinigung, Feuchtigkeitspflege und Sonnenschutz bleiben Bestandteile einer vernünftigen Außenroutine. Die Kapseln ergänzen diese Routine um eine tägliche Innenseite.</p></details>
-          <details><summary>Ersetzt Derma Renew eine gesunde Ernährung?</summary><p>Nein. Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung oder eine gesunde Lebensweise.</p></details>
+          <details open><summary>Wie schnell kann ich etwas bemerken?</summary><p><strong>Denken Sie in Wochen, nicht in Tagen.</strong> Die Untersuchungen zu Kollagen und Hyaluronsäure liefen über acht bis zwölf Wochen täglicher Einnahme. Deshalb ist Derma Renew als 90-Tage-Routine gedacht: täglich einnehmen, Hautgefühl, Make-up und Fotos beobachten und danach selbst entscheiden. Wie schnell sich etwas zeigt, ist individuell verschieden.</p></details>
+          <details><summary>Warum gleich drei Dosen?</summary><p>Eine Dose reicht für 30 Tage – also genau bis in die Phase, in der viele Routinen abbrechen. Mit drei Dosen haben Sie die vollen 90 Tage ohne Nachbestellung, zahlen weniger pro Dose und sind trotzdem durch die 90-Tage-Geld-zurück-Garantie abgesichert.</p></details>
+          <details><summary>Entfernt Derma Renew Falten?</summary><p>Kein Nahrungsergänzungsmittel kann normale Hautalterung aufhalten, und Derma Renew verspricht das auch nicht. Es ist eine tägliche Routine von innen, die Ihre Pflege von außen ergänzt.</p></details>
+          <details><summary>Muss ich meine normale Hautpflege absetzen?</summary><p>Nein. Reinigung, Feuchtigkeitspflege und Sonnenschutz bleiben. Die Kapseln ergänzen sie um die Innenseite.</p></details>
+          <details><summary>Reicht nicht auch ein Multivitamin?</summary><p>Ein Multivitamin enthält in der Regel weder Kollagen noch Hyaluronsäure oder MSM. Derma Renew ist gezielt als Beauty-Routine zusammengestellt.</p></details>
           <details><summary>Ist Derma Renew vegan?</summary><p>Nein. Das enthaltene Kollagen stammt aus Fisch.</p></details>
-          <details><summary>Was geschieht, wenn ich nicht zufrieden bin?</summary><p>Sie können die 90-Tage-Geld-zurück-Garantie gemäß den auf der Produktseite veröffentlichten Bedingungen nutzen.</p></details>
+          <details><summary>Was geschieht, wenn ich nicht zufrieden bin?</summary><p>Sie nutzen die 90-Tage-Geld-zurück-Garantie gemäß den Bedingungen auf der Produktseite.</p></details>
         </section>
 
         <section class="v3-choice">
-          <h2>Sie stehen jetzt vor zwei Möglichkeiten</h2>
+          <h2>Woche 3 oder Woche 12?</h2>
           <div class="v3-choice-grid">
-            <article><span>Bisherige Routine</span><h3>Weiter fast ausschließlich an der Oberfläche ansetzen</h3><p>Die nächste Creme, das nächste Serum, die nächste Augenpflege. Die Schublade wird voller, die Routine komplizierter.</p></article>
-            <article><span>Innen und außen</span><h3>Die sinnvollen Teile behalten und eine Seite ergänzen</h3><p>Pflege, Sonnenschutz und Ernährung bleiben. Für 90 Tage kommt eine feste Innenroutine mit zwei Kapseln täglich hinzu.</p></article>
+            <article><span>Wie bisher</span><h3>Der nächste Hoffnungskauf</h3><p>Die nächste Creme, das nächste Pulver, der nächste Drink. Nach drei Wochen beginnt alles von vorn – und die Schublade wird voller.</p></article>
+            <article><span>Ab heute</span><h3>Eine Routine, die Sie durchhalten</h3><p>Pflege und Sonnenschutz bleiben. Dazu zwei Kapseln am Morgen, 90 Tage lang, abgesichert durch die Geld-zurück-Garantie.</p></article>
           </div>
         </section>
 
@@ -283,16 +301,16 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
           <h2>Die Frage ist nicht, ob man das Alter aufhalten kann</h2>
           <p>Das kann niemand. Und darum geht es auch nicht.</p>
           <p>Sie müssen nicht wieder 30 aussehen. Sie müssen Ihre Falten nicht ablehnen. Aber Sie dürfen sich wünschen, dass Ihr Gesicht wieder ein wenig mehr von der Energie zeigt, die Sie innerlich noch immer haben.</p>
-          <p>Stellen Sie sich den realistischeren Moment vor: Sie sehen ein spontanes Foto von sich. Ihr erster Gedanke gilt nicht den Linien, dem Licht oder der Frage, warum Sie so müde wirken. Sie sehen einfach wieder sich selbst.</p>
+          <p>Stellen Sie sich den Moment in zwölf Wochen vor: Sie sehen ein spontanes Foto von sich. Ihr erster Gedanke gilt nicht den Linien, dem Licht oder der Frage, warum Sie so müde wirken. Sie sehen einfach sich selbst.</p>
           <p><strong>Nicht wieder 30. Sondern gepflegt, lebendig und so frisch, wie Sie sich fühlen.</strong></p>
-          <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew ansehen</a>
-          <p class="v3-final-meta">Zwei Kapseln täglich | 60 Kapseln pro Dose | 90-Tage-Geld-zurück-Garantie</p>
+          <a href={bundleUrl} class="v3-cta" rel="sponsored">90-Tage-Packung sichern</a>
+          <p class="v3-final-meta">3 Dosen · {bundlePrice} · {bundlePerTin} pro Dose · 90-Tage-Geld-zurück-Garantie</p>
         </section>
 
         <section class="v3-legal">
           <h2>Pflicht- und Quellenhinweise</h2>
           <p>Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Die empfohlene tägliche Verzehrsmenge nicht überschreiten. Außerhalb der Reichweite kleiner Kinder aufbewahren.</p>
-          <p>Die im Artikel genannten Untersuchungen betreffen einzelne Inhaltsstoffe in spezifischen Formen und Dosierungen, nicht den Derma Renew Komplex als Fertigprodukt. Individuelle Erfahrungen können variieren.</p>
+          <p><sup>1</sup> Die genannten Untersuchungen betreffen einzelne Inhaltsstoffe in spezifischen Formen und Dosierungen, nicht den Derma Renew Komplex als Fertigprodukt. Die Ergebnisse unterschieden sich je nach Produkt, Dosierung und Studienqualität und lassen sich nicht automatisch auf jedes Produkt übertragen. Derma Renew Komplex selbst wurde nicht in einer randomisierten, placebokontrollierten Studie geprüft. Individuelle Erfahrungen können variieren.</p>
           <h3>Quellen</h3>
           <ol>
             <li>Pu SY et al. Effects of Oral Collagen for Skin Anti-Aging: A Systematic Review and Meta-Analysis. Nutrients, 2023.</li>
@@ -308,17 +326,17 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
         <div class="v3-sticky-card">
           <img src="/images/derma-pl.webp" alt="Dose Derma Renew Komplex mit 60 Kapseln" width="1024" height="1024" loading="lazy" />
           <div>
-            <span>Die tägliche Innenroutine</span>
+            <span>Die 90-Tage-Packung</span>
             <h2>Derma Renew Komplex</h2>
-            <p>Acht deklarierte Beauty-Bausteine in zwei Kapseln täglich.</p>
-            <ul><li>60 Kapseln pro Dose</li><li>30 Tage pro Dose</li><li>90-Tage-Geld-zurück-Garantie</li></ul>
-            <a href={ctaUrl} class="v3-cta" rel="sponsored">Derma Renew ansehen</a>
+            <p>Acht Beauty-Bausteine in zwei Kapseln täglich – für die vollen zwölf Wochen.</p>
+            <ul><li>3 Dosen für 90 Tage</li><li>Kein Mischen, kein Geschmack</li><li>90-Tage-Geld-zurück-Garantie</li></ul>
+            <a href={bundleUrl} class="v3-cta" rel="sponsored">90-Tage-Packung sichern</a>
           </div>
         </div>
       </aside>
     </div>
 
-    <div class="v3-mobile-cta"><a href={ctaUrl} rel="sponsored">Derma Renew ansehen</a></div>
+    <div class="v3-mobile-cta"><a href={bundleUrl} rel="sponsored">90-Tage-Packung sichern · {bundlePerTin}/Dose</a></div>
   </article>
 
   <script>
@@ -326,6 +344,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
     const showConversionElements = () => {
       document.documentElement.classList.add('v3-product-revealed');
     };
+
 
     if (!productReveal || !('IntersectionObserver' in window)) {
       showConversionElements();
@@ -345,8 +364,8 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
 <style is:global>
   :root {
     --v3-ink: #1b2324;
-    --v3-body: #333d3e;
-    --v3-muted: #6a7473;
+    --v3-body: #232b2c;
+    --v3-muted: #59625f;
     --v3-line: #e4dfd7;
     --v3-bg: #fbf9f6;
     --v3-surface: #f3efe8;
@@ -359,6 +378,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
     --v3-radius: 14px;
     --v3-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     --v3-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --v3-text: 'Literata', Georgia, 'Times New Roman', serif;
   }
 
   .v3-advertorial { background: var(--v3-bg); color: var(--v3-ink); font-family: var(--v3-sans); -webkit-font-smoothing: antialiased; }
@@ -371,7 +391,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   .v3-kicker { color: var(--v3-accent); display: block; font-family: var(--v3-sans); font-size: 12px; font-weight: 600; letter-spacing: .14em; line-height: 1.4; margin: 0 0 16px; text-transform: uppercase; }
   .v3-hero-labels .v3-kicker { margin: 0; }
   .v3-hero h1 { font-family: var(--v3-serif); font-size: clamp(38px, 5.2vw, 64px); font-optical-sizing: auto; font-weight: 500; letter-spacing: -.022em; line-height: 1.06; margin: 0 auto; max-width: 21ch; text-wrap: balance; }
-  .v3-deck { color: var(--v3-body); font-family: var(--v3-serif); font-size: clamp(19px, 1.9vw, 23px); line-height: 1.5; margin: 28px auto 0; max-width: 640px; text-wrap: pretty; }
+  .v3-deck { color: var(--v3-body); font-family: var(--v3-text); font-size: clamp(19px, 1.9vw, 23px); line-height: 1.5; margin: 28px auto 0; max-width: 640px; text-wrap: pretty; }
   .v3-deck em { color: var(--v3-ink); display: block; font-style: italic; margin-top: 6px; }
   .v3-meta { align-items: center; color: var(--v3-muted); display: flex; flex-wrap: wrap; font-size: 13px; gap: 6px 10px; justify-content: center; margin-top: 30px; }
   .v3-hero-media { margin: 48px 0 0; }
@@ -385,7 +405,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   /* Type */
   .v3-article-body h2 { color: var(--v3-ink); font-family: var(--v3-serif); font-size: clamp(28px, 3.1vw, 38px); font-weight: 500; letter-spacing: -.018em; line-height: 1.14; margin: 0 0 24px; text-wrap: balance; }
   .v3-article-body h3 { color: var(--v3-ink); font-family: var(--v3-sans); font-size: 17px; font-weight: 600; letter-spacing: -.01em; line-height: 1.35; margin: 0 0 8px; }
-  .v3-article-body p, .v3-article-body li { color: var(--v3-body); font-family: var(--v3-serif); font-size: 20px; line-height: 1.65; text-wrap: pretty; }
+  .v3-article-body p, .v3-article-body li { color: var(--v3-body); font-family: var(--v3-text); font-size: 20px; line-height: 1.62; text-wrap: pretty; }
   .v3-article-body p { margin: 0 0 22px; }
   .v3-article-body strong { color: var(--v3-ink); font-weight: 600; }
   .v3-article-body .v3-dropcap { color: var(--v3-ink); font-size: 27px; line-height: 1.35; margin-bottom: 18px; }
@@ -393,7 +413,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   .v3-caveat { color: var(--v3-muted) !important; font-family: var(--v3-sans) !important; font-size: 13.5px !important; line-height: 1.55 !important; }
 
   /* Small-text helper for card copy */
-  .v3-requirements p, .v3-pillars p, .v3-comparison p, .v3-choice-grid p, .v3-product-intro p, .v3-guarantee p, .v3-next-step > p:not(.v3-kicker), .v3-faq details p, .v3-honesty li, .v3-gap-section p { font-family: var(--v3-sans) !important; font-size: 15.5px !important; line-height: 1.6 !important; }
+  .v3-requirements p, .v3-pillars p, .v3-comparison p, .v3-choice-grid p, .v3-product-intro p, .v3-guarantee p, .v3-next-step > p:not(.v3-kicker), .v3-faq details p, .v3-honesty li, .v3-gap-section p { font-family: var(--v3-text) !important; font-size: 17px !important; line-height: 1.6 !important; }
 
   /* Figures */
   .v3-wide-figure { margin: 0 0 80px; }
@@ -416,7 +436,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
 
   /* Lists */
   .v3-clean-list { border-top: 1px solid var(--v3-line); list-style: none; margin: 28px 0; padding: 0; }
-  .v3-clean-list li { border-bottom: 1px solid var(--v3-line); font-family: var(--v3-sans); font-size: 16px; line-height: 1.45; margin: 0; padding: 14px 0 14px 28px; position: relative; }
+  .v3-clean-list li { border-bottom: 1px solid var(--v3-line); font-size: 18px; line-height: 1.5; margin: 0; padding: 14px 0 14px 28px; position: relative; }
   .v3-clean-list li::before { color: var(--v3-accent); content: '+'; font-weight: 600; left: 4px; position: absolute; top: 13px; }
 
   /* Research */
@@ -424,19 +444,19 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   .v3-study { align-items: start; border-top: 1px solid var(--v3-line); display: grid; gap: 28px; grid-template-columns: 76px 1fr; padding: 30px 0; }
   .v3-study:first-of-type { margin-top: 12px; }
   .v3-study-marker { color: var(--v3-accent); font-family: var(--v3-serif); font-size: 52px; font-weight: 400; letter-spacing: -.03em; line-height: .9; }
-  .v3-study p { font-size: 18px; margin-bottom: 10px; }
-  .v3-evidence-note { background: var(--v3-surface); border-radius: 10px; color: var(--v3-body); font-size: 14.5px; line-height: 1.6; margin-top: 12px; padding: 20px 22px; }
+  .v3-study p { font-size: 19px; margin-bottom: 10px; }
+  .v3-evidence-note { background: var(--v3-surface); border-radius: 10px; color: var(--v3-body); font-size: 16.5px; line-height: 1.6; margin-top: 12px; padding: 20px 22px; }
   .v3-evidence-note strong { color: var(--v3-ink); }
 
   /* Requirements & pillars */
   .v3-requirements { display: grid; gap: 1px; grid-template-columns: 1fr 1fr; background: var(--v3-line); border: 1px solid var(--v3-line); border-radius: var(--v3-radius); overflow: hidden; }
   .v3-requirements article { background: #fff; padding: 28px; }
   .v3-requirements span { color: var(--v3-accent); display: block; font-family: var(--v3-serif); font-size: 30px; line-height: 1; margin-bottom: 18px; }
-  .v3-requirements p { margin: 0 !important; color: var(--v3-muted) !important; }
+  .v3-requirements p { margin: 0 !important; }
   .v3-pillars { display: grid; gap: 32px 28px; grid-template-columns: 1fr 1fr; }
   .v3-pillars article { border-top: 1px solid var(--v3-ink); padding-top: 18px; }
   .v3-pillars span { color: var(--v3-accent); display: block; font-size: 11px; font-weight: 600; letter-spacing: .14em; margin-bottom: 10px; text-transform: uppercase; }
-  .v3-pillars p { color: var(--v3-muted) !important; margin: 0 !important; }
+  .v3-pillars p { margin: 0 !important; }
 
   /* Product intro */
   .v3-product-intro { align-items: stretch; background: #fff; border: 1px solid var(--v3-line); border-radius: var(--v3-radius); display: grid; grid-template-columns: 1.1fr .9fr; overflow: hidden; }
@@ -444,7 +464,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   .v3-product-intro figure { background: var(--v3-surface); margin: 0; }
   .v3-product-intro figure img { display: block; height: 100%; object-fit: cover; width: 100%; }
   .v3-ingredients { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
-  .v3-ingredients span { background: var(--v3-surface-cool); border-radius: 999px; color: var(--v3-accent-dark); font-size: 12.5px; font-weight: 500; padding: 6px 11px; }
+  .v3-ingredients span { background: var(--v3-surface-cool); border-radius: 999px; color: var(--v3-accent-dark); font-size: 14px; font-weight: 500; padding: 6px 12px; }
   .v3-product-cta { margin-top: 28px; }
 
   /* Honesty */
@@ -460,7 +480,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
 
   /* Observe */
   .v3-observe { border-top: 1px solid var(--v3-line); display: grid; grid-template-columns: 1fr 1fr; margin: 30px 0; }
-  .v3-observe span { border-bottom: 1px solid var(--v3-line); color: var(--v3-ink); font-size: 15.5px; font-weight: 500; line-height: 1.45; padding: 18px 20px 18px 30px; position: relative; }
+  .v3-observe span { border-bottom: 1px solid var(--v3-line); color: var(--v3-ink); font-size: 17px; font-weight: 500; line-height: 1.45; padding: 18px 20px 18px 30px; position: relative; }
   .v3-observe span::before { border: 1.5px solid var(--v3-accent); border-radius: 50%; content: ''; height: 10px; left: 4px; position: absolute; top: 23px; width: 10px; }
   .v3-observe span:nth-child(odd) { border-right: 1px solid var(--v3-line); }
 
@@ -469,7 +489,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   .v3-comparison article { background: #fff; border: 1px solid var(--v3-line); border-radius: var(--v3-radius); padding: 26px 22px; }
   .v3-comparison article:nth-child(2) { background: var(--v3-deep); border-color: var(--v3-deep); }
   .v3-comparison article:nth-child(2) h3, .v3-comparison article:nth-child(2) p { color: var(--v3-deep-text) !important; }
-  .v3-comparison p { color: var(--v3-muted) !important; margin: 0 !important; }
+  .v3-comparison p { margin: 0 !important; }
   .v3-comparison > .v3-caveat { margin-top: 18px !important; }
 
   /* Guarantee */
@@ -503,11 +523,11 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   /* FAQ */
   .v3-faq details { border-top: 1px solid var(--v3-line); padding: 22px 0; }
   .v3-faq details:last-child { border-bottom: 1px solid var(--v3-line); }
-  .v3-faq summary { color: var(--v3-ink); cursor: pointer; font-size: 17px; font-weight: 600; line-height: 1.4; list-style: none; padding-right: 40px; position: relative; }
+  .v3-faq summary { color: var(--v3-ink); cursor: pointer; font-size: 18px; font-weight: 600; line-height: 1.4; list-style: none; padding-right: 40px; position: relative; }
   .v3-faq summary::-webkit-details-marker { display: none; }
   .v3-faq summary::after { align-items: center; border: 1px solid var(--v3-line); border-radius: 50%; color: var(--v3-accent); content: '+'; display: flex; font-size: 17px; font-weight: 400; height: 26px; justify-content: center; position: absolute; right: 0; top: -1px; width: 26px; }
   .v3-faq details[open] summary::after { content: '−'; }
-  .v3-faq details p { color: var(--v3-muted) !important; margin: 14px 0 0 !important; padding-right: 40px; }
+  .v3-faq details p { margin: 14px 0 0 !important; padding-right: 40px; }
 
   /* Choice */
   .v3-choice-grid { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
@@ -516,7 +536,7 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   .v3-choice-grid span { color: var(--v3-muted); display: block; font-size: 11px; font-weight: 600; letter-spacing: .14em; margin-bottom: 12px; text-transform: uppercase; }
   .v3-choice-grid article:last-child span { color: var(--v3-accent); }
   .v3-choice-grid h3 { font-family: var(--v3-serif) !important; font-size: 22px !important; font-weight: 500 !important; line-height: 1.25 !important; margin-bottom: 12px !important; }
-  .v3-choice-grid p { color: var(--v3-muted) !important; margin: 0 !important; }
+  .v3-choice-grid p { margin: 0 !important; }
 
   /* Final */
   .v3-closing-image img { aspect-ratio: 4 / 3; object-fit: cover; }
@@ -533,6 +553,30 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   .v3-legal p, .v3-legal li { color: var(--v3-muted) !important; font-family: var(--v3-sans) !important; font-size: 12.5px !important; line-height: 1.6 !important; }
   .v3-legal ol { padding-left: 18px; }
 
+  /* Timeline (Beauty-Lücke) */
+  .v3-timeline { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; display: grid; gap: 1px; grid-template-columns: repeat(3, 1fr); list-style: none; margin: 32px 0; overflow: hidden; padding: 0; }
+  .v3-timeline li { background: var(--v3-deep); margin: 0; padding: 22px 22px 20px; }
+  .v3-timeline li.is-target { background: #1d3f3c; }
+  .v3-timeline span { color: var(--v3-deep-muted); display: block; font-family: var(--v3-sans); font-size: 11px; font-weight: 600; letter-spacing: .14em; margin-bottom: 8px; text-transform: uppercase; }
+  .v3-timeline strong { color: #fff !important; display: block; font-family: var(--v3-serif); font-size: 20px; font-weight: 500; line-height: 1.2; margin-bottom: 8px; }
+  .v3-timeline p { color: var(--v3-deep-muted) !important; font-size: 16px !important; margin: 0 !important; }
+
+  /* Study units & footnotes */
+  .v3-study-marker small { color: var(--v3-muted); display: block; font-family: var(--v3-sans); font-size: 11px; font-weight: 600; letter-spacing: .12em; margin-top: 8px; text-transform: uppercase; }
+  .v3-article-body sup { color: var(--v3-accent); font-family: var(--v3-sans); font-size: .55em; margin-left: 1px; }
+  .v3-cta-note { color: var(--v3-muted) !important; font-size: 14px !important; margin: 12px 0 0 !important; }
+
+  /* Reviews */
+  .v3-rating { align-items: baseline; display: flex; flex-wrap: wrap; gap: 6px 12px; margin-bottom: 24px; }
+  .v3-rating-stars { color: #c58a1b; font-size: 18px; letter-spacing: 2px; }
+  .v3-rating strong { font-size: 16px; }
+  .v3-rating span:last-child { color: var(--v3-muted); font-size: 14px; }
+  .v3-review-grid { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; margin-bottom: 18px; }
+  .v3-review { background: #fff; border: 1px solid var(--v3-line); border-radius: var(--v3-radius); margin: 0; padding: 24px; }
+  .v3-review blockquote { border: 0 !important; font-size: 18px !important; line-height: 1.5 !important; margin: 0 0 16px !important; padding: 0 !important; }
+  .v3-review figcaption strong { display: block; font-size: 14.5px; }
+  .v3-review figcaption span { color: var(--v3-muted); font-size: 13px; }
+
   /* Sidebar */
   .v3-sidebar { min-width: 0; transition: opacity .28s ease, transform .28s ease; }
   .v3-open-loop .v3-sidebar { opacity: 0; pointer-events: none; transform: translateY(12px); visibility: hidden; }
@@ -542,9 +586,9 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
   .v3-sticky-card > div { padding: 22px 24px 24px; }
   .v3-sticky-card span { color: var(--v3-accent); font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
   .v3-sticky-card h2 { font-family: var(--v3-serif); font-size: 26px; font-weight: 500; letter-spacing: -.015em; line-height: 1.1; margin: 8px 0 10px; }
-  .v3-sticky-card p { color: var(--v3-muted); font-size: 14px; line-height: 1.5; margin: 0; }
+  .v3-sticky-card p { color: var(--v3-body); font-size: 15px; line-height: 1.5; margin: 0; }
   .v3-sticky-card ul { border-top: 1px solid var(--v3-line); list-style: none; margin: 18px 0 20px; padding: 14px 0 0; }
-  .v3-sticky-card li { color: var(--v3-body); font-size: 13.5px; line-height: 1.5; padding: 3px 0 3px 22px; position: relative; }
+  .v3-sticky-card li { color: var(--v3-body); font-size: 14.5px; line-height: 1.5; padding: 3px 0 3px 22px; position: relative; }
   .v3-sticky-card li::before { color: var(--v3-accent); content: '✓'; font-weight: 600; left: 0; position: absolute; }
   .v3-sticky-card .v3-cta { width: 100%; }
   .v3-mobile-cta { display: none; }
@@ -567,16 +611,17 @@ const ctaUrl = 'https://dermapuris.de/products/derma-renew-komplex?variant=52502
     .v3-shell { display: block; padding: 44px 16px 110px; }
     .v3-article-body section, .v3-wide-figure { margin-bottom: 60px; }
     .v3-article-body h2 { font-size: 29px; }
-    .v3-article-body p, .v3-article-body li { font-size: 19px; line-height: 1.62; }
+    .v3-article-body p, .v3-article-body li { font-size: 19px; line-height: 1.6; }
     .v3-article-body .v3-dropcap { font-size: 23px; }
     .v3-article-body blockquote { font-size: 24px; margin: 32px 0; padding-left: 20px; }
     .v3-question { font-size: 23px; padding: 26px 0; }
     .v3-gap-section, .v3-guarantee { padding: 32px 22px; }
+    .v3-timeline, .v3-review-grid { grid-template-columns: 1fr; }
     .v3-gap-grid, .v3-requirements, .v3-pillars, .v3-observe, .v3-choice-grid, .v3-comparison > div { grid-template-columns: 1fr; }
     .v3-observe span:nth-child(odd) { border-right: 0; }
     .v3-study { gap: 16px; grid-template-columns: 54px 1fr; }
     .v3-study-marker { font-size: 40px; }
-    .v3-study p { font-size: 17.5px; }
+    .v3-study p { font-size: 18px; }
     .v3-product-intro { display: flex; flex-direction: column; }
     .v3-product-copy { padding: 28px 22px; }
     .v3-product-intro figure { max-height: 360px; order: -1; }
